@@ -74,16 +74,16 @@
         </div>
       </div>
       
-      <!-- <div class="form-group row">
+      <div class="form-group row">
         <label class="col-sm-4 col-form-label">Photos:</label>
         <div class="col-sm-8">
-          <input type="hidden" th:field="*{photos}" />
+          <!-- <input type="hidden" th:field="*{photos}" /> -->
           <input type="file" id="fileImage" name="image" accept="image/png, image/jpeg"
             class="mb-2" />
-          <img id="thumbnail" alt="Photos preview" th:src="@{${user.photosImagePath}}"
+          <img id="thumbnail" alt="Photos preview" th:src="@{/assets/images/default-user.png}"
             class="img-fluid" />
         </div>
-      </div>						 -->
+      </div>						
           
       <div class="text-center">
         <input type="submit" value="Save" class="btn btn-primary m-3" />
