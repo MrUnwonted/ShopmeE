@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="page_head(title)">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[[${title}]]</title>
+  <link rel="stylesheet" th:href="@{/assets/css/style-starter.css}">
+  <link rel="stylesheet" th:href="@{/assets/css/style.css}">
+  <link rel="stylesheet" th:href="@{/fontawesome/all.css}">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" ></script>
+  <script type="text/javascript" th:src="@{/assets/js/common.js}" ></script>
+</head>
+<body class="sidebar-menu-collapsed">
+    <div class="se-pre-con"></div>
+
+  <section th:fragment="menu">
+    <!-- sidebar menu start -->
+    <div class="sidebar-menu sticky-sidebar-menu">
+  
+      <!-- logo start -->
+      <div class="logo">
+        <h1><a th:href="@{/}">Shopme</a></h1>
+      </div>
+  
+    <!-- if logo is image enable this -->
+      <!-- image logo --
+      <div class="logo">
+        <a href="index.html">
+          <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
+        </a>
+      </div>
+       image logo -->
+  
+      <div class="text-center">
+        <a th:href="@{/}" title="logo"><img th:src="@{/assets/images/ShopmeAdminSmall.png}" alt="logo-icon"> </a> <br>
+      </div>
+      <!-- //logo end -->
+  
+      <div class="sidebar-menu-inner">
+        <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary"> -->
+        <!-- sidebar nav start -->
+        <ul class="nav nav-pills nav-stacked custom-nav">
+          <li class="active"><a th:href="@{/}"><i class="fa fa-tachometer"></i><span> Dashboard</span></a>
+          </li>
+          <!-- <li class="menu-list">
+            <a href="#"><i class="fa fa-cogs"></i>
+              <span>Elements <i class="lnr lnr-chevron-right"></i></span></a>
+            <ul class="sub-menu-list">
+              <li><a href="carousels.html">Carousels</a> </li>
+              <li><a href="cards.html">Default cards</a> </li>
+              <li><a href="people.html">People cards</a></li>
+            </ul>  
+          </li>-->
+          <!-- 
+            <a th:href="@{/categories"></a>
+            <a th:href="@{/brands}"></a>
+            <a th:href="@{/products}"></a>
+            <a th:href="@{/customers}"></a>
+            <a th:href="@{/shipping}"></a>
+            <a th:href="@{/orders}"> </a>
+            <a th:href="@{/menus}"></a>
+            <a th:href="@{/settings}"> </a>-->
+  
+            <li><a th:href="@{/users}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Users</span></a></li>
+          <li><a th:href="@{/categories}"><i class="fi fi-rr-apps"></i><span>Categories</span></a></li>
+          <li><a href="#"><i class="fi fi-rr-star "></i><span>Brands</span></a></li>
+          <li><a href="#"><i class="fi fi-rr-shopping-cart-add"></i> <span>Products</span></a></li>
+          <li><a href="#"><i class="fa fa-user"></i> <span>Customers</span></a></li>
+          <li><a href="#"><i class="fi fi-rr-truck-side"></i><span>Shipping</span></a></li>
+          <li><a href="#"><i class="fa fa-server" aria-hidden="true"></i><span>Orders</span></a></li>
+          <!-- <li><a href="#"><a href="forms.html"><i class="fi fa-report"></i><span>Sales Report</span></a></li>
+          <li><a href="#"><a href="forms.html"><i class="fa fa-newspaper"></i><span>Articles</span></li</a>> -->
+          <li><a href="#"><i class="fa fa-file-text"></i><span>Menus</span></a></li>
+          <li><a href="#"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span>Settings</span></a></li>
+          <li><a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a></li>
+  
+        </ul>
+        <!-- //sidebar nav end -->
+        <!-- toggle button start -->
+        <a class="toggle-btn">
+          <i class="fa fa-angle-double-left menu-collapsed__left"><span>Collapse Sidebar</span></i>
+          <i class="fa fa-angle-double-right menu-collapsed__right"></i>
+        </a>
+        <!-- //toggle button end -->
+      </div>
+    </div>
+    <!-- //sidebar menu end -->
+  </section>
+  
+  <div class="main-content">
+    <!-- content -->
+    <div class="container ">
+      
+     
+
+       
+       
+                                         
+
+
+    
+    </div>
+  </div>
+
+
+    <!--footer section start-->
+  <footer class="dashboard" th:fragment="footer">
+    <p>&copy 2023 Shopme. All Rights Reserved | Design by <a href="https://github.com/MrUnwonted" target="_blank"
+        class="text-primary">Arjun</a></p>
+  </footer>
+  <!--footer section end-->
+ <!-- move top -->
+<button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+  <span class="fa fa-angle-up"></span>
+</button>
+<script>
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction()
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("movetop").style.display = "block";
+    } else {
+      document.getElementById("movetop").style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+<!-- /move top -->
+
+
+<script th:src="@{/assets/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/assets/js/jquery-1.10.2.min.js}"></script>
+
+<script th:src="@{/assets/js/jquery.nicescroll.js}"></script>
+<script th:src="@{/assets/js/scripts.js}"></script>
+
+<!-- close script -->
+<script>
+  var closebtns = document.getElementsByClassName("close-grid");
+  var i;
+
+  for (i = 0; i < closebtns.length; i++) {
+    closebtns[i].addEventListener("click", function () {
+      this.parentElement.style.display = 'none';
+    });
+  }
+</script>
+<!-- //close script -->
+
+<!-- disable body scroll when navbar is in active -->
+<script>
+  $(function () {
+    $('.sidebar-menu-collapsed').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll when navbar is in active -->
+
+ <!-- loading-gif Js -->
+ <script th:src="@{/assets/js/modernizr.js}"></script>
+ <script>
+     $(window).load(function () {
+         // Animate loader off screen
+         $(".se-pre-con").fadeOut("slow");;
+     });
+ </script>
+ <!--// loading-gif Js -->
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+
+
+</body>
+
+</html>
