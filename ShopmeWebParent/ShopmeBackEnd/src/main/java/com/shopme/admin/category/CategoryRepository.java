@@ -6,9 +6,6 @@ import com.shopme.common.entity.Category;
 
 public interface CategoryRepository extends PagingAndSortingRepository<Category, Integer> {
 
-	Category save(Category category);
-
-	Object findById(int i);
 
 
 
