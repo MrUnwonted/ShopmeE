@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
 
 @Configuration
 @EnableWebSecurity
@@ -42,23 +42,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-			http.authorizeRequests().anyRequest().authenticated()
-						.and()
-						.formLogin()
-						.loginPage("/login")
-						.defaultSuccessUrl("/")
-						.usernameParameter("email")
-						.permitAll().and()
-						.logout()
-						.invalidateHttpSession(true)
-						.clearAuthentication(true)
-						.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-						.logoutSuccessUrl("/login?logout")
-						.permitAll()
-						.and().rememberMe()
-								.key("AbcDefgHijKlmnOpqrs_1234567890")
-									.tokenValiditySeconds(7 * 24 * 60 * 60);
-		;
+			http.authorizeRequests().anyRequest().permitAll();
+//			.authenticated()
+//						.and()
+//						.formLogin()
+//						.loginPage("/login")
+//						.defaultSuccessUrl("/")
+//						.usernameParameter("email")
+//						.permitAll().and()
+//						.logout()
+//						.invalidateHttpSession(true)
+//						.clearAuthentication(true)
+//						.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+//						.logoutSuccessUrl("/login?logout")
+//						.permitAll()
+//						.and().rememberMe()
+//								.key("AbcDefgHijKlmnOpqrs_1234567890")
+//									.tokenValiditySeconds(7 * 24 * 60 * 60);
+//		;
 	}
 
 	@Override
