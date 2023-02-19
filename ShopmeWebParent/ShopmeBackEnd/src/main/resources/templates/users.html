@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" 
 xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="fragments :: page_head('Users - Shopme Admin')" > </head>
+<head th:replace="fragments :: page_head('Users - Shopme Admin')" >
+  <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" ></script>
+ </head>
 
 <body class="sidebar-menu-collapsed">
   <div class="se-pre-con"></div>
@@ -51,10 +53,12 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                      class="fas fa-check-circle fa-2x icon-grey" title="Enable"></a>
                 </td>
                 <td>
-                    <a class="fa-solid fa-pen-to-square icon-green" th:href="@{'/users/edit/' + ${user.id}}" 
+                  <a class="fas fa-edit  icon-green" th:href="@{'/users/edit/' + ${user.id}}"
                     title="Edit this user"></a>
-                     &nbsp; 
-                    <a class="fa-solid fa-trash icon-grey" th:href="@{'/users/delete/' + ${user.id}}"
+                  &nbsp; 
+                  <a class="fas fa-trash  icon-silver link-delete" 
+                    th:href="@{'/users/delete/' + ${user.id}}"
+                    th:userId="${user.id}"
                     title="Delete this user"></a>
                 </td>
              </tr>
@@ -64,11 +68,31 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
         </div>
                                          
-
+        <div class="modal fade text-center" id="confirmModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Delete Confirmation</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              
+              <div class="modal-body">
+                <span id="confirmText"></span>
+              </div>
+              
+              <div class="modal-footer">
+                <a class="btn btn-success" href="" id="yesButton">Yes</a>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
     
     </div>
   </div>
+
+  <!-- <div th:replace="modal_fragments :: modal_dialog"></div> -->
     <!--footer section start-->
     <footer class="dashboard" th:replace="fragments :: footer"></footer>
   <!--footer section end-->
@@ -141,5 +165,19 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   
   <!-- Bootstrap Core JavaScript -->
   <script src="assets/js/bootstrap.min.js"></script>
+  <script th:src="@{/assets/js/common_list.js}"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".link-delete").on("click", function(e) {
+        e.preventDefault();
+        link = $(this);
+        //alert($(this).attr("href"));
+        userId = link.attr("userId");
+        $("#yesButton").attr("href", link.attr("href"));
+        $("#confirmText").text("Are you sure you want to delete this user ID " + userId + "?");
+        $("#confirmModal").modal();
+      });
+    });
+  </script>
 </body>
 </html>
