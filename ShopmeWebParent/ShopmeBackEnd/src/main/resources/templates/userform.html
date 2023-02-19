@@ -82,7 +82,7 @@
            <input type="hidden" th:field="*{photos}" /> 
           <input type="file" id="fileImage" name="image" accept="image/png, image/jpeg"
             class="mb-2" />
-          <img id="thumbnail" alt="Photos preview" th:src="@{/assets/images/default-user.png}"
+          <img id="thumbnail" alt="Photos preview" th:src="@{${user.photosImagePath}}"
             class="img-fluid" />
         </div>
       </div>						
