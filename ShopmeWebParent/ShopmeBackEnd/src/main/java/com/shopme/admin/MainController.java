@@ -15,7 +15,7 @@ public class MainController {
 	}
 
 	@GetMapping("/login")
-	public String viewPricingPage() {	
+	public String viewLoginPage() {	
 
 	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 

@@ -90,6 +90,10 @@
     <!-- //sidebar menu end -->
   </section>
   
+  <form th:action="@{/logout}" method="post" th:hidden="true" name="logoutForm">
+		<input type="submit" />
+	</form>
+  
   <div class="main-content">
     <!-- content -->
     <div class="container ">

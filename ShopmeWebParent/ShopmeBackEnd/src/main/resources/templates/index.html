@@ -639,6 +639,14 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <!-- Bootstrap Core JavaScript -->
 <script src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+	$("#logoutLink").on("click", function(e) {
+		e.preventDefault();
+		document.logoutForm.submit();
+	});
+});
+</script>
 
 </body>
 
