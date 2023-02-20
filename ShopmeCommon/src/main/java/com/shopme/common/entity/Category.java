@@ -11,17 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.OrderBy;
 import javax.persistence.Table;
-import javax.persistence.Transient;
-
 
 @Entity
 @Table(name = "categories")
 public class Category {
-	
 	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(length = 128, nullable = false, unique = true)
@@ -41,9 +37,10 @@ public class Category {
 	
 	@OneToMany(mappedBy = "parent")
 	private Set<Category> children = new HashSet<>();
-	
-	
 
+	public Category() {
+	}
+	
 	public Category(Integer id) {
 		this.id = id;
 	}
@@ -55,9 +52,9 @@ public class Category {
 	}
 	
 	public Category(String name, Category parent) {
-		this(name); 
+		this(name);
 		this.parent = parent;
-	}
+	}	
 
 	public Integer getId() {
 		return id;
@@ -116,5 +113,4 @@ public class Category {
 	}
 	
 	
-
 }
