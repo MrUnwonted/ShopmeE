@@ -10,8 +10,8 @@ import com.shopme.common.entity.Category;
 
 public interface CategoryRepository extends CrudRepository<Category, Integer> {
 	  
-	@Query("SELECT u FROM Category u WHERE u.alias = :alias")
-	    public Category getCatByAlias(@Param("alias") String alias);
+	@Query("SELECT u FROM Category u WHERE u.name = :name")
+	    public Category getCatByName(@Param("name") String name);
 
 		public Long countById(Integer Id);
     

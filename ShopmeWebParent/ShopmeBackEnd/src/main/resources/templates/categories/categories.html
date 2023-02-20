@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" 
 xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="fragments :: page_head('Users - Shopme Admin')" >
+<head th:replace="fragments :: page_head('Categories - Shopme Admin')" >
  </head>
 
 <body class="sidebar-menu-collapsed">
@@ -15,57 +15,41 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
       
 
         <div>
-          <h2>Manage Users</h2>
-          <a th:href="@{/users/new}">Create New User</a>
+          <h2>Manage Category</h2>
+          <a th:href="@{/categories/new}">Create New User</a>
         </div>
 
         <div th:if="${message !=null}" class="alert alert-success text-center">
             [[${message}]]
         </div>
 
-        <div>
-          <table class="table table-bordered table-hover table-dark table-striped table-responsive-xl">
-            <thead>
+        <div class="full-details">
+          <table class="table table-bordered table-dark table-striped table-hover table-responsive-xl">
+            <thead class="thead-dark">
               <tr>
-                <!-- id,name,alias,image,enabled -->
-                <th scope="col">Category Id</th>
-                <th scope="col">Photos</th>
-                <th scope="col">Alias</th>
-                <th scope="col"> Name</th>
-                <th scope="col">Enabled</th>
-                <th scope="col">Actions</th>
-              </tr>
+                <th>ID</th>
+                <th>Category Image</th>
+                <th>Category Name</th>
+                <th>Alias</th>
+                <th>Enabled</th>
+                <th></th>
+              </tr>								
             </thead>
             <tbody>
-             <tr th:each="category : ${listlistCategories}">
-                <td>[[${category.id }]]</td>
+              <tr th:each="cat : ${listCategories}">
+                <td>[[${cat.id}]]</td>
+                <td></td>
+                <td>[[${cat.name}]]</td>
+                <td>[[${cat.alias}]]</td>
                 <td>
-                  <span th:if="${category.photos == null}" class="fas fa-portrait fa-3x icon-silver"></span>
-                  <img th:if="${category.photos != null}" th:src="@{${category.photosImagePath}}"
-                    style="width: 100px" />
-                </td>
-                <td>[[${category.alias }]]</td>
-                <td>[[${category.name }]]</td>
-                <td>
-                	<a th:if="${category.enabled == true}" th:href="@{'/categorys/' + ${category.id} + '/enabled/false'}" 
-                     class="fas fa-check-circle fa-2x icon-green" title="Disable"></a>
-                  <a th:if="${category.enabled == false}" th:href="@{'/categorys/' + ${category.id} + '/enabled/true'}"
-                     class="fas fa-check-circle fa-2x icon-grey" title="Enable"></a>
+                  <div th:replace="fragments :: category_status" > </div>
                 </td>
                 <td>
-                  <a class="fas fa-edit fa-2x icon-green" th:href="@{'/categorys/edit/' + ${category.id}}"
-                    title="Edit this category"></a>
-                  &nbsp; 
-                  <a class="fas fa-trash fa-2x icon-silver link-delete" 
-                    th:href="@{'/categorys/delete/' + ${category.id}}"
-                    th:categoryId="${category.id}"
-                    title="Delete this category"></a>
-                </td>
-             </tr>
+                  <div th:replace="fragments :: category_actions" > </div>
+                </td>					
+              </tr>
             </tbody>
           </table>
-
-
         </div>
                                          
         <div class="modal fade text-center" id="confirmModal">

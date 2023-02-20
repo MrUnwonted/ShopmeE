@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.shopme.admin.user.UserNotFoundException;
 import com.shopme.common.entity.Category;
-import com.shopme.common.entity.User;
+
 @Service
 public class CategoryService {
 
@@ -30,8 +30,8 @@ public class CategoryService {
 		return catRepo.save(cat);
 	}
 	
-	public boolean isCategoryUnique(Integer id, String alias){
-		Category catByAlias =catRepo.getCatByAlias(alias);
+	public boolean isCategoryUnique(Integer id, String name){
+		Category catByAlias =catRepo.getCatByName(name);
 		
 		if(catByAlias == null) return true;
 		boolean isCreatingNew = (id == null);

@@ -84,4 +84,16 @@ public class CategoryRepositoryTests {
 			printChildren(subCategory, newSubLevel);
 		}		
 	}
+	
+	 @Test
+	 public void testDisabeleCategory() {
+		 Integer id =1;
+		 repo.updateEnabledStatus(id, false);
+	 }
+	 
+	 @Test
+	 public void testEnabeleCategory() {
+		 Integer id =2;
+		 repo.updateEnabledStatus(id, true);
+	 }
 }

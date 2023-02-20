@@ -34,7 +34,7 @@ public class UserController {
 	public String listAll(Model model) {
 		List<User> listUsers = service.listAll();
 		model.addAttribute("listUsers", listUsers);
-		return  "users";
+		return  "users/users";
 	}
 	
 	
@@ -47,7 +47,7 @@ public class UserController {
 		model.addAttribute("user", user);
 		model.addAttribute("listRoles", listRoles);
 		model.addAttribute("pageTitle", "Create new User");
-		return "userform";
+		return "users/userform";
 	}
 	
 	@PostMapping("/users/save")
@@ -85,7 +85,7 @@ public class UserController {
 			model.addAttribute("user", user);
 			model.addAttribute("pageTitle", "Edit User (ID: " +id+ " )");
 			model.addAttribute("listRoles", listRoles);
-			return "userform";
+			return "users/userform";
 		}catch (UserNotFoundException e) {
 			redirectAttributes.addFlashAttribute("message", e.getMessage());	
 			return "redirect:/users";

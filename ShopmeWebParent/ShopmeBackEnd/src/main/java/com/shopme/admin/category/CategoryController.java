@@ -1,6 +1,5 @@
 package com.shopme.admin.category;
 
-import java.io.IOException;
 import java.util.List;
 
 
@@ -24,9 +23,9 @@ public class CategoryController {
 	
 	@GetMapping("/categories")
 	public String listCategories(Model model) {
-		List<Category> listlistCategories= service.listAll();
-		model.addAttribute("listlistCategories", listlistCategories);
-		return  "categories";
+		List<Category> listCategories= service.listAll();
+		model.addAttribute("listCategories", listCategories);
+		return  "categories/categories";
 	}
 	
 	@GetMapping("/categories/new")
@@ -35,7 +34,7 @@ public class CategoryController {
 		category.setEnabled(true);
 		model.addAttribute("category", category);
 		model.addAttribute("pageTitle", "Create new category");
-		return "categoryform";
+		return "categories/categoryform";
 	}
 	
 	@PostMapping("/categories/save")
@@ -108,10 +107,5 @@ public class CategoryController {
 						
 		return "redirect:/categories";
 	}
-
-	
-	
-	
-	
 	
 }
