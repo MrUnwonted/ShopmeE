@@ -22,6 +22,9 @@ public class CategoryService {
 		return (List<Category>) repo.findAll();
 	}
 	
+	public Category save(Category category) {
+		return repo.save(category);
+	}
 	
 	
 	public List<Category> listCategoriesUsedInForm() {

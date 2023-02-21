@@ -32,14 +32,15 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <th>Category Name</th>
                 <th>Alias</th>
                 <th>Enabled</th>
-                <th></th>
+                <th>Action</th>
               </tr>								
             </thead>
             <tbody>
               <tr th:each="cat : ${listCategories}">
                 <td>[[${cat.id}]]</td>
-                <td> <img id="thumbnail" alt="Image preview" th:src="@{/assets/images/image-thumbnail.png}"
-                  class="img-fluid" /></td>
+                <td>
+                  <img th:src="@{${cat.imagePath}}" style="width: 100px" class="img-fluid"/>
+                </td>
                 <td>[[${cat.name}]]</td>
                 <td>[[${cat.alias}]]</td>
                 <td>

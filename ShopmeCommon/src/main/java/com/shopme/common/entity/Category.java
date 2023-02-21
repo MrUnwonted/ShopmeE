@@ -1,5 +1,6 @@
 package com.shopme.common.entity;
 
+import java.beans.Transient;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -113,20 +114,10 @@ public class Category {
 		this.children = children;
 	}
 
-	@Override
-	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", alias=" + alias + ", image=" + image + ", enabled="
-				+ enabled + ", parent=" + parent + ", children=" + children + "]";
+	@Transient
+	public String getImagePath() {
+		return "/category-images/" + this.id + "/" + this.image;
 	}
-
-	
-	
-//	@Transient
-//	public String getPhotosImagePath() {
-//		if (id == null || photos == null) return "/images/default-user.png";
-//		
-//		return "/user-photos/" + this.id + "/" + this.photos;
-//	}
 	
 	
 }
