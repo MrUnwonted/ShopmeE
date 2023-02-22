@@ -38,8 +38,13 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             <tbody>
               <tr th:each="cat : ${listCategories}">
                 <td>[[${cat.id}]]</td>
-                <td>
+                <!-- <td>
                   <img th:src="@{${cat.imagePath}}" style="width: 100px" class="img-fluid"/>
+                </td> -->
+                <td>
+                  <span th:if="${cat.image == null}" class="fa-sharp fa-solid fa-wagon-covered fa-3x icon-silver"></span>
+                  <img th:if="${cat.image != null}" th:src="@{${cat.imagePath}}" class="img-fluid"
+                    style="width: 100px" />
                 </td>
                 <td>[[${cat.name}]]</td>
                 <td>[[${cat.alias}]]</td>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,7 +52,6 @@ public class CategoryController {
 			RedirectAttributes ra) throws IOException  {
 		
 		
-		
 		if (!multipartFile.isEmpty()) {
 			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 			category.setImage(fileName);
@@ -73,51 +73,51 @@ public class CategoryController {
 		return "redirect:/categories";
 	}
 //	
-//	@GetMapping("/categories/edit/{id}")
-//	public String editcategory(@PathVariable(name = "id") Integer id,
-//			Model model,
-//			RedirectAttributes redirectAttributes) {
-//		try {
-//			Category category = service.get(id);
-//			model.addAttribute("category", category);
-//			model.addAttribute("pageTitle", "Edit category (ID: " +id+ " )");
-//			return "categoryform";
-//		}catch (Exception e) {
-//			redirectAttributes.addFlashAttribute("message", e.getMessage());	
-//			return "redirect:/categories";
-//		}
-//		
-//		
-//	}
+	@GetMapping("/categories/edit/{id}")
+	public String editCategory(@PathVariable(name = "id") Integer id,
+			Model model,
+			RedirectAttributes redirectAttributes) {
+		try {
+			Category category = service.get(id);
+			model.addAttribute("category", category);
+			model.addAttribute("pageTitle", "Edit category (ID: " +id+ " )");
+			return "categories/categoryform";
+		}catch (Exception e) {
+			redirectAttributes.addFlashAttribute("message", e.getMessage());	
+			return "redirect:/categories";
+		}
+		
+		
+	}
 //	
 //	
-//	@GetMapping("/categories/delete/{id}")
-//	public String deletecategory(@PathVariable(name = "id") Integer id, 
-//			Model model,
-//			RedirectAttributes redirectAttributes) {
-//		try {
-//			service.delete(id);
-////			String categoryPhotosDir = "category-photos/" + id;
-//			
-//			redirectAttributes.addFlashAttribute("message", 
-//					"The category ID " + id + " has been deleted successfully");
-//		} catch (Exception ex) {
-//			redirectAttributes.addFlashAttribute("message", ex.getMessage());
-//		}
-//		
-//		return "redirect:/categories";
-//	}
-//	
-//	
-//	@GetMapping("/categories/{id}/enabled/{status}")
-//	public String updatecategoryEnabledStatus(@PathVariable("id") Integer id,
-//			@PathVariable("status") boolean enabled, RedirectAttributes redirectAttributes) {
-//				service.updateCategoryEnabledStatus(id, enabled);
-//				String status = enabled ? "enabled" : "disabled";
-//				String message =  "The category ID" + id + " has been " + status;
-//				redirectAttributes.addFlashAttribute("message", message);
-//						
-//		return "redirect:/categories";
-//	}
+	@GetMapping("/categories/delete/{id}")
+	public String deleteCategory(@PathVariable(name = "id") Integer id, 
+			Model model,
+			RedirectAttributes redirectAttributes) {
+		try {
+			service.delete(id);
+//			String categoryPhotosDir = "category-photos/" + id;
+			
+			redirectAttributes.addFlashAttribute("message", 
+					"The category ID " + id + " has been deleted successfully");
+		} catch (Exception ex) {
+			redirectAttributes.addFlashAttribute("message", ex.getMessage());
+		}
+		
+		return "redirect:/categories";
+	}
+	
+	
+	@GetMapping("/categories/{id}/enabled/{status}")
+	public String updateCategoryEnabledStatus(@PathVariable("id") Integer id,
+			@PathVariable("status") boolean enabled, RedirectAttributes redirectAttributes) {
+				service.updateCategoryEnabledStatus(id, enabled);
+				String status = enabled ? "enabled" : "disabled";
+				String message =  "The category ID" + id + " has been " + status;
+				redirectAttributes.addFlashAttribute("message", message);
+						
+		return "redirect:/categories";
+	}
 	
 }

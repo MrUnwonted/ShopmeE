@@ -71,16 +71,6 @@ public class CategoryService {
 	
 	
 	
-//	public Category save(Category cat) {
-//		boolean isUpdatingCategory = (cat.getId() != null) ; 
-//		
-//		if(isUpdatingCategory) {
-//			Category existingCategory= catRepo.findById(cat.getId()).get(); 
-//		}	
-//		
-//		return catRepo.save(cat);
-//	}
-//	
 //	public boolean isCategoryUnique(Integer id, String name){
 //		Category catByAlias =catRepo.getCatByName(name);
 //		
@@ -98,26 +88,26 @@ public class CategoryService {
 //		return true;
 //	}
 //	
-//	public Category get(Integer id) throws UserNotFoundException {
-//		
-//		try {
-//		return catRepo.findById(id).get();
-//		} catch (NoSuchElementException ex) {
-//			throw new UserNotFoundException("Could not find any Category with ID" + id);
-//		}
-//	}
+	public Category get(Integer id) throws UserNotFoundException {
+		
+		try {
+		return repo.findById(id).get();
+		} catch (NoSuchElementException ex) {
+			throw new UserNotFoundException("Could not find any Category with ID" + id);
+		}
+	}
 //	
-//	public void delete(Integer id) throws UserNotFoundException {
-//		Long countById = catRepo.countById(id);
-//		if (countById == null || countById == 0) {
-//			throw new UserNotFoundException("Could not find any Category with ID" + id);
-//		}
-//		catRepo.deleteById(id);
-//	}
-//	
-//	public void updateCategoryEnabledStatus(Integer id, boolean enabled) {
-//		catRepo.updateEnabledStatus(id, enabled);
-//	}
+	public void delete(Integer id) throws UserNotFoundException {
+		Long countById = repo.countById(id);
+		if (countById == null || countById == 0) {
+			throw new UserNotFoundException("Could not find any Category with ID" + id);
+		}
+		repo.deleteById(id);
+	}
+	
+	public void updateCategoryEnabledStatus(Integer id, boolean enabled) {
+		repo.updateEnabledStatus(id, enabled);
+	}
 
 	
 }

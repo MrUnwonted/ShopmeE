@@ -110,17 +110,30 @@
       </div>
       
       <div th:fragment="category_actions" th:remove="tag">
-        <a class="fas fa-edit fa-2x icon-green" th:href="@{'/categories/edit/' + ${cat.id}}"
+        <a class="fas fa-edit  icon-green" th:href="@{'/categories/edit/' + ${cat.id}}"
           title="Edit this category"></a>
         &nbsp; 
-        <a class="fas fa-trash fa-2x icon-silver link-delete" 
+        <a class="fas fa-trash  icon-silver link-delete" 
           th:href="@{'/categories/delete/' + ${cat.id}}"
           th:catId="${cat.id}"
           title="Delete this category"></a>	
       </div>
 
-       
-       
+      <div th:fragment="user_status" th:remove="tag">
+        <a th:if="${user.enabled == true}" th:href="@{'/users/' + ${user.id} + '/enabled/false'}" 
+           class="fas fa-check-circle  icon-green" title="Disable"></a>
+        <a th:if="${user.enabled == false}" th:href="@{'/users/' + ${user.id} + '/enabled/true'}"
+           class="fas fa-check-circle  icon-grey" title="Enable"></a>
+    </div>
+    <div th:fragment="user_actions" th:remove="tag">
+        <a class="fas fa-edit icon-green" th:href="@{'/users/edit/' + ${user.id}}"
+          title="Edit this user"></a>
+        &nbsp; 
+        <a class="fas fa-trash icon-silver link-delete" 
+          th:href="@{'/users/delete/' + ${user.id}}"
+          th:userId="${user.id}"
+          title="Delete this user"></a>
+    </div>  
                                          
 
 

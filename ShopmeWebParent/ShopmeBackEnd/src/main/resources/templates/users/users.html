@@ -49,21 +49,12 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <td>[[${user.firstName }]]</td>
                 <td>[[${user.lastName }]]</td>
                 <td>[[${user.roles }]]</td>
-                <td>
-                	<a th:if="${user.enabled == true}" th:href="@{'/users/' + ${user.id} + '/enabled/false'}" 
-                     class="fas fa-check-circle fa-2x icon-green" title="Disable"></a>
-                  <a th:if="${user.enabled == false}" th:href="@{'/users/' + ${user.id} + '/enabled/true'}"
-                     class="fas fa-check-circle fa-2x icon-grey" title="Enable"></a>
+                <td >
+                  <div th:replace="fragments :: user_status" > </div>
                 </td>
                 <td>
-                  <a class="fas fa-edit fa-2x icon-green" th:href="@{'/users/edit/' + ${user.id}}"
-                    title="Edit this user"></a>
-                  &nbsp; 
-                  <a class="fas fa-trash fa-2x icon-silver link-delete" 
-                    th:href="@{'/users/delete/' + ${user.id}}"
-                    th:userId="${user.id}"
-                    title="Delete this user"></a>
-                </td>
+                  <div th:replace="fragments :: user_actions" > </div>
+                </td>		
              </tr>
             </tbody>
           </table>
