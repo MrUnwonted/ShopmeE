@@ -31,7 +31,7 @@ public class UserController {
 	
 	@GetMapping("/users")
 	public String listFirstPage(Model model) {
-		return listByPage(2, model);
+		return listByPage(1, model);
 	}
 	
 	@GetMapping("/forms")
