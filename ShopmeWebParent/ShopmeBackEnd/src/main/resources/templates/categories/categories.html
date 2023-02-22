@@ -23,28 +23,26 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             [[${message}]]
         </div>
 
-        <div class="full-details">
+        <<div class="full-details">
           <table class="table table-bordered table-dark table-striped table-hover table-responsive-xl">
             <thead class="thead-dark">
               <tr>
                 <th>ID</th>
                 <th>Category Image</th>
-                <th>Category Name</th>
+                <th>
+                  <a class="text-white" th:href="@{'/categories}">Category Name</a>
+                  <!-- <span th:class="${reverseSortDir == 'desc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}" ></span>						 -->
+                </th>
                 <th>Alias</th>
                 <th>Enabled</th>
-                <th>Action</th>
+                <th></th>
               </tr>								
             </thead>
             <tbody>
               <tr th:each="cat : ${listCategories}">
                 <td>[[${cat.id}]]</td>
-                <!-- <td>
-                  <img th:src="@{${cat.imagePath}}" style="width: 100px" class="img-fluid"/>
-                </td> -->
                 <td>
-                  <span th:if="${cat.image == null}" class="fa-sharp fa-solid fa-wagon-covered fa-3x icon-silver"></span>
-                  <img th:if="${cat.image != null}" th:src="@{${cat.imagePath}}" class="img-fluid"
-                    style="width: 100px" />
+                  <img th:src="@{${cat.imagePath}}" style="width: 100px" class="img-fluid"/>
                 </td>
                 <td>[[${cat.name}]]</td>
                 <td>[[${cat.alias}]]</td>

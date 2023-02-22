@@ -58,9 +58,44 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
              </tr>
             </tbody>
           </table>
-
-
         </div>
+                     
+                     
+		<div class="text-center m-1" th:if="${totalItems > 0}">
+			<span>Showing users # [[${startCount}]] to [[${endCount}]] of [[${totalItems}]]</span>
+		</div>
+		<div class="text-center m-1" th:unless="${totalItems > 0}">
+			<span>No users found</span>
+		</div>
+                    
+                    
+		<!-- Pagination -->
+    <div>
+      <nav>
+        <ul class="pagination justify-content-center">
+          <li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
+            <a class="page-link" th:href="@{/users/page/1}">First</a>
+          </li>		  
+          <li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
+            <a class="page-link" th:href="@{'/users/page/' + ${currentPage - 1}}">Previous</a>
+          </li>
+          
+          <li th:class="${currentPage != i ? 'page-item': 'page-item active'}" 
+            th:each="i : ${#numbers.sequence(1, totalPages)}">
+            <a class="page-link" th:href="@{'/users/page/' + ${i}}">[[${i}]]</a>
+          </li>
+  
+          
+          <li th:class="${currentPage < totalPages ? 'page-item' : 'page-item disabled'}">
+            <a class="page-link" th:href="@{'/users/page/' + ${currentPage + 1}}">Next</a>
+          </li>
+          
+          <li th:class="${currentPage < totalPages ? 'page-item' : 'page-item disabled'}">
+            <a class="page-link" th:href="@{'/users/page/' + ${totalPages}}">Last</a>
+          </li>		    
+        </ul>
+      </nav>	
+    </div>                 
                                          
         <div class="modal fade text-center" id="confirmModal">
           <div class="modal-dialog">
@@ -90,31 +125,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
     <!--footer section start-->
     <footer class="dashboard" th:replace="fragments :: footer"></footer>
   <!--footer section end-->
-  <!-- move top -->
-  <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
-    <span class="fa fa-angle-up"></span>
-  </button>
-  <script>
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-      scrollFunction()
-    };
-  
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("movetop").style.display = "block";
-      } else {
-        document.getElementById("movetop").style.display = "none";
-      }
-    }
-  
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-  </script>
-  <!-- /move top -->
+ 
   
   
   <script src="assets/js/jquery-3.3.1.min.js"></script>
@@ -148,7 +159,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <!-- disable body scroll when navbar is in active -->
   
    <!-- loading-gif Js -->
-   <script src="assets/js/modernizr.js"></script>
+   <!-- <script src="assets/js/modernizr.js"></script> -->
    <script>
        $(window).load(function () {
            // Animate loader off screen
