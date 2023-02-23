@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import com.shopme.admin.user.UserNotFoundException;
 import com.shopme.common.entity.Category;
 
 @Service
+@Transactional
 public class CategoryService {
 
 	@Autowired
@@ -69,24 +72,53 @@ public class CategoryService {
 		}		
 	}	
 	
-	
-	
-//	public boolean isCategoryUnique(Integer id, String name){
-//		Category catByAlias =catRepo.getCatByName(name);
+//	private void listSubCategoriesUsedInForm(List<Category> categoriesUsedInForm, 
+//			Category parent, int subLevel) {
+//		int newSubLevel = subLevel + 1;
+//		Set<Category> children = (parent.getChildren());
 //		
-//		if(catByAlias == null) return true;
-//		boolean isCreatingNew = (id == null);
-//		
-//		if(isCreatingNew) {
-//				if(catByAlias != null ) return false;
-//		} else {
-//			if (catByAlias .getId() != id) {
-//				return false;
+//		for (Category subCategory : children) {
+//			String name = "";
+//			for (int i = 0; i < newSubLevel; i++) {				
+//				name += "--";
 //			}
-//		}
-//		
-//		return true;
+//			name += subCategory.getName();
+//			
+//			categoriesUsedInForm.add(subCategory);
+//			
+//			listSubCategoriesUsedInForm(categoriesUsedInForm, subCategory, newSubLevel);
+//		}		
 //	}
+	
+	
+	public String checkUnique(Integer id, String name, String alias) {
+		boolean isCreatingNew = (id == null || id == 0);
+		
+		Category categoryByName = repo.findByName(name);
+		
+		if (isCreatingNew) {
+			if (categoryByName != null) {
+				return "DuplicateName";
+			} else {
+				Category categoryByAlias = repo.findByAlias(alias);
+				if (categoryByAlias != null) {
+					return "DuplicateAlias";	
+				}
+			}
+		} else {
+			if (categoryByName != null && categoryByName.getId() != id) {
+				return "DuplicateName";
+			}
+			
+			Category categoryByAlias = repo.findByAlias(alias);
+			if (categoryByAlias != null && categoryByAlias.getId() != id) {
+				return "DuplicateAlias";
+			}
+			
+		}
+		
+		return "OK";
+	}
 //	
 	public Category get(Integer id) throws UserNotFoundException {
 		
