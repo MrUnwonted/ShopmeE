@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head th:replace="fragments :: page_head('Error - Shopme Admin')">
+	<link rel="stylesheet" th:href="@{/assets/css/error.css}">
+</head> 
+<body class="sidebar-menu-collapsed">
+  <div class="se-pre-con"></div>
+  
+   
+  <div class="main-content">
+    <!-- content -->
+    <div class="container-fluid content-top-gap">
+      
+  
+  <div class="sidebar-menu sticky-sidebar-menu"  th:replace="fragments :: menu">  </div>
+
+<div id="main">
+    	<div class="fof">
+        		<h1>Error 404</h1>
+        <p>Sorry an unexpected error occured</p>
+    	</div>
+</div>
+
+   </div>
+  </div>
+
+
+<footer class="dashboard" th:replace="fragments :: footer"></footer>
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/jquery-1.10.2.min.js"></script>
+
+<!-- chart js -->
+<script src="assets/js/Chart.min.js"></script>
+<script src="assets/js/utils.js"></script>
+<!-- //chart js -->
+
+<!-- Different scripts of charts.  Ex.Barchart, Linechart -->
+<script src="assets/js/bar.js"></script>
+<script src="assets/js/linechart.js"></script>
+<!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
+
+
+<script src="assets/js/jquery.nicescroll.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<!-- close script -->
+<script>
+  var closebtns = document.getElementsByClassName("close-grid");
+  var i;
+
+  for (i = 0; i < closebtns.length; i++) {
+    closebtns[i].addEventListener("click", function () {
+      this.parentElement.style.display = 'none';
+    });
+  }
+</script>
+<!-- //close script -->
+
+<!-- disable body scroll when navbar is in active -->
+<script>
+  $(function () {
+    $('.sidebar-menu-collapsed').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll when navbar is in active -->
+
+ <!-- loading-gif Js -->
+ <script src="assets/js/modernizr.js"></script>
+ <script>
+     $(window).load(function () {
+         // Animate loader off screen
+         $(".se-pre-con").fadeOut("slow");;
+     });
+ </script>
+ <!--// loading-gif Js -->
+
+<!-- Bootstrap Core JavaScript -->
+<script src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+	$("#logoutLink").on("click", function(e) {
+		e.preventDefault();
+		document.logoutForm.submit();
+	});
+});
+</script>
+
+</body>
+
+</html>

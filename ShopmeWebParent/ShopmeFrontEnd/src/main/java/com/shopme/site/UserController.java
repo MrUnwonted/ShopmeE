@@ -36,6 +36,10 @@ public class UserController {
 		return "thankyou";
 	}
 	
+	@GetMapping("/shop-single")
+	public String viewcataloguePage() {
+		return "shop-single";
+	}
 	
 	
 	

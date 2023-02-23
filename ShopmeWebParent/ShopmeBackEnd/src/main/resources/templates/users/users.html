@@ -61,16 +61,16 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
         </div>
                      
                      
-		<div class="text-center m-1" th:if="${totalItems > 0}">
+		<!-- <div class="text-center m-1" th:if="${totalItems > 0}">
 			<span>Showing users # [[${startCount}]] to [[${endCount}]] of [[${totalItems}]]</span>
 		</div>
 		<div class="text-center m-1" th:unless="${totalItems > 0}">
 			<span>No users found</span>
-		</div>
+		</div> -->
                     
                     
 		<!-- Pagination -->
-    <div>
+    <!-- <div>
       <nav>
         <ul class="pagination justify-content-center">
           <li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
@@ -95,7 +95,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
           </li>		    
         </ul>
       </nav>	
-    </div>                 
+    </div -->               
                                          
         <div class="modal fade text-center" id="confirmModal">
           <div class="modal-dialog">
@@ -130,7 +130,31 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   
   <script src="assets/js/jquery-3.3.1.min.js"></script>
   <script src="assets/js/jquery-1.10.2.min.js"></script>
-  
+   <!-- move top -->
+<button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+  <span class="fa fa-angle-up"></span>
+</button>
+<script>
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction()
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("movetop").style.display = "block";
+    } else {
+      document.getElementById("movetop").style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+<!-- /move top -->
   
   <script src="assets/js/jquery.nicescroll.js"></script>
   <script src="assets/js/scripts.js"></script>
@@ -159,7 +183,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <!-- disable body scroll when navbar is in active -->
   
    <!-- loading-gif Js -->
-   <!-- <script src="assets/js/modernizr.js"></script> -->
+   <script src="assets/js/modernizr.js"></script>
    <script>
        $(window).load(function () {
            // Animate loader off screen
