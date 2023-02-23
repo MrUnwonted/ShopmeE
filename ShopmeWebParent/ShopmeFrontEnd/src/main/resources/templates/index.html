@@ -1,81 +1,13 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-  <head th:replace="fragments :: page_head('Home - Shopme User')"> </head> 
+  <head th:replace="fragments  :: page_head('Home - Shopme')"> </head> 
   <body>
   
   <div class="site-wrap">
-    <header class="site-navbar" role="banner">
-      <div class="site-navbar-top">
-        <div class="container">
-          <div class="row align-items-center">
+    
+    <div th:replace="navigation :: menu">
 
-            <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
-              <form action="" class="site-block-top-search">
-                <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Search">
-              </form>
-            </div>
-
-            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-              <div class="site-logo">
-                <a th:href="@{/}" class="js-logo-clone">Shoppers</a>
-              </div>
-            </div>
-
-            <div class="col-6 col-md-4 order-3 order-md-3 text-right">
-              <div class="site-top-icons">
-                <ul>
-                  <li><a href="#"><span class="icon icon-person"></span></a></li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                  <li>
-                    <a th:href="@{/cart}" class="site-cart">
-                      <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
-                    </a>
-                  </li> 
-                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
-                </ul>
-              </div> 
-            </div>
-
-          </div>
-        </div>
-      </div> 
-      <nav class="site-navigation text-right text-md-center" role="navigation">
-        <div class="container">
-          <ul class="site-menu js-clone-nav d-none d-md-block">
-            <li class="has-children active">
-              <a th:href="@{/}">Home</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-                <li class="has-children">
-                  <a href="#">Sub Menu</a>
-                  <ul class="dropdown">
-                    <li><a href="#">Menu One</a></li>
-                    <li><a href="#">Menu Two</a></li>
-                    <li><a href="#">Menu Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="has-children">
-              <a th:href="@{/about}">About</a>
-              <ul class="dropdown">
-                <li><a href="#">Menu One</a></li>
-                <li><a href="#">Menu Two</a></li>
-                <li><a href="#">Menu Three</a></li>
-              </ul>
-            </li>
-            <li><a th:href="@{/shop}">Shop</a></li>
-            <li><a th:href="@{/shop-single}">Shop-single</a></li>
-            <li><a href="#">New Arrivals</a></li>
-            <li><a th:href="@{/contact}">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    </div>
 
     <div class="site-blocks-cover" style="background-image: url(images/hero_1.jpg);" data-aos="fade">
       <div class="container">
@@ -123,6 +55,23 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    
+      <!-- <div class="row">
+      <div class="col" th:each="cat : ${listCategories}">
+        <div>
+            <img th:src="@{${cat.imgaePath}}" width="80" alt="">
+        </div>
+      </div> -->
+
+    </div>
+    <div class="row">
+      <div class="col" th:each="cat : ${listCategories}">
+        <div><img th:src="@{${cat.imagePath}}" width="80" /></div>
+        <div>
+          <a>[[${cat.name}]]</a>
         </div>
       </div>
     </div>
@@ -325,16 +274,12 @@
             </div>
           </div>
         </div>
+
         <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="@(/https://colorlib.com" target="_blank" class="text-primary">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
+          <div  th:replace="fragments :: footer">
           </div>
-          
         </div>
+
       </div>
     </footer>
   </div>
