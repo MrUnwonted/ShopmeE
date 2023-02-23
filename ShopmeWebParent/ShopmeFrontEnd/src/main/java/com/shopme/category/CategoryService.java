@@ -12,22 +12,20 @@ import com.shopme.common.entity.Category;
 @Service
 public class CategoryService {
 
-	@Autowired
-	private CategoryRepository repo;
+	@Autowired private CategoryRepository repo;
 	
-	public List<Category> listNoChildrenCategories(){
+	public List<Category> listNoChildrenCategories() {
 		List<Category> listNoChildrenCategories = new ArrayList<>();
 		
 		List<Category> listEnabledCategories = repo.findAllEnabled();
 		
-		listEnabledCategories.forEach(Category -> {
-			Set<Category> children = Category.getChildren();
+		listEnabledCategories.forEach(category -> {
+			Set<Category> children = category.getChildren();
 			if (children == null || children.size() == 0) {
-				listNoChildrenCategories.add(Category);
+				listNoChildrenCategories.add(category);
 			}
 		});
 		
 		return listNoChildrenCategories;
 	}
-	
 }
