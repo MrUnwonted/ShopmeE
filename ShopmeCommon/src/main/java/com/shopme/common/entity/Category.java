@@ -1,6 +1,5 @@
 package com.shopme.common.entity;
 
-import java.beans.Transient;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,36 +12,36 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "categories")
 public class Category {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(length = 128, nullable = false, unique = true)
 	private String name;
-	
+
 	@Column(length = 64, nullable = false, unique = true)
 	private String alias;
-	
+
 	@Column(length = 128, nullable = false)
 	private String image;
-	
+
 	private boolean enabled;
-	
+
 	@OneToOne
 	@JoinColumn(name = "parent_id")
 	private Category parent;
-	
+
 	@OneToMany(mappedBy = "parent")
 	private Set<Category> children = new HashSet<>();
 
 	public Category() {
 	}
-	
+
 	public Category(Integer id) {
 		this.id = id;
 	}
@@ -86,11 +85,18 @@ public class Category {
 		this.alias = name;
 		this.image = "default.png";
 	}
-	
+
 	public Category(String name, Category parent) {
 		this(name);
 		this.parent = parent;
-	}	
+	}
+
+	public Category(Integer id, String name, String alias) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.alias = alias;
+	}
 
 	public Integer getId() {
 		return id;
@@ -150,8 +156,8 @@ public class Category {
 
 	@Transient
 	public String getImagePath() {
+		if (this.id == null) return "/images/image-thumbnail.png";
+
 		return "/category-images/" + this.id + "/" + this.image;
 	}
-	
-	
 }
