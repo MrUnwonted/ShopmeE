@@ -1,14 +1,24 @@
 package com.shopme.site.user;
 
+import com.shopme.common.entity.Category;
+import com.shopme.site.category.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Controller
 public class UserController {
 
-	
+	@Autowired
+	private CategoryService categoryService;
+
 	@GetMapping("/shop")
-	public String viewHomePage() {
+	public String viewHomePage(Model m) {
+		List<Category> listCategories = categoryService.listNoChildrenCategories();
+		m.addAttribute("listCategories",listCategories);
 		return "shop";
 	}
 	
@@ -42,7 +52,13 @@ public class UserController {
 	public String viewcataloguePage() {
 		return "shop-single";
 	}
-	
+
+	@GetMapping("/categories")
+	public String viewCategoryPage(Model model) {
+		List<Category> listCategories = categoryService.listNoChildrenCategories();
+		model.addAttribute("listCategories",listCategories);
+		return "categories";
+	}
 	
 	
 }

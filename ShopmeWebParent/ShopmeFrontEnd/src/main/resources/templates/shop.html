@@ -35,10 +35,14 @@
                     <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Latest
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                      <a class="dropdown-item" href="#">Men</a>
-                      <a class="dropdown-item" href="#">Women</a>
-                      <a class="dropdown-item" href="#">Children</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset" >
+                      <div th:each="cat,iterStat : ${listCategories}" th:if="${iterStat.index} &lt; 3"> 
+                        <!-- <a  href="#">[[${cat.name}]]</a>  -->
+                        <a  class="dropdown-item" th:href="@{'/c/' + ${cat.alias}}">[[${cat.name}]]</a>
+                          <!-- <li th:each="cat, iterStat : ${listCategories}" th:text="${cat.name}" th:if="${iterStat.index} &lt; 3">Category name</li> -->
+                      </div>
+                      <!-- <a class="dropdown-item" href="#">Women</a> 
+                       <a class="dropdown-item" href="#">Children</a> -->
                     </div>
                   </div>
                   <div class="btn-group">
@@ -224,7 +228,7 @@
             </div>
           </div>
 
-          <div class="col-md-3 order-1 mb-5 mb-md-0">
+          <!-- <div class="col-md-3 order-1 mb-5 mb-md-0">
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
               <ul class="list-unstyled mb-0">
@@ -232,7 +236,7 @@
                 <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span class="text-black ml-auto">(2,550)</span></a></li>
                 <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>
               </ul>
-            </div>
+            </div> -->
 
             <div class="border p-4 rounded mb-4">
               <div class="mb-4">
