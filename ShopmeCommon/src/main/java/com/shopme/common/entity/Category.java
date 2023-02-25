@@ -47,6 +47,40 @@ public class Category {
 		this.id = id;
 	}
 
+	public static Category copyIdAndName(Category category) {
+		Category copyCategory = new Category();
+		copyCategory.setId(category.getId());
+		copyCategory.setName(category.getName());
+
+		return copyCategory;
+	}
+
+	public static Category copyIdAndName(Integer id, String name) {
+		Category copyCategory = new Category();
+		copyCategory.setId(id);
+		copyCategory.setName(name);
+
+		return copyCategory;
+	}
+
+	public static Category copyFull(Category category) {
+		Category copyCategory = new Category();
+		copyCategory.setId(category.getId());
+		copyCategory.setName(category.getName());
+		copyCategory.setImage(category.getImage());
+		copyCategory.setAlias(category.getAlias());
+		copyCategory.setEnabled(category.isEnabled());
+
+		return copyCategory;
+	}
+
+	public static Category copyFull(Category category, String name) {
+		Category copyCategory = Category.copyFull(category);
+		copyCategory.setName(name);
+
+		return copyCategory;
+	}
+
 	public Category(String name) {
 		this.name = name;
 		this.alias = name;

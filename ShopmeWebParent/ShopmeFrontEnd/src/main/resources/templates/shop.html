@@ -286,12 +286,14 @@
                     <h2>Categories</h2>
                   </div>
                 </div>
-                <div class="row">
+             
                   
                   
                   <div class="row">
                     <div class="col" th:each="cat : ${listCategories}">
-                      <div><img th:src="@{${cat.imagePath}}" width="80" /></div>
+                      <div>
+                        <img th:src="@{${cat.imagePath}}" width="80" />
+                      </div>
                       <div>
                         <a th:href="@{'/c/' + ${cat.alias}}">[[${cat.name}]]</a>
                       </div>
@@ -320,7 +322,6 @@
                       </div>
                     </a>
                   </div> -->
-                </div>
               
             </div>
           </div>

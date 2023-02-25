@@ -74,20 +74,21 @@ public class CategoryController {
 	}
 //	
 	@GetMapping("/categories/edit/{id}")
-	public String editCategory(@PathVariable(name = "id") Integer id,
-			Model model,
-			RedirectAttributes redirectAttributes) {
+	public String editCategory(@PathVariable(name = "id") Integer id, Model model,
+							   RedirectAttributes ra) {
 		try {
 			Category category = service.get(id);
+			List<Category> listCategories = service.listCategoriesUsedInForm();
+
 			model.addAttribute("category", category);
-			model.addAttribute("pageTitle", "Edit category (ID: " +id+ " )");
+			model.addAttribute("listCategories", listCategories);
+			model.addAttribute("pageTitle", "Edit Category (ID: " + id + ")");
+
 			return "categories/categoryform";
-		}catch (Exception e) {
-			redirectAttributes.addFlashAttribute("message", e.getMessage());	
+		} catch (CategoryNotFoundException ex) {
+			ra.addFlashAttribute("message", ex.getMessage());
 			return "redirect:/categories";
 		}
-		
-		
 	}
 //	
 //	

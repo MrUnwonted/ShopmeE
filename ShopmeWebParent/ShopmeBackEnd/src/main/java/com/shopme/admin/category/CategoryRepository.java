@@ -13,7 +13,7 @@ import com.shopme.common.entity.Category;
 
 public interface CategoryRepository extends PagingAndSortingRepository<Category, Integer> {
 	@Query("SELECT c FROM Category c WHERE c.parent.id is NULL")
-	public List<Category> findRootCategories(Sort sort);
+	public List<Category> findRootCategories();
 
 	@Query("SELECT c FROM Category c WHERE c.parent.id is NULL")
 	public Page<Category> findRootCategories(Pageable pageable);
