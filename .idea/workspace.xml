@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d09b8fff-5ffd-4dfc-97bc-5c0dfa4a59cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopmeCommon/src/main/java/com/shopme/common/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeCommon/src/main/java/com/shopme/common/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/category/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/category/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/category/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/category/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/category/CategoryRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/category/CategoryRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/category/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/category/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/categories/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/categories/categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/categories/categoryform.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/categories/categoryform.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +61,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.CategoryServiceTests.testCheckUniqueInNewModeReturnOK">
+  <component name="RunManager" selected="Application.ShopmeBackEndApplication">
     <configuration name="ShopmeBackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.shopme.admin.ShopmeBackEndApplication" />
       <module name="ShopmeBackEnd" />
@@ -152,10 +157,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ShopmeBackEndApplication" />
         <item itemvalue="JUnit.CategoryServiceTests.testCheckUniqueInNewModeReturnOK" />
         <item itemvalue="JUnit.CategoryServiceTests.testCheckUniqueInNewModeReturnDuplicateName" />
         <item itemvalue="JUnit.CategoryServiceTests.testCheckUniqueInNewModeReturnDuplicateAlias" />
-        <item itemvalue="Application.ShopmeBackEndApplication" />
         <item itemvalue="Application.ShopmeFrontEndApplication" />
       </list>
     </recent_temporary>
