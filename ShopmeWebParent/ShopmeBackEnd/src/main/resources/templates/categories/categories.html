@@ -16,7 +16,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
         <div>
           <h2>Manage Category</h2>
-          <a th:href="@{/categories/new}">Create New Category</a>
+          <a th:href="@{/categories/new}" class="fas fa-folder-plus fa-2x icon-dark mr-2"></a>
         </div>
 
         <div th:if="${message !=null}" class="alert alert-success text-center">

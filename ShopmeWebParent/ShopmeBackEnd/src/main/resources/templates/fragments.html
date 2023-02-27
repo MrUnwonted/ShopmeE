@@ -108,12 +108,12 @@
     <div class="container ">
       
       <div th:fragment="category_status" th:remove="tag">
-        <a th:if="${cat.enabled == true}" class="fas fa-check-circle fa-2x icon-green" 
+        <a th:if="${cat.enabled == true}" class="fas fa-check-circle  icon-green" 
           th:href="@{'/categories/' + ${cat.id} + '/enabled/false'}"
           title="Disable this category"
           ></a>
           
-        <a th:if="${cat.enabled == false}" class="fas fa-circle fa-2x icon-silver" 
+        <a th:if="${cat.enabled == false}" class="fas fa-circle  icon-silver" 
           th:href="@{'/categories/' + ${cat.id} + '/enabled/true'}"
           title="Enable this category"
           ></a>	

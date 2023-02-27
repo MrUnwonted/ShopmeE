@@ -16,7 +16,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
         <div>
           <h2>Manage Users</h2>
-          <a th:href="@{/users/new}">Create New User</a>
+          <a th:href="@{/users/new}" class="fas fa-folder-plus fa-2x icon-dark mr-2"></a>
         </div>
 
         <div th:if="${message !=null}" class="alert alert-success text-center">

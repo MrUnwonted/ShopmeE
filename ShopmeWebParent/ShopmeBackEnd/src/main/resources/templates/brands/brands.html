@@ -18,7 +18,7 @@
 	<div>
 		<h2>Manage Brands</h2>	
 		
-		<!-- <a th:href="@{/brands/new}" class="fas fa-folder-plus fa-2x icon-dark mr-2"></a> -->
+		<a th:href="@{/brands/new}" class="fas fa-folder-plus fa-2x icon-dark mr-2"></a>
 				
 	</div>
 		
@@ -41,9 +41,9 @@
 					<td>[[${brand.name}]]</td>
 					<td>
 						<th:block th:each="cat : ${brand.categories}">
-						<span class="badge badge-secondary" th:text="${cat.name}"></span>
+						<span class="badge badge-success" th:text="${cat.name}"></span>
 						</th:block>
-					</td>
+					</td>	
 					  <td>
 						<div th:replace="fragments :: brand_actions" > </div>
 					</td>					
