@@ -12,6 +12,16 @@
     <!-- content -->
     <div class="container ">
       
+       <!-- breadcrumbs -->
+		 <nav aria-label="breadcrumb" class="mb-4">
+			<ol class="breadcrumb my-breadcrumb">
+				<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <li class="breadcrumb-item"><a th:href="@{/users}">users</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Users Form</li>
+			</ol>
+		</nav>
+		<!-- //breadcrumbs -->
+
       <div>
         <h2>Manage Users  |  [[${pageTitle}]]</h2> <br>
       </div>

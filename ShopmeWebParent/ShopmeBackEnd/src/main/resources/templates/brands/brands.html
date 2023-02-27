@@ -13,7 +13,15 @@
 	<!-- content -->
 	<div class="container-fluid content-top-gap">
 
-
+		 <!-- breadcrumbs -->
+		 <nav aria-label="breadcrumb" class="mb-4">
+			<ol class="breadcrumb my-breadcrumb">
+				<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Brands</li>
+			</ol>
+		</nav>
+		<!-- //breadcrumbs -->
+	  
 
 	<div>
 		<h2>Manage Brands</h2>	
@@ -37,7 +45,9 @@
 			<tbody>
 				<tr th:each="brand : ${listBrands}">
 					<td>[[${brand.id}]]</td>
-					<td></td>
+					<td>
+						<img th:src="@{${brand.logoPath}}" style="width: 100px" class="img-fluid"/>
+					</td>
 					<td>[[${brand.name}]]</td>
 					<td>
 						<th:block th:each="cat : ${brand.categories}">
