@@ -55,7 +55,7 @@
             </ul>  
           </li>-->
           <!-- 
-            <a th:href="@{/brands}"></a>
+            
             <a th:href="@{/products}"></a>
             <a th:href="@{/customers}"></a>
             <a th:href="@{/shipping}"></a>
@@ -66,7 +66,7 @@
             <li sec:authorize="hasAuthority('Admin')"><a th:href="@{/users}"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <span>Users</span></a></li>
           <th:block sec:authorize="hasAnyAuthority('Admin', 'Editor')">
               <li sec:authorize="hasAnyAuthority('Admin', 'Editor')"><a th:href="@{/categories}"><i class="fi fi-rr-apps"></i><span>Categories</span></a></li>
-              <li sec:authorize="hasAnyAuthority('Admin', 'Editor')"><a href="#"><i class="fi fi-rr-star "></i><span>Brands</span></a></li>
+              <li sec:authorize="hasAnyAuthority('Admin', 'Editor')"><a th:href="@{/brands}"><i class="fi fi-rr-star "></i><span>Brands</span></a></li>
           </th:block>
           <th:block sec:authorize="hasAnyAuthority('Admin', 'Salesperson', 'Editor', 'Shipper')">
             <li sec:authorize="hasAnyAuthority('Admin', 'Editor')"><a th:href="@{/forms}"><i class="fi fi-rr-shopping-cart-add"></i> <span>Products</span></a></li>
@@ -144,7 +144,21 @@
           th:href="@{'/users/delete/' + ${user.id}}"
           th:userId="${user.id}"
           title="Delete this user"></a>
-    </div>  
+    </div>   
+    
+  
+      <div th:fragment="brand_actions" th:remove="tag">
+          <a class="fas fa-edit icon-green" th:href="@{'/brands/edit/' + ${brand.id}}"
+          title="Edit this brand"></a>
+          &nbsp; 
+          <a class="fas fa-trash icon-silver link-delete" 
+            th:href="@{'/brands/delete/' + ${brand.id}}"
+            th:brandId="${brand.id}"
+            title="Delete this brand"></a>
+    </div>
+
+
+
                                          
       <div class="modal fade text-center" id="confirmModal" th:fragment="modal_fragments">
         <div class="modal-dialog">
