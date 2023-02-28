@@ -69,7 +69,7 @@
               <li sec:authorize="hasAnyAuthority('Admin', 'Editor')"><a th:href="@{/brands}"><i class="fi fi-rr-star "></i><span>Brands</span></a></li>
           </th:block>
           <th:block sec:authorize="hasAnyAuthority('Admin', 'Salesperson', 'Editor', 'Shipper')">
-            <li sec:authorize="hasAnyAuthority('Admin', 'Editor')"><a th:href="@{/forms}"><i class="fi fi-rr-shopping-cart-add"></i> <span>Products</span></a></li>
+            <li sec:authorize="hasAnyAuthority('Admin', 'Editor')"><a th:href="@{/products}"><i class="fi fi-rr-shopping-cart-add"></i> <span>Products</span></a></li>
           </th:block>
           <th:block sec:authorize="hasAnyAuthority('Admin', 'Salesperson')">
             <li sec:authorize="hasAuthority('Admin')"><a href="#"><i class="fa fa-user"></i> <span>Customers</span></a></li>
@@ -146,7 +146,7 @@
           title="Delete this user"></a>
     </div>   
   
-      <div th:fragment="brand_actions" th:remove="tag">
+    <div th:fragment="brand_actions" th:remove="tag">
           <a class="fas fa-edit icon-green" th:href="@{'/brands/edit/' + ${brand.id}}"
           title="Edit this brand"></a>
           &nbsp; 
@@ -156,6 +156,17 @@
             title="Delete this brand"></a>
     </div>
 
+    <!-- th:href="@{'/brands/edit/' + ${brand.id}}"
+        th:href="@{'/brands/delete/' + ${brand.id}}"
+        th:brandId="${brand.id}" -->
+    <div th:fragment="product_actions" th:remove="tag">
+      <a class="fas fa-edit icon-green" 
+      title="Edit this brand"></a>
+      &nbsp; 
+      <a class="fas fa-trash icon-silver link-delete" 
+        
+        title="Delete this brand"></a>
+</div>
 
 
                                          
