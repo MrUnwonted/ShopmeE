@@ -69,7 +69,7 @@
               <li sec:authorize="hasAnyAuthority('Admin', 'Editor')"><a th:href="@{/brands}"><i class="fi fi-rr-star "></i><span>Brands</span></a></li>
           </th:block>
           <th:block sec:authorize="hasAnyAuthority('Admin', 'Salesperson', 'Editor', 'Shipper')">
-            <li sec:authorize="hasAnyAuthority('Admin', 'Editor')"><a th:href="@{/products}"><i class="fi fi-rr-shopping-cart-add"></i> <span>Products</span></a></li>
+            <li><a th:href="@{/products}"><i class="fi fi-rr-shopping-cart-add"></i> <span>Products</span></a></li>
           </th:block>
           <th:block sec:authorize="hasAnyAuthority('Admin', 'Salesperson')">
             <li sec:authorize="hasAuthority('Admin')"><a href="#"><i class="fa fa-user"></i> <span>Customers</span></a></li>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments :: page_head('ProductForm - Shopme Admin')" >
+  </head>
+
+<body class="sidebar-menu-collapsed">
+    <div class="se-pre-con"></div>
+
+    <section th:replace="fragments :: menu"></section>
+  
+  <div class="main-content">
+    <!-- content -->
+    <div class="container ">
+      
+      
+		 <!-- breadcrumbs -->
+		 <nav aria-label="breadcrumb" class="mb-4">
+			<ol class="breadcrumb my-breadcrumb">
+				<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+        <li class="breadcrumb-item"><a th:href="@{/products}">products</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Products Form</li>
+			</ol>
+		</nav>
+		<!-- //breadcrumbs -->
+
+
+      <div>
+        <h2>Manage Brands | [[${pageTitle}]]</h2>	
+      </div>
+          
+      <form th:action="@{/products/save}" method="post" style="max-width: 500px; margin: 0 auto"
+        enctype="multipart/form-data"
+        th:object="${products}">
+        <input type="hidden" th:field="*{id}" />
+      <div class="border border-secondary rounded p-3">
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">products Name:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" th:field="*{name}" required minlength="3" maxlength="45"  />
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">products Logo:</label>
+          <div class="col-sm-8">
+            <input type="hidden" th:field="*{logo}" />
+            <input type="file" id="fileImage" name="fileImage" accept="image/png, image/jpeg"
+              required
+              class="mb-2" />
+            
+            <div class="mt-2">
+              <img id="thumbnail" alt="Image preview" th:src="@{${products.logoPath}}"
+                class="img-fluid" />
+            </div>
+          </div>
+        </div>		
+        
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Select one or more categories:</label>
+          <div class="col-sm-8">
+            <select class="form-control" th:field="*{categories}" multiple required
+                style="resize: vertical; height: 200px">
+              <th:block th:each="cat : ${listCategories}">
+              <option th:value="${cat.id}">[[${cat.name}]]</option>
+              </th:block>
+              
+            </select>
+          </div>
+        </div>		
+        
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label">Chosen categories:</label>
+          <div class="col-sm-8">
+            <div id="chosenCategories">
+            </div>
+          </div>
+        </div>
+                
+        <div class="text-center">
+          <input type="submit" value="Save" class="btn btn-primary m-3" />
+          <input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel" />
+        </div>
+      </div>
+      </form>
+
+       
+    <div th:replace="fragments :: modal_fragment" > </div>   
+
+    <div th:fragment="modal_dialog" class="modal fade text-center" id="modalDialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modalTitle">Warning</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <div class="modal-body">
+            <span id="modalBody"></span>
+          </div>
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    </div>
+  </div>
+  <!-- <div th:replace="modal_fragments :: modal_dialog"></div> -->
+
+    <!--footer section start-->
+    <footer class="dashboard" th:replace="fragments :: footer"></footer>
+  <!--footer section end-->
+<script th:src="@{/assets/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/assets/js/jquery-1.10.2.min.js}"></script>
+
+<script th:src="@{/assets/js/jquery.nicescroll.js}"></script>
+<script th:src="@{/assets/js/scripts.js}"></script>
+
+<!-- close script -->
+<script>
+  var closebtns = document.getElementsByClassName("close-grid");
+  var i;
+
+  for (i = 0; i < closebtns.length; i++) {
+    closebtns[i].addEventListener("click", function () {
+      this.parentElement.style.display = 'none';
+    });
+  }
+</script>
+<!-- //close script -->
+
+<!-- disable body scroll when navbar is in active -->
+<script>
+  $(function () {
+    $('.sidebar-menu-collapsed').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!-- disable body scroll when navbar is in active -->
+
+ <!-- loading-gif Js -->
+ <script th:src="@{/assets/js/modernizr.js}"></script>
+ <script>
+     $(window).load(function () {
+         // Animate loader off screen
+         $(".se-pre-con").fadeOut("slow");;
+     });
+ </script>
+ <!--// loading-gif Js -->
+
+<!-- Bootstrap Core JavaScript -->
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+</script>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#buttonCancel").on("click", function() {
+			window.location = "[[@{/products}]]";
+		});
+		
+		$("#fileImage").change(function() {
+			fileSize = this.files[0].size;
+			
+			if (fileSize > 1048576) {
+				this.setCustomValidity("You must choose an image less than 1MB!");
+				this.reportValidity();
+			} else {
+				this.setCustomValidity("");
+				showImageThumbnail(this);				
+			}
+			
+		});
+	});
+	
+	function showImageThumbnail(fileInput) {
+		var file = fileInput.files[0];
+		var reader = new FileReader();
+		reader.onload = function(e) {
+			$("#thumbnail").attr("src", e.target.result);
+		};
+		
+		reader.readAsDataURL(file);
+	}	
+</script>
+<script type="text/javascript">
+	moduleURL = "[[@{/categories}]]";
+	
+	function checkUnique(form) {
+		productsId = $("#id").val();
+		productsName = $("#name").val();
+		
+		csrfValue = $("input[name='_csrf']").val();
+		
+		url = "[[@{/products/check_unique}]]";
+		
+		params = {id: brandId, name: brandName, _csrf: csrfValue};
+		
+		$.post(url, params, function(response) {
+			if (response == "OK") {
+				form.submit();
+			} else if (response == "Duplicate") {
+				showWarningModal("There is another brand having same name " + brandName);	
+			} else {
+				showErrorModal("Unknown response from server");
+			}
+			
+		}).fail(function() {
+			showErrorModal("Could not connect to the server");
+		});
+		
+		return false;
+	}	
+
+  function showModalDialog(title, message) {
+	$("#modalTitle").text(title);
+	$("#modalBody").text(message);
+	$("#modalDialog").modal();
+}
+
+function showErrorModal(message) {
+	showModalDialog("Error", message);
+}
+
+function showWarningModal(message) {
+	showModalDialog("Warning", message);
+}
+	
+</script>
+
+<!-- <script type="text/javascript">
+	moduleURL = "[[@{/brands}]]";
+	
+	$(document).ready(function() {
+		dropdownCategories = $("#categories");
+		divChosenCategories = $("#chosenCategories");
+		
+		dropdownCategories.change(function() {
+			divChosenCategories.empty();
+			showChosenCategories();
+		});
+	});
+	
+	function showChosenCategories() {
+		dropdownCategories.children("option:selected").each(function() {
+			selectedCategory = $(this);
+			catId = selectedCategory.val();
+			catName = selectedCategory.text().replace(/-/g, "");
+			
+			divChosenCategories.append("<span class='badge badge-success m-1'>" + catName + "</span>");
+		});
+		
+	}
+	
+</script> -->
+
+</body>
+
+</html>
