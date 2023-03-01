@@ -31,38 +31,42 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             [[${message}]]
         </div>
 
-        <div>
-          <table class="table table-bordered table-hover table-dark table-striped table-responsive-xl">
-            <thead>
+        <div class="full-details">
+          <table class="table table-bordered table-dark table-striped table-hover table-responsive-xl">
+            <thead class="thead-dark">
               <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Main Image</th>
-                <th scope="col">Product Name</th>
-                <th scope="col">Brand</th>
-                <th scope="col">Category</th>
-                <th scope="col">Enabled</th>
-                <th scope="col">Actions</th>
-              </tr>
+                <th>ID</th>
+                <th>Main Image</th>
+                <th>Product Name</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Enabled</th>
+                <th></th>
+              </tr>								
             </thead>
             <tbody>
-             <tr th:each="products : ${listProducts}">
-                <td>[[${products.id }]]</td>
-                <!-- <td>
-                 <span th:if="${products.photos == null}" class="fas fa-portrait fa-3x icon-silver"></span>
-                 <img th:if="${products.photos != null}" th:src="@{${products.photosImagePath}}"
-                   style="width: 100px" />
-                </td> -->
-                <td>[[${products.name }]]</td>
-                <td>[[${products.brand.name }]]</td>
-                <td>[[${products.category.name}]]</td>
-                <td>[[${products.enabled}]]</td>
-                <td >
-                  <!-- <div th:replace="fragments :: user_status" > </div> -->
+              <tr th:each="product : ${listProducts}">
+                <td>[[${product.id}]]</td>
+                <td>
+                  
+                </td>
+                <td>[[${product.name}]]</td>
+                <td>[[${product.brand.name}]]</td>
+                <td>[[${product.category.name}]]</td>
+                <td>
+                  <div th:replace="fragments :: status(${product.enabled}, 'product', '/products/' + ${product.id})"></div>
                 </td>
                 <td>
-                  <div th:replace="fragments :: product_actions" > </div>
-                </td>		
-             </tr>
+                  <a class="fas fa-file-alt icon-grey"
+                    th:href="@{'/products/detail/' + ${product.id}}"
+                    title="View details of this product"
+                    ></a>
+                  &nbsp; 	
+                  <div th:replace="fragments :: edit('product', '/products/edit/' + ${product.id})" > </div>
+                  &nbsp; 
+                  <div th:replace="fragments :: delete('product', ${product.id}, '/products/delete/' + ${product.id}, true)" >	</div>					
+                </td>					
+              </tr>
             </tbody>
           </table>
         </div>

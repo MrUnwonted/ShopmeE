@@ -58,11 +58,13 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                 <td>[[${user.lastName }]]</td>
                 <td>[[${user.roles }]]</td>
                 <td >
-                  <div th:replace="fragments :: user_status" > </div>
+                  <div th:replace="fragments :: status(${user.enabled}, 'user', '/users/' + ${user.id})"> </div>
                 </td>
                 <td>
-                  <div th:replace="fragments :: user_actions" > </div>
-                </td>		
+                  <div th:replace="fragments :: edit('user', '/users/edit/' + ${user.id})"> </div>
+                  &nbsp;&nbsp;
+                  <div th:replace="fragments :: delete('user', ${user.id}, '/users/delete/' + ${user.id}, true)"> </div>
+                </td>
              </tr>
             </tbody>
           </table>

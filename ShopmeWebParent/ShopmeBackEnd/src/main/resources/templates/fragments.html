@@ -107,66 +107,35 @@
     <!-- content -->
     <div class="container ">
       
-      <div th:fragment="category_status" th:remove="tag">
-        <a th:if="${cat.enabled == true}" class="fas fa-check-circle  icon-green" 
-          th:href="@{'/categories/' + ${cat.id} + '/enabled/false'}"
-          title="Disable this category"
-          ></a>
-          
-        <a th:if="${cat.enabled == false}" class="fas fa-circle  icon-silver" 
-          th:href="@{'/categories/' + ${cat.id} + '/enabled/true'}"
-          title="Enable this category"
-          ></a>	
+    
+      <!-- EDIT -->
+      <div th:fragment="edit(entityName, editURL)" th:remove="tag">
+        <a class="fas fa-edit  icon-aqua" th:href="@{${editURL}}"
+          th:title="'Edit this ' + ${entityName}"></a>
       </div>
-
-      
-      <div th:fragment="category_actions" th:remove="tag">
-        <a class="fas fa-edit  icon-green" th:href="@{'/categories/edit/' + ${cat.id}}"
-          title="Edit this category"></a>
-        &nbsp; 
-        <a class="fas fa-trash  icon-silver link-delete" 
-          th:href="@{'/categories/delete/' + ${cat.id}}"
-          th:catId="${cat.id}"
-          title="Delete this category"></a>	
+      <!-- DELETE -->
+      <div th:fragment="delete(entityName, entityId, deleteURL, visible)" th:remove="tag">
+        <th:block th:if="${visible}">		
+        <a class="fas fa-trash  icon-danger link-delete" 
+          th:href="@{${deleteURL}}"
+          th:entityId="${entityId}"
+          th:title="'Delete this ' + ${entityName}"></a>
+        </th:block>	
       </div>
+ 
+    <!-- STATUS -->
+    <div th:fragment="status(enabled, entityName, entityURL)" th:remove="tag">
+      <a th:if="${enabled == true}" class="fas fa-check-circle  icon-green" 
+        th:href="@{${entityURL} + '/enabled/false'}"
+        th:title="'Disable this ' + ${entityName}"
+        ></a>
+      <a th:if="${enabled == false}" class="fas fa-circle  icon-grey" 
+        th:href="@{${entityURL} + '/enabled/true'}"
+        th:title="'Enable this ' + ${entityName}"
+        ></a>	
+     </div>
 
-      <div th:fragment="user_status" th:remove="tag">
-        <a th:if="${user.enabled == true}" th:href="@{'/users/' + ${user.id} + '/enabled/false'}" 
-           class="fas fa-check-circle  icon-green" title="Disable"></a>
-        <a th:if="${user.enabled == false}" th:href="@{'/users/' + ${user.id} + '/enabled/true'}"
-           class="fas fa-check-circle  icon-grey" title="Enable"></a>
-    </div>
-    <div th:fragment="user_actions" th:remove="tag">
-        <a class="fas fa-edit icon-green" th:href="@{'/users/edit/' + ${user.id}}"
-          title="Edit this user"></a>
-        &nbsp; 
-        <a class="fas fa-trash icon-silver link-delete" 
-          th:href="@{'/users/delete/' + ${user.id}}"
-          th:userId="${user.id}"
-          title="Delete this user"></a>
-    </div>   
-  
-    <div th:fragment="brand_actions" th:remove="tag">
-          <a class="fas fa-edit icon-green" th:href="@{'/brands/edit/' + ${brand.id}}"
-          title="Edit this brand"></a>
-          &nbsp; 
-          <a class="fas fa-trash icon-silver link-delete" 
-            th:href="@{'/brands/delete/' + ${brand.id}}"
-            th:brandId="${brand.id}"
-            title="Delete this brand"></a>
-    </div>
-
-    <!-- th:href="@{'/brands/edit/' + ${brand.id}}"
-        th:href="@{'/brands/delete/' + ${brand.id}}"
-        th:brandId="${brand.id}" -->
-    <div th:fragment="product_actions" th:remove="tag">
-      <a class="fas fa-edit icon-green" 
-      title="Edit this brand"></a>
-      &nbsp; 
-      <a class="fas fa-trash icon-silver link-delete" 
-        
-        title="Delete this brand"></a>
-</div>
+   
 
 
                                          

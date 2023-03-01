@@ -57,9 +57,11 @@
 						<span class="badge badge-success" th:text="${cat.name}"></span>
 						</th:block>
 					</td>	
-					  <td>
-						<div th:replace="fragments :: brand_actions" > </div>
-					</td>					
+					<td>
+						<div th:replace="fragments :: edit('brand', '/brands/edit/' + ${brand.id})"> </div>
+						&nbsp;&nbsp;
+						<div th:replace="fragments :: delete('brand', ${brand.id}, '/brands/delete/' + ${brand.id}, true)"> </div>
+					  </td>					
 				</tr>
 			</tbody>
 		</table>

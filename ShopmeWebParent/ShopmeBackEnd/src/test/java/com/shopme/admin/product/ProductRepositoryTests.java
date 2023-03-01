@@ -74,4 +74,34 @@ public class ProductRepositoryTests {
         assertThat(saveProduct.getId()).isGreaterThan(0);
     }
 
+    @Test
+    public  void testAllProducts(){
+        Iterable<Product> iterableProducts = repo.findAll();
+
+        iterableProducts.forEach(System.out::println);
+    }
+
+    @Test
+    public void testGetProduct(){
+        Integer id = 2;
+        Product product = repo.findById(id).get();
+        System.out.println(product);
+
+        assertThat(product).isNotNull();
+    }
+
+    @Test
+    public void testUpdateProduct(){
+        Integer id = 1;
+        Product product = repo.findById(id).get();
+        product.setEnabled(true);
+
+        repo.save(product);
+
+        Product updatedProduct = entityManager.find(Product.class,id);
+
+        System.out.println(product);
+        assertThat(updatedProduct.getPrice()).isEqualTo(499);
+    }
+
 }
