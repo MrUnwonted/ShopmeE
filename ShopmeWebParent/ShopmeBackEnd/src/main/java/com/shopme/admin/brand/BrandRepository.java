@@ -12,7 +12,7 @@ public interface BrandRepository extends PagingAndSortingRepository<Brand, Integ
 
     public Brand findByName(String name);
 
-    @Query("SELECT NEW BRAND(b.id, b.name) FROM Brand b ORDER BY b.name ASC")
-    public List<Brand> findAll();
+//    @Query("SELECT NEW Brand(b.id, b.name) FROM Brand b ORDER BY b.name ASC")
+//    public List<Brand> findAll();
 
 }

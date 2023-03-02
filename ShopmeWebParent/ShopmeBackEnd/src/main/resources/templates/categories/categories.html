@@ -59,9 +59,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                   <div th:replace="fragments :: status(${cat.enabled}, 'cat', '/cats/' + ${cat.id})"></div>
                 </td>
                 <td>
-                  <div th:replace="fragments :: edit('cat', '/cats/edit/' + ${cat.id})"> </div>
+                  <div th:replace="fragments :: edit('cat', '/categories/edit/' + ${cat.id})"> </div>
                   &nbsp;&nbsp;
-                  <div th:replace="fragments :: delete('cat', ${cat.id}, '/cats/delete/' + ${cat.id}, true)"> </div>
+                  <div th:replace="fragments :: delete('cat', ${cat.id}, '/categories/delete/' + ${cat.id}, true)"> </div>
                 </td>				
               </tr>
             </tbody>
