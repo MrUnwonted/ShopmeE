@@ -53,6 +53,9 @@
 			  <li class=" nav-item">
 				<a class="nav-link" data-toggle="tab" href="#details" role="tab">Details</a>
 			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#shipping" role="tab">Shipping</a>
+			  </li>	
 			</ul>
 			
 			<div class="tab-content">
@@ -65,7 +68,7 @@
 				<div class="tab-pane" id="images" role="tabpanel">Images</div>
 				<div class="tab-pane" id="details" role="tabpanel">Details</div>
 				<div class="tab-pane p-3" id="shipping" role="tabpanel">
-					<!-- <div th:replace="products/product_shipping :: content"></div> -->
+					<div th:replace="products/productShipping :: content"></div>
 				</div>
 			  </div>	
 		</div>
@@ -80,7 +83,7 @@
 
 
   </div>
-  <!-- <div th:replace="modal_fragments :: modal_dialog"></div> -->
+  <div th:replace="modal_fragments :: modal_dialog"></div>
 
     <!--footer section start-->
     <footer class="dashboard" th:replace="fragments :: footer"></footer>
@@ -128,7 +131,6 @@
 <script th:src="@{/assets/js/bootstrap.min.js}"></script>
 </script>
 
-
 <script type="text/javascript">
 	moduleURL = "[[@{/products}]]";
 	brandModuleURL = "[[@{/brands}]]";
@@ -160,6 +162,32 @@
 			});			
 		});
 	}
+	
+	function checkUnique(form) {
+		productId = $("#id").val();
+		productName = $("#name").val();
+		
+		csrfValue = $("input[name='_csrf']").val();
+		
+		url = "[[@{/products/check_unique}]]";
+		
+		params = {id: productId, name: productName, _csrf: csrfValue};
+		
+		$.post(url, params, function(response) {
+			if (response == "OK") {
+				form.submit();
+			} else if (response == "Duplicate") {
+				showWarningModal("There is another product having the name " + productName);	
+			} else {
+				showErrorModal("Unknown response from server");
+			}
+			
+		}).fail(function() {
+			showErrorModal("Could not connect to the server");
+		});
+		
+		return false;
+	}	
 </script>
 
 </body>
