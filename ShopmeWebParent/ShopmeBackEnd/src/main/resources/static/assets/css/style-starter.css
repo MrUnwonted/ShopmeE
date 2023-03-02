@@ -13246,4 +13246,13 @@ img {
     font-size: 25px;
     line-height: 30px; } }
 
+
+    #navy{
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      align-items: center;
+      /* flex-wrap: wrap-reverse; */
+    }
+
 /*# sourceMappingURL=style-starter.css.map */

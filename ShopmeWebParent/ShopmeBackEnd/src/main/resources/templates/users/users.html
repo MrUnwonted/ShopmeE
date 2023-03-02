@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" 
 xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="fragments :: page_head('Users - Shopme Admin')" >
+<head th:replace="fragments :: page_head('Users - Shopme Admin', 'none')" />
  </head>
 
 <body class="sidebar-menu-collapsed">
@@ -33,7 +33,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
         <div>
           <table class="table table-bordered table-hover  table-striped table-responsive-xl">
-            <thead>
+            <thead class="thead-dark">
               <tr>
                 <th scope="col">User Id</th>
                 <th scope="col">Photos</th>
