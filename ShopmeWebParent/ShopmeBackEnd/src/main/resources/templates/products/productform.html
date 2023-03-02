@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<head th:replace="fragments :: page_head(${pageTitle}, 'tag')" />
-	<link rel="stylesheet" th:href="@{/assets/richtext/richtext.min.css}" />
-	<script th:src="@{/assets/richtext/jquery.richtext.min.js}"></script>
-</head>
+	<head>
+		<head th:replace="fragments :: page_head(${pageTitle}, 'tag')" />
+		<link rel="stylesheet" th:href="@{/richtext/richtext.min.css}" />
+		<script th:src="@{/richtext/jquery.richtext.min.js}"></script>
+	</head>
 
 <body class="sidebar-menu-collapsed">
     <div class="se-pre-con"></div>
@@ -18,7 +18,7 @@
       
 		 <!-- breadcrumbs -->
 		 <nav aria-label="breadcrumb" class="mb-4">
-			<ol class="breadcrumb my-breadcrumb" >
+			<ol class="breadcrumb my-breadcrumb">
 				<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
         <li class="breadcrumb-item"><a th:href="@{/products}">products</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Products Form</li>
@@ -30,53 +30,55 @@
       <div>
         <h2>Manage Products | [[${pageTitle}]]</h2>	
       </div>
-          
-	  
-	  <form th:action="@{/products/save}" method="post"
-	  th:object="${product}">
-	  <input type="hidden" th:field="*{id}" />
-  <div>
-	  <ul class="nav nav-tabs" id="myTab" role="tablist">
-		<li class="nav-item" id="navy" >
-		  <a class="nav-link active" data-toggle="tab" href="#overview" role="tab">Overview</a>
-		</li>
-		<li class="nav-item" id="navy">
-		  <a class="nav-link" data-toggle="tab" href="#description" role="tab">Description</a>
-		</li>
-		<li class="nav-item" id="navy">
-		  <a class="nav-link" data-toggle="tab" href="#images" role="tab">Images</a>
-		</li>
-		<li class="nav-item" id="navy">
-		  <a class="nav-link" data-toggle="tab" href="#details" role="tab">Details</a>
-		</li>
-		<li class="nav-item" id="navy">
-		  <a class="nav-link" data-toggle="tab" href="#shipping" role="tab">Shipping</a>
-		</li>		  
-	  </ul>
-	  
-	  <div class="tab-content">
-		<div class="tab-pane active p-3" id="overview" role="tabpanel">
-			<div th:replace="products/productOverview :: content"></div>
-		</div>
-		<div class="tab-pane" id="description" role="tabpanel">
-			<div th:replace="products/productDescription :: content"></div>
-		</div>
-		<div class="tab-pane" id="images" role="tabpanel">Images</div>
-		<div class="tab-pane" id="details" role="tabpanel">Details</div>
-		<div class="tab-pane p-3" id="shipping" role="tabpanel">
-			<!-- <div th:replace="products/product_shipping :: content"></div> -->
-		</div>
-	  </div>	
-  </div>
-  <div class="text-center">
-	  <input type="submit" value="Save" class="btn btn-primary m-3" />
-	  <input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel" />
-  </div>
-  </form>
-
-
-
+           
     </div>
+
+	
+	<div class="col-10">
+	<form
+	  th:action="@{/products/save}" method="post"
+		th:object="${product}"> 
+		<input type="hidden" th:field="*{id}" />
+		<div >
+			<ul class="nav nav-tabs " id="myTab" role="tablist"  >
+			  <li class=" nav-item">
+				<a class="nav-link active" data-toggle="tab" href="#overview" role="tab">Overview</a>
+			  </li>
+			  <li class=" nav-item">
+				<a class="nav-link" data-toggle="tab" href="#description" role="tab">Description</a>
+			  </li>
+			  <li class=" nav-item">
+				<a class="nav-link" data-toggle="tab" href="#images" role="tab">Images</a>
+			  </li>
+			  <li class=" nav-item">
+				<a class="nav-link" data-toggle="tab" href="#details" role="tab">Details</a>
+			  </li>
+			</ul>
+			
+			<div class="tab-content">
+				<div class="tab-pane active p-3" id="overview" role="tabpanel">
+					<div th:replace="products/productOverview :: content"></div>
+				</div>
+				<div class="tab-pane" id="description" role="tabpanel">
+					<div th:replace="products/productDescription :: content"></div>
+				</div>
+				<div class="tab-pane" id="images" role="tabpanel">Images</div>
+				<div class="tab-pane" id="details" role="tabpanel">Details</div>
+				<div class="tab-pane p-3" id="shipping" role="tabpanel">
+					<!-- <div th:replace="products/product_shipping :: content"></div> -->
+				</div>
+			  </div>	
+		</div>
+	<div class="text-center">
+		<input type="submit" value="Save" class="btn btn-primary m-3" />
+		<input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel" />
+	</div>
+	</form>
+</div>
+
+
+
+
   </div>
   <!-- <div th:replace="modal_fragments :: modal_dialog"></div> -->
 
@@ -135,10 +137,6 @@
 	dropdownCategories = $("#category");
 	
 	$(document).ready(function() {
-		
-		$("#shortDescription").richText();
-		$("#fullDescription").richText();
-		
 		dropdownBrands.change(function() {
 			dropdownCategories.empty();
 			getCategories();
