@@ -4,7 +4,8 @@
 		<head th:replace="fragments :: page_head(${pageTitle}, 'tag')" />
 		<link rel="stylesheet" th:href="@{/assets/richtext/richtext.min.css}" />
 		<script th:src="@{/assets/richtext/jquery.richtext.min.js}"></script>
-	</head>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		</head>
 
 <body class="sidebar-menu-collapsed">
     <div class="se-pre-con"></div>
@@ -35,9 +36,8 @@
 
 	
 	<div class="col-10">
-	<form
-	  th:action="@{/products/save}" method="post"
-		th:object="${product}"> 
+		<form th:action="@{/products/save}" method="post" onsubmit="return checkUnique(this)"
+		th:object="${product}">
 		<input type="hidden" th:field="*{id}" />
 		<div >
 			<ul class="nav nav-tabs " id="myTab" role="tablist"  >
@@ -53,6 +53,9 @@
 			  <li class=" nav-item">
 				<a class="nav-link" data-toggle="tab" href="#details" role="tab">Details</a>
 			  </li>
+			  <li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#shipping" role="tab">Shipping</a>
+			  </li>	
 			</ul>
 			
 			<div class="tab-content">
@@ -65,7 +68,7 @@
 				<div class="tab-pane" id="images" role="tabpanel">Images</div>
 				<div class="tab-pane" id="details" role="tabpanel">Details</div>
 				<div class="tab-pane p-3" id="shipping" role="tabpanel">
-					<!-- <div th:replace="products/product_shipping :: content"></div> -->
+					<div th:replace="products/productShipping :: content"></div>
 				</div>
 			  </div>	
 		</div>
@@ -78,9 +81,9 @@
 
 
 
-
   </div>
   <!-- <div th:replace="modal_fragments :: modal_dialog"></div> -->
+  <div th:replace="fragments :: modal_fragment" > </div>   
 
     <!--footer section start-->
     <footer class="dashboard" th:replace="fragments :: footer"></footer>
@@ -186,6 +189,27 @@
 		
 		return false;
 	}	
+
+	function showModalDialog(title, message) {
+	$("#modalTitle").text(title);
+	$("#modalBody").text(message);
+	$("#modalDialog").modal();
+	}
+
+	function showErrorModal(message) {
+		showModalDialog("Error", message);
+	}
+
+	function showWarningModal(message) {
+		showModalDialog("Warning", message);
+	}
+</script>
+<script>
+	$(document).ready(function(){
+			$("#buttonCancel").on("click",function(){
+				window.location = "[[@{/products}]]"
+			})
+		})
 </script>
 
 </body>
