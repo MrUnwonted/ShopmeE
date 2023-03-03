@@ -40,7 +40,7 @@ public class ProductController {
         model.addAttribute("listBrands", listBrands);
         model.addAttribute("pageTitle", "Create New Product");
 
-        return "products/productform";
+        return "products/product_form";
     }
 
     @PostMapping("/products/save")
@@ -58,6 +58,22 @@ public class ProductController {
         String status = enabled ? "enabled" : "disabled";
         String message = "The Product ID " + id + " has been " + status;
         redirectAttributes.addFlashAttribute("message", message);
+
+        return "redirect:/products";
+    }
+
+    @GetMapping("/products/delete/{id}")
+    public String deleteProduct(@PathVariable(name = "id") Integer id,
+                                Model model,
+                                RedirectAttributes redirectAttributes) {
+        try {
+            productService.delete(id);
+
+            redirectAttributes.addFlashAttribute("message",
+                    "The product ID " + id + " has been deleted successfully");
+        } catch (ProductNotFoundException ex) {
+            redirectAttributes.addFlashAttribute("message", ex.getMessage());
+        }
 
         return "redirect:/products";
     }
