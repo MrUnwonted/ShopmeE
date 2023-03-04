@@ -19,232 +19,232 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "products")
 public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	
+	@Column(unique = true, length = 256, nullable = false)
+	private String name;
+	
+	@Column(unique = true, length = 256, nullable = false)
+	private String alias;
+	
+	@Column(length = 512, nullable = false, name = "short_description")
+	private String shortDescription;
+	
+	@Column(length = 4096, nullable = false, name = "full_description")
+	private String fullDescription;
+	
+	@Column(name = "created_time")
+	private Date createdTime;
+	
+	@Column(name = "updated_time")
+	private Date updatedTime;
+	
+	private boolean enabled;
+	
+	@Column(name = "in_stock")
+	private boolean inStock;
+	
+	private float cost;
+	
+	private float price;
+	
+	@Column(name = "discount_percent")
+	private float discountPercent;
+	
+	private float length;
+	private float width;
+	private float height;
+	private float weight;
+	
+	@Column(name = "main_image", nullable = false)
+	private String mainImage;
+		
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private Category category;
 
-    @Column(unique = true, length = 256, nullable = false)
-    private String name;
+	@ManyToOne
+	@JoinColumn(name = "brand_id")	
+	private Brand brand;
+	
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+	private Set<ProductImage> images = new HashSet<>();
 
-    @Column(unique = true, length = 256, nullable = false)
-    private String alias;
+	public Integer getId() {
+		return id;
+	}
 
-    @Column(length = 512, nullable = false, name = "short_description")
-    private String shortDescription;
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    @Column(length = 4096, nullable = false, name = "full_description")
-    private String fullDescription;
+	public String getName() {
+		return name;
+	}
 
-    @Column(name = "created_time")
-    private Date createdTime;
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    @Column(name = "updated_time")
-    private Date updatedTime;
+	public String getAlias() {
+		return alias;
+	}
 
-    private boolean enabled;
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
 
-    @Column(name = "in_stock")
-    private boolean inStock;
+	public String getShortDescription() {
+		return shortDescription;
+	}
 
-    private float cost;
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
+	}
 
-    private float price;
+	public String getFullDescription() {
+		return fullDescription;
+	}
 
-    @Column(name = "discount_percent")
-    private float discountPercent;
+	public void setFullDescription(String fullDescription) {
+		this.fullDescription = fullDescription;
+	}
 
-    private float length;
-    private float width;
-    private float height;
-    private float weight;
+	public Date getCreatedTime() {
+		return createdTime;
+	}
 
-    @Column(name = "main_image", nullable = false)
-    private String mainImage;
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+	public Date getUpdatedTime() {
+		return updatedTime;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "brand_id")
-    private Brand brand;
+	public void setUpdatedTime(Date updatedTime) {
+		this.updatedTime = updatedTime;
+	}
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private Set<ProductImage> images = new HashSet<>();
+	public boolean isEnabled() {
+		return enabled;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public boolean isInStock() {
+		return inStock;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setInStock(boolean inStock) {
+		this.inStock = inStock;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public float getCost() {
+		return cost;
+	}
 
-    public String getAlias() {
-        return alias;
-    }
+	public void setCost(float cost) {
+		this.cost = cost;
+	}
 
-    public void setAlias(String alias) {
-        this.alias = alias;
-    }
+	public float getPrice() {
+		return price;
+	}
 
-    public String getShortDescription() {
-        return shortDescription;
-    }
+	public void setPrice(float price) {
+		this.price = price;
+	}
 
-    public void setShortDescription(String shortDescription) {
-        this.shortDescription = shortDescription;
-    }
+	public float getDiscountPercent() {
+		return discountPercent;
+	}
 
-    public String getFullDescription() {
-        return fullDescription;
-    }
+	public void setDiscountPercent(float discountPercent) {
+		this.discountPercent = discountPercent;
+	}
 
-    public void setFullDescription(String fullDescription) {
-        this.fullDescription = fullDescription;
-    }
+	public float getLength() {
+		return length;
+	}
 
-    public Date getCreatedTime() {
-        return createdTime;
-    }
+	public void setLength(float length) {
+		this.length = length;
+	}
 
-    public void setCreatedTime(Date createdTime) {
-        this.createdTime = createdTime;
-    }
+	public float getWidth() {
+		return width;
+	}
 
-    public Date getUpdatedTime() {
-        return updatedTime;
-    }
+	public void setWidth(float width) {
+		this.width = width;
+	}
 
-    public void setUpdatedTime(Date updatedTime) {
-        this.updatedTime = updatedTime;
-    }
+	public float getHeight() {
+		return height;
+	}
 
-    public boolean isEnabled() {
-        return enabled;
-    }
+	public void setHeight(float height) {
+		this.height = height;
+	}
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+	public float getWeight() {
+		return weight;
+	}
 
-    public boolean isInStock() {
-        return inStock;
-    }
+	public void setWeight(float weight) {
+		this.weight = weight;
+	}
 
-    public void setInStock(boolean inStock) {
-        this.inStock = inStock;
-    }
+	public Category getCategory() {
+		return category;
+	}
 
-    public float getCost() {
-        return cost;
-    }
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
-    public void setCost(float cost) {
-        this.cost = cost;
-    }
+	public Brand getBrand() {
+		return brand;
+	}
 
-    public float getPrice() {
-        return price;
-    }
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + "]";
+	}
 
-    public float getDiscountPercent() {
-        return discountPercent;
-    }
+	public String getMainImage() {
+		return mainImage;
+	}
 
-    public void setDiscountPercent(float discountPercent) {
-        this.discountPercent = discountPercent;
-    }
+	public void setMainImage(String mainImage) {
+		this.mainImage = mainImage;
+	}
 
-    public float getLength() {
-        return length;
-    }
+	public Set<ProductImage> getImages() {
+		return images;
+	}
 
-    public void setLength(float length) {
-        this.length = length;
-    }
-
-    public float getWidth() {
-        return width;
-    }
-
-    public void setWidth(float width) {
-        this.width = width;
-    }
-
-    public float getHeight() {
-        return height;
-    }
-
-    public void setHeight(float height) {
-        this.height = height;
-    }
-
-    public float getWeight() {
-        return weight;
-    }
-
-    public void setWeight(float weight) {
-        this.weight = weight;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public Brand getBrand() {
-        return brand;
-    }
-
-    public void setBrand(Brand brand) {
-        this.brand = brand;
-    }
-
-    @Override
-    public String toString() {
-        return "Product [id=" + id + ", name=" + name + "]";
-    }
-
-    public String getMainImage() {
-        return mainImage;
-    }
-
-    public void setMainImage(String mainImage) {
-        this.mainImage = mainImage;
-    }
-
-    public Set<ProductImage> getImages() {
-        return images;
-    }
-
-    public void setImages(Set<ProductImage> images) {
-        this.images = images;
-    }
-
-    public void addExtraImage(String imageName) {
-        this.images.add(new ProductImage(imageName, this));
-    }
-
-    @Transient
-    public String getMainImagePath() {
-        if (id == null || mainImage == null) return "/assets/images/image-thumbnail.png";
-
-        return "/product-images/" + this.id + "/" + this.mainImage;
-    }
+	public void setImages(Set<ProductImage> images) {
+		this.images = images;
+	}
+	
+	public void addExtraImage(String imageName) {
+		this.images.add(new ProductImage(imageName, this));
+	}
+	
+	@Transient
+	public String getMainImagePath() {
+		if (id == null || mainImage == null) return "/assets/images/image-thumbnail.png";
+		
+		return "/product-images/" + this.id + "/" + this.mainImage;
+	}
 }

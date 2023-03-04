@@ -46,9 +46,8 @@ public class CategoryController {
 	
 	@GetMapping("/categories/new")
 	public String newCategory(Model model) {
-//		Category category = new Category();
 		List<Category> listCategories = service.listCategoriesUsedInForm();
-//		category.setEnabled(true);
+		
 		model.addAttribute("category", new Category());
 		model.addAttribute("listCategories", listCategories);
 		model.addAttribute("pageTitle", "Create New Category");
@@ -59,60 +58,56 @@ public class CategoryController {
 	@PostMapping("/categories/save")
 	public String saveCategory(Category category, 
 			@RequestParam("fileImage") MultipartFile multipartFile,
-			RedirectAttributes ra) throws IOException  {
-		
-		
+			RedirectAttributes ra) throws IOException {
 		if (!multipartFile.isEmpty()) {
 			String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 			category.setImage(fileName);
+
 			Category savedCategory = service.save(category);
-			
 			String uploadDir = "../category-images/" + savedCategory.getId();
 			
 			FileUploadUtil.cleanDir(uploadDir);
 			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-			
 		} else {
-			if (category.getImage().isEmpty()) category.setImage(null);
-			
+			service.save(category);
 		}
-//		service.save(category);
 		
 		ra.addFlashAttribute("message", "The category has been saved successfully.");
-		
 		return "redirect:/categories";
 	}
-//	
+	
+
 	@GetMapping("/categories/edit/{id}")
 	public String editCategory(@PathVariable(name = "id") Integer id, Model model,
-							   RedirectAttributes ra) {
+			RedirectAttributes ra) {
 		try {
 			Category category = service.get(id);
 			List<Category> listCategories = service.listCategoriesUsedInForm();
-
+			
 			model.addAttribute("category", category);
 			model.addAttribute("listCategories", listCategories);
 			model.addAttribute("pageTitle", "Edit Category (ID: " + id + ")");
-
-			return "categories/categoryform";
+			
+			return "categories/categoryform";			
 		} catch (CategoryNotFoundException ex) {
 			ra.addFlashAttribute("message", ex.getMessage());
 			return "redirect:/categories";
 		}
 	}
-//	
-//	
+	
+	
 	@GetMapping("/categories/delete/{id}")
 	public String deleteCategory(@PathVariable(name = "id") Integer id, 
 			Model model,
 			RedirectAttributes redirectAttributes) {
 		try {
 			service.delete(id);
-//			String categoryPhotosDir = "category-photos/" + id;
+			String categoryDir = "../category-images/" + id;
+			FileUploadUtil.removeDir(categoryDir);
 			
 			redirectAttributes.addFlashAttribute("message", 
 					"The category ID " + id + " has been deleted successfully");
-		} catch (Exception ex) {
+		} catch (CategoryNotFoundException ex) {
 			redirectAttributes.addFlashAttribute("message", ex.getMessage());
 		}
 		

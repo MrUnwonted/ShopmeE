@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" 
-xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="fragments :: page_head('Users - Shopme Admin', 'none')" />
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: page_head('Users - Shopme Admin', 'none')">
  </head>
 
 <body class="sidebar-menu-collapsed">
@@ -31,8 +30,8 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
             [[${message}]]
         </div>
 
-        <div>
-          <table class="table table-bordered table-hover  table-striped table-responsive-xl">
+        <div class="full-details">
+          <table class="table table-bordered table-striped table-hover table-responsive-xl">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">User Id</th>
