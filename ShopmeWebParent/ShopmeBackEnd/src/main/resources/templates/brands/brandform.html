@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head th:replace="fragments :: page_head(${pageTitle}, 'none')" />
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
 <body class="sidebar-menu-collapsed">
@@ -30,8 +29,8 @@
       </div>
           
       <form th:action="@{/brands/save}" method="post" style="max-width: 500px; margin: 0 auto"
-        enctype="multipart/form-data"
-        th:object="${brand}">
+      enctype="multipart/form-data" onsubmit="return checkUnique(this)"
+      th:object="${brand}">
         <input type="hidden" th:field="*{id}" />
       <div class="border border-secondary rounded p-3">
         <div class="form-group row">
@@ -85,7 +84,7 @@
       </form>
 
        
-    <div th:replace="fragments :: modal_fragment" > </div>   
+    <div th:replace="modal_fragments :: modal_dialog"></div>
 
     <div th:fragment="modal_dialog" class="modal fade text-center" id="modalDialog">
       <div class="modal-dialog">
@@ -155,41 +154,35 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script th:src="@{/assets/js/bootstrap.min.js}"></script>
-</script>
+
+<script th:src="@{/assets/js/common_form.js}"></script>
 
 
 <script type="text/javascript">
+	MAX_FILE_SIZE = 102400; // 100KB
+	moduleURL = "[[@{/brands}]]";
+	
 	$(document).ready(function() {
-		$("#buttonCancel").on("click", function() {
-			window.location = "[[@{/brands}]]";
+		dropdownCategories = $("#categories");
+		divChosenCategories = $("#chosenCategories");
+		
+		dropdownCategories.change(function() {
+			divChosenCategories.empty();
+			showChosenCategories();
 		});
 		
-		$("#fileImage").change(function() {
-			fileSize = this.files[0].size;
-			
-			if (fileSize > 1048576) {
-				this.setCustomValidity("You must choose an image less than 1MB!");
-				this.reportValidity();
-			} else {
-				this.setCustomValidity("");
-				showImageThumbnail(this);				
-			}
-			
-		});
+		showChosenCategories();
 	});
 	
-	function showImageThumbnail(fileInput) {
-		var file = fileInput.files[0];
-		var reader = new FileReader();
-		reader.onload = function(e) {
-			$("#thumbnail").attr("src", e.target.result);
-		};
-		
-		reader.readAsDataURL(file);
-	}	
-</script>
-<script type="text/javascript">
-	moduleURL = "[[@{/categories}]]";
+	function showChosenCategories() {
+		dropdownCategories.children("option:selected").each(function() {
+			selectedCategory = $(this);
+			catId = selectedCategory.val();
+			catName = selectedCategory.text().replace(/-/g, "");
+			
+			divChosenCategories.append("<span class='badge badge-success m-1'>" + catName + "</span>");
+		});
+	}
 	
 	function checkUnique(form) {
 		brandId = $("#id").val();
@@ -216,48 +209,9 @@
 		
 		return false;
 	}	
-
-  function showModalDialog(title, message) {
-	$("#modalTitle").text(title);
-	$("#modalBody").text(message);
-	$("#modalDialog").modal();
-}
-
-function showErrorModal(message) {
-	showModalDialog("Error", message);
-}
-
-function showWarningModal(message) {
-	showModalDialog("Warning", message);
-}
 	
 </script>
 
-<script type="text/javascript">
-	moduleURL = "[[@{/brands}]]";
-	
-	$(document).ready(function() {
-		dropdownCategories = $("#categories");
-		divChosenCategories = $("#chosenCategories");
-		
-		dropdownCategories.change(function() {
-			divChosenCategories.empty();
-			showChosenCategories();
-		});
-	});
-	
-	function showChosenCategories() {
-		dropdownCategories.children("option:selected").each(function() {
-			selectedCategory = $(this);
-			catId = selectedCategory.val();
-			catName = selectedCategory.text().replace(/-/g, "");
-			
-			divChosenCategories.append("<span class='badge badge-success m-1'>" + catName + "</span>");
-		});
-		
-	}
-	
-</script>
 
 </body>
 
