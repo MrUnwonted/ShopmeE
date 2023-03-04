@@ -54,7 +54,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
                   <img th:src="@{${cat.imagePath}}" style="width: 100px" class="img-fluid"/>
                 </td>
                 <td>[[${cat.name}]]</td>
-                <td>[[${cat.alias}]]</td>
+                <td class="hideable-column">[[${cat.alias}]]</td>
                 <td>
                   <div th:replace="fragments :: status(${cat.enabled}, 'cat', '/categories/' + ${cat.id})"></div>
                 </td>
@@ -68,7 +68,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
           </table>
         </div>
                                          
-        <div th:replace="fragments :: modal_fragments" > </div>   
+        <div th:replace="modal_fragments :: confirm_modal" > </div>   
 
     
     </div>
@@ -148,27 +148,15 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
   <!-- Bootstrap Core JavaScript -->
   <script src="assets/js/bootstrap.min.js"></script>
   <script th:src="@{/assets/js/common_list.js}"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $(".link-delete").on("click", function(e) {
-        e.preventDefault();
-        link = $(this);
-        //alert($(this).attr("href"));
-        userId = link.attr("userId");
-        $("#yesButton").attr("href", link.attr("href"));
-        $("#confirmText").text("Are you sure you want to delete this user ID " + userId + "?");
-        $("#confirmModal").modal();
-      });
-    });
-  </script>
-
 <script type="text/javascript">
-  $(document).ready(function() {
-	$("#logoutLink").on("click", function(e) {
-		e.preventDefault();
-		document.logoutForm.submit();
+	moduleURL = "[[@{/categories}]]";
+
+	$(document).ready(function() {
+		$(".link-delete").on("click", function(e) {
+			e.preventDefault();
+			showDeleteConfirmModal($(this), 'category');
+		});
 	});
-});
 </script>
 
 </body>
