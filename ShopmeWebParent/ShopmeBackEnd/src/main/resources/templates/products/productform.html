@@ -2,10 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<head th:replace="fragments :: page_head(${pageTitle}, 'tag')" />
-		<link rel="stylesheet" th:href="@{/assets/richtext/richtext.min.css}" />
-		<script th:src="@{/assets/richtext/jquery.richtext.min.js}"></script>
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		</head>
+		<link rel="stylesheet" th:href="@{/richtext/richtext.min.css}" />
+		<script th:src="@{/richtext/jquery.richtext.min.js}"></script>
+	</head>
 
 <body class="sidebar-menu-collapsed">
     <div class="se-pre-con"></div>
@@ -86,8 +85,8 @@
 
 
   </div>
-  <!-- <div th:replace="modal_fragments :: modal_dialog"></div> -->
-  <div th:replace="fragments :: modal_fragment" > </div>   
+  <div th:replace="modal_fragments :: modal_dialog"></div>
+   
 
     <!--footer section start-->
     <footer class="dashboard" th:replace="fragments :: footer"></footer>
@@ -133,10 +132,12 @@
 
 <!-- Bootstrap Core JavaScript -->
 <script th:src="@{/assets/js/bootstrap.min.js}"></script>
-</script>
+
 
 
 <script type="text/javascript">
+	MAX_FILE_SIZE = 502400; // 500KB
+	
 	moduleURL = "[[@{/products}]]";
 	brandModuleURL = "[[@{/brands}]]";
 	
@@ -144,10 +145,10 @@
 	dropdownCategories = $("#category");
 	
 	$(document).ready(function() {
-
+		
 		// $("#shortDescription").richText();
 		// $("#fullDescription").richText();
-
+		
 		dropdownBrands.change(function() {
 			dropdownCategories.empty();
 			getCategories();
@@ -156,15 +157,6 @@
 		getCategories();
 	});
 	
-	function showImageThumbnail(fileInput) {
-		var file = fileInput.files[0];
-		var reader = new FileReader();
-		reader.onload = function(e) {
-			$("#thumbnail").attr("src", e.target.result);
-		};
-		
-		reader.readAsDataURL(file);
-	}
 	
 	function getCategories() {
 		brandId = dropdownBrands.val(); 
@@ -176,7 +168,7 @@
 			});			
 		});
 	}
-
+	
 	function checkUnique(form) {
 		productId = $("#id").val();
 		productName = $("#name").val();
@@ -202,28 +194,9 @@
 		
 		return false;
 	}	
-
-	function showModalDialog(title, message) {
-	$("#modalTitle").text(title);
-	$("#modalBody").text(message);
-	$("#modalDialog").modal();
-	}
-
-	function showErrorModal(message) {
-		showModalDialog("Error", message);
-	}
-
-	function showWarningModal(message) {
-		showModalDialog("Warning", message);
-	}
 </script>
-<script>
-	$(document).ready(function(){
-			$("#buttonCancel").on("click",function(){
-				window.location = "[[@{/products}]]"
-			})
-		})
-</script>
+
+<script th:src="@{/assets/js/common_form.js}"></script>
 
 </body>
 
