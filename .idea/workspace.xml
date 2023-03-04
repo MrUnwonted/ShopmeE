@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d09b8fff-5ffd-4dfc-97bc-5c0dfa4a59cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeCommon/src/main/java/com/shopme/common/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeCommon/src/main/java/com/shopme/common/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/MvcConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/product/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/product/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/product/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/product/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productform.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/test/java/com/shopme/admin/product/ProductRepositoryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/test/java/com/shopme/admin/product/ProductRepositoryTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Shopme/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Shopme/ShopmeWebParent/ShopmeFrontEnd&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -71,7 +73,7 @@
       <recent name="D:\Shopme\ShopmeWebParent\ShopmeBackEnd\src\main\resources\templates\brands" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ShopmeBackEndApplication">
+  <component name="RunManager" selected="Application.ShopmeFrontEndApplication">
     <configuration name="ShopmeBackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.shopme.admin.ShopmeBackEndApplication" />
       <module name="ShopmeBackEnd" />
@@ -79,6 +81,25 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.shopme.admin.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShopmeFrontEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.shopme.site.ShopmeFrontEndApplication" />
+      <module name="ShopmeFrontEnd" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shopme.site.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -107,7 +128,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductRepositoryTests.testAllProducts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductRepositoryTests.testSaveProductWithImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ShopmeBackEnd" />
       <extension name="coverage">
         <pattern>
@@ -117,13 +138,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.shopme.admin.product" />
       <option name="MAIN_CLASS_NAME" value="com.shopme.admin.product.ProductRepositoryTests" />
-      <option name="METHOD_NAME" value="testAllProducts" />
+      <option name="METHOD_NAME" value="testSaveProductWithImage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductRepositoryTests.testGetProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProductRepositoryTests.testSaveProductWithImages" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ShopmeBackEnd" />
       <extension name="coverage">
         <pattern>
@@ -133,42 +154,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.shopme.admin.product" />
       <option name="MAIN_CLASS_NAME" value="com.shopme.admin.product.ProductRepositoryTests" />
-      <option name="METHOD_NAME" value="testGetProduct" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductRepositoryTests.testUpdateProduct" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ShopmeBackEnd" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.shopme.admin.product.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.shopme.admin.product" />
-      <option name="MAIN_CLASS_NAME" value="com.shopme.admin.product.ProductRepositoryTests" />
-      <option name="METHOD_NAME" value="testUpdateProduct" />
+      <option name="METHOD_NAME" value="testSaveProductWithImages" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.ShopmeFrontEndApplication" />
       <item itemvalue="Application.ShopmeBackEndApplication" />
+      <item itemvalue="JUnit.ProductRepositoryTests.testSaveProductWithImage" />
+      <item itemvalue="JUnit.ProductRepositoryTests.testSaveProductWithImages" />
       <item itemvalue="JUnit.BrandRepositoryTest.testFindAll" />
-      <item itemvalue="JUnit.ProductRepositoryTests.testAllProducts" />
-      <item itemvalue="JUnit.ProductRepositoryTests.testGetProduct" />
-      <item itemvalue="JUnit.ProductRepositoryTests.testUpdateProduct" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ShopmeFrontEndApplication" />
         <item itemvalue="Application.ShopmeBackEndApplication" />
+        <item itemvalue="JUnit.ProductRepositoryTests.testSaveProductWithImages" />
+        <item itemvalue="JUnit.ProductRepositoryTests.testSaveProductWithImage" />
         <item itemvalue="JUnit.BrandRepositoryTest.testFindAll" />
-        <item itemvalue="JUnit.ProductRepositoryTests.testUpdateProduct" />
-        <item itemvalue="JUnit.ProductRepositoryTests.testGetProduct" />
-        <item itemvalue="JUnit.ProductRepositoryTests.testAllProducts" />
       </list>
     </recent_temporary>
   </component>

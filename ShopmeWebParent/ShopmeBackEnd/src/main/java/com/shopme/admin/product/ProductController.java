@@ -40,7 +40,7 @@ public class ProductController {
         model.addAttribute("listBrands", listBrands);
         model.addAttribute("pageTitle", "Create New Product");
 
-        return "products/product_form";
+        return "products/productform";
     }
 
     @PostMapping("/products/save")
