@@ -6,7 +6,7 @@ Author URL: http://w3layouts.com
 <html lang="en" xmlns:th="http://www.thymeleaf.org" 
 xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
-<head th:replace="fragments :: page_head('Home - Shopme Admin', 'none')" /> </head> 
+<head th:replace="fragments :: page_head('Home - Shopme Admin', 'none')" > </head> 
 
 <body class="sidebar-menu-collapsed">
   <div class="se-pre-con"></div>
@@ -157,7 +157,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
       </ol>
     </nav>
     <div class="welcome-msg pt-3 pb-4">
-      <h1>Hi <span class="text-primary" ></span>, Welcome back</h1>
+      <h1>Hi <span class="text-primary" sec:authentication="principal.fullname"></span>, Welcome back</h1>
       <p>Very detailed & featured  <span class="text-primary" >.</p>
     </div>
 

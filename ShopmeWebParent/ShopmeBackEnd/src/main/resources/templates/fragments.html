@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
   <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}" ></script>
+  <script type="text/javascript" th:src="@{/assets/js/common.js}" ></script>
 </head>
 <body class="sidebar-menu-collapsed">
     <!-- <div class="se-pre-con"></div> -->
@@ -137,7 +138,7 @@
 
 
                                          
-      <div class="modal fade text-center" id="confirmModal" th:fragment="modal_fragments">
+      <!-- <div class="modal fade text-center" id="confirmModal" th:fragment="modal_fragments">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -174,7 +175,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     
     </div>
   </div>
@@ -186,74 +187,8 @@
         class="text-primary">Arjun</a></p>
   </footer>
   <!--footer section end-->
- <!-- move top -->
-<button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
-  <span class="fa fa-angle-up"></span>
-</button>
-<script>
-  // When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function () {
-    scrollFunction()
-  };
+ 
 
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("movetop").style.display = "block";
-    } else {
-      document.getElementById("movetop").style.display = "none";
-    }
-  }
-
-  // When the user clicks on the button, scroll to the top of the document
-  function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
-</script>
-<!-- /move top -->
-
-
-<script th:src="@{/assets/js/jquery-3.3.1.min.js}"></script>
-<script th:src="@{/assets/js/jquery-1.10.2.min.js}"></script>
-
-<script th:src="@{/assets/js/jquery.nicescroll.js}"></script>
-<script th:src="@{/assets/js/scripts.js}"></script>
-
-<!-- close script -->
-<script>
-  var closebtns = document.getElementsByClassName("close-grid");
-  var i;
-
-  for (i = 0; i < closebtns.length; i++) {
-    closebtns[i].addEventListener("click", function () {
-      this.parentElement.style.display = 'none';
-    });
-  }
-</script>
-<!-- //close script -->
-
-<!-- disable body scroll when navbar is in active -->
-<script>
-  $(function () {
-    $('.sidebar-menu-collapsed').click(function () {
-      $('body').toggleClass('noscroll');
-    })
-  });
-</script>
-<!-- disable body scroll when navbar is in active -->
-
- <!-- loading-gif Js -->
- <script th:src="@{/assets/js/modernizr.js}"></script>
- <script>
-     $(window).load(function () {
-         // Animate loader off screen
-         $(".se-pre-con").fadeOut("slow");;
-     });
- </script>
- <!--// loading-gif Js -->
-
-<!-- Bootstrap Core JavaScript -->
-<script th:src="@{/assets/js/bootstrap.min.js}"></script>
 
 
 </body>

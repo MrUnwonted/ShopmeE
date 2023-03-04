@@ -107,7 +107,8 @@
     </div -->        
 
 
-    <div th:replace="fragments :: modal_fragments" > </div>                                         
+     <!-- <div th:replace="fragments :: modal_fragments" > </div>        -->
+     <div th:replace="modal_fragments :: confirm_modal" />                                   
        
     
     </div>
@@ -185,30 +186,21 @@
    <!--// loading-gif Js -->
   
   <!-- Bootstrap Core JavaScript -->
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script th:src="@{/assets/js/common_list.js}"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $(".link-delete").on("click", function(e) {
-        e.preventDefault();
-        link = $(this);
-        //alert($(this).attr("href"));
-        userId = link.attr("userId");
-        $("#yesButton").attr("href", link.attr("href"));
-        $("#confirmText").text("Are you sure you want to delete this user ID " + userId + "?");
-        $("#confirmModal").modal();
-      });
-    });
-  </script>
+   <script src="assets/js/bootstrap.min.js"></script>
 
+<script th:src="@{/assets/js/common_list.js}"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-	$("#logoutLink").on("click", function(e) {
-		e.preventDefault();
-		document.logoutForm.submit();
+	moduleURL = "[[@{/users}]]";
+
+	$(document).ready(function() {
+		$(".link-delete").on("click", function(e) {
+			e.preventDefault();
+			showDeleteConfirmModal($(this), 'user');
+		});
 	});
-});
 </script>
+
+
 
 </body>
 </html>
