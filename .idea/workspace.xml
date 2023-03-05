@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d09b8fff-5ffd-4dfc-97bc-5c0dfa4a59cc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ShopmeCommon/src/main/java/com/shopme/common/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeCommon/src/main/java/com/shopme/common/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/fragments.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/users/userform.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/users/userform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/users/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/users/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/product/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/common_form.js" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/common_form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productImages.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productImages.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productform.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productform.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
