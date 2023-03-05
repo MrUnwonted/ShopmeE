@@ -35,12 +35,13 @@
 
 	
 	<div class="col-10">
+		
+		
 		<form th:action="@{/products/save}" method="post" onsubmit="return checkUnique(this)"
 		enctype="multipart/form-data"
 		th:object="${product}">
 		<input type="hidden" th:field="*{id}" />
 	<div>
-		<!-- important -->
 		<ul class="nav nav-tabs" id="myTab" role="tablist">
 		  <li class="nav-item">
 		    <a class="nav-link active" data-toggle="tab" href="#overview" role="tab">Overview</a>
@@ -68,9 +69,14 @@
 		  </div>
 		  <div class="tab-pane" id="images" role="tabpanel">
 		  	<div th:replace="products/productImages :: content"></div>
-			  <!-- <div id="myresult" class="img-zoom-result"></div> -->
 		  </div>
-		  <div class="tab-pane" id="details" role="tabpanel">Details</div>
+		  <div class="tab-pane p-3" id="details" role="tabpanel">
+		  	<div th:replace="products/productDetails :: content"></div>
+		  	<div>
+		  		<input type="button" class="btn btn-primary" value="Add More Detail"
+		  			onclick="addNextDetailSection()" />
+		  	</div>	
+		  </div>
 		  <div class="tab-pane p-3" id="shipping" role="tabpanel">
 		  	<div th:replace="products/productShipping :: content"></div>
 		  </div>
@@ -146,7 +152,9 @@
 	
 </script>
 <script th:src="@{/assets/js/common_form.js}"></script>
-<script th:src="@{/assets/js/product_form.js}"></script>
+<script th:src="@{/assets/js/product_form_overview.js}"></script>
+<script th:src="@{/assets/js/product_form_images.js}"></script>
+<script th:src="@{/assets/js/product_form_details.js}"></script>
 
 </body>
 
