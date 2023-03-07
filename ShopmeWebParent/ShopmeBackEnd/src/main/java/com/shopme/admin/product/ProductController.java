@@ -35,15 +35,15 @@ public class ProductController {
 
 	@GetMapping("/products/new")
 	public String newProduct(Model model) {
-		List<Brand> listBrands = brandService.listAll();
-
-		Product product = new Product();
-		product.setEnabled(true);
-		product.setInStock(true);
-
-		model.addAttribute("product", product);
-		model.addAttribute("listBrands", listBrands);
-		model.addAttribute("pageTitle", "Create New Product");
+//		List<Brand> listBrands = brandService.listAll();
+//
+//		Product product = new Product();
+//		product.setEnabled(true);
+//		product.setInStock(true);
+//
+//		model.addAttribute("product", product);
+//		model.addAttribute("listBrands", listBrands);
+//		model.addAttribute("pageTitle", "Create New Product");
 
 		return "products/productform";
 	}
@@ -153,5 +153,28 @@ public class ProductController {
 		}
 
 		return "redirect:/products";
+	}
+
+	@GetMapping("/products/edit/{id}")
+	public String editProduct(@PathVariable("id") Integer id, Model model,
+							  RedirectAttributes ra) {
+		try {
+			Product product = productService.get(id);
+			List<Brand> listBrands = brandService.listAll();
+			Integer numberOfExistingExtraImages = product.getImages().size();
+
+			model.addAttribute("product", product);
+			model.addAttribute("listBrands", listBrands);
+			model.addAttribute("pageTitle", "Edit Product (ID: " + id + ")");
+			model.addAttribute("numberOfExistingExtraImages", numberOfExistingExtraImages);
+
+
+			return "products/productform";
+
+		} catch (ProductNotFoundException e) {
+			ra.addFlashAttribute("message", e.getMessage());
+
+			return "redirect:/products";
+		}
 	}
 }

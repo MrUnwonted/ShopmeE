@@ -40,7 +40,7 @@
                 <th>Brand</th>
                 <th>Category</th>
                 <th>Enabled</th>
-                <th>Actions</th>
+                <th></th>
               </tr>								
             </thead>
             <tbody>
@@ -53,17 +53,17 @@
                 <td>[[${product.brand.name}]]</td>
                 <td>[[${product.category.name}]]</td>
                 <td>
-                  <div th:replace="fragments :: status(${product.enabled}, 'product', '/products/' + ${product.id})"></div>
+                  <div th:replace="fragments :: status(${product.enabled}, 'product', '/products/' + ${product.id})" />
                 </td>
                 <td>
-                  <a class="fas fa-file-alt icon-grey"
+                  <a class="fas fa-file-alt fa-2x icon-green"
                     th:href="@{'/products/detail/' + ${product.id}}"
                     title="View details of this product"
                     ></a>
                   &nbsp; 	
-                  <div th:replace="fragments :: edit('product', '/products/edit/' + ${product.id})" > </div>
+                  <div th:replace="fragments :: edit('product', '/products/edit/' + ${product.id})" />
                   &nbsp; 
-                  <div th:replace="fragments :: delete('product', ${product.id}, '/products/delete/' + ${product.id}, true)" >	</div>					
+                  <div th:replace="fragments :: delete('product', ${product.id}, '/products/delete/' + ${product.id}, true)" />						
                 </td>					
               </tr>
             </tbody>
@@ -153,16 +153,17 @@
 
   <script th:src="@{/assets/js/common_list.js}"></script>
 
-  <script type="text/javascript">
-    moduleURL = "[[@{/brands}]]";
   
-    $(document).ready(function() {
-      $(".link-delete").on("click", function(e) {
-        e.preventDefault();
-        showDeleteConfirmModal($(this), 'product');
-      });
-    });
-  </script>
+<script type="text/javascript">
+	moduleURL = "[[@{/brands}]]";
+
+	$(document).ready(function() {
+		$(".link-delete").on("click", function(e) {
+			e.preventDefault();
+			showDeleteConfirmModal($(this), 'product');
+		});
+	});
+</script>
 
 </body>
 </html>
