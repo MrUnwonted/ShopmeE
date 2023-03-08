@@ -1,168 +1,86 @@
 <!DOCTYPE html>
-	<html lang="en" xmlns:th="http://www.thymeleaf.org">
-		<head th:replace="fragments :: page_head('Products - Shopme Admin')" >
-		</head>
-
-<body class="sidebar-menu-collapsed">
-    <div class="se-pre-con"></div>
-
-    <section th:replace="fragments :: menu"></section>
-  
-  <div class="main-content">
-    <!-- content -->
-    <div class="container ">
-      
-      
-		 <!-- breadcrumbs -->
-		 <nav aria-label="breadcrumb" class="mb-4">
-			<ol class="breadcrumb my-breadcrumb">
-				<li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-        <li class="breadcrumb-item"><a th:href="@{/products}">products</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Products Form</li>
-			</ol>
-		</nav>
-		<!-- //breadcrumbs -->
-
-
-      <div>
-        <h2>Manage Products | [[${pageTitle}]]</h2>	
-      </div>
-          
-	  <div th:fragment="content" th:remove="tag">
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Product Name:</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" th:field="*{name}" required minlength="3" maxlength="256"  />
-			</div>
+<html  xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="content" th:remove="tag">
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Product Name:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" th:field="*{name}" required minlength="3" maxlength="256"  />
 		</div>
-		
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Alias:</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" th:field="*{alias}"
-					placeholder="Default is product name (spaces are replaced by dashes)" 
-					minlength="3" maxlength="256"  />
-			</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Alias:</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" th:field="*{alias}"
+				placeholder="Default is product name (spaces are replaced by dashes)" 
+				minlength="3" maxlength="256"  />
 		</div>
-		
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Brand:</label>
-			<div class="col-sm-10">
-				<select th:field="*{brand}" class="form-control" required>
-					<th:block th:each="brand : ${listBrands}">
-						<option th:value="${brand.id}">[[${brand.name}]]</option>
-					</th:block>
-				</select>
-			</div>
-		</div>
-		
-		<!-- <div class="form-group row">
-			<label class="col-sm-2 col-form-label">Category:</label>
-			<div class="col-sm-10">
-				<th:block th:if="${product.category != null}">
-				<select th:field="*{category}" class="form-control" required>
-					<th:block th:each="cat : ${product.brand.categories}">
-						<option th:value="${cat.id}">[[${cat.name}]]</option>
-					</th:block>
-				</select>			
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Brand:</label>
+		<div class="col-sm-10">
+			<select th:field="*{brand}" class="form-control" required>
+				<th:block th:each="brand : ${listBrands}">
+					<option th:value="${brand.id}">[[${brand.name}]]</option>
 				</th:block>
-				
-				<th:block th:if="${product.category == null}">
-				<select th:field="*{category}" class="form-control" required>
-				</select>
+			</select>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Category:</label>
+		<div class="col-sm-10">
+			<th:block th:if="${product.category != null}">
+			<select th:field="*{category}" class="form-control" required>
+				<th:block th:each="cat : ${product.brand.categories}">
+					<option th:value="${cat.id}">[[${cat.name}]]</option>
 				</th:block>
-				
-			</div>
-		</div> -->
-		
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Enabled:</label>
-			<div class="col-sm-10">
-				<input type="checkbox" th:field="*{enabled}" />
-			</div>
+			</select>			
+			</th:block>
+			
+			<th:block th:if="${product.category == null}">
+			<select th:field="*{category}" class="form-control" required>
+			</select>
+			</th:block>
+			
 		</div>
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">In-Stock:</label>
-			<div class="col-sm-10">
-				<input type="checkbox" th:field="*{inStock}" />
-			</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Enabled:</label>
+		<div class="col-sm-10">
+			<input type="checkbox" th:field="*{enabled}" />
 		</div>
-		
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Cost:</label>
-			<div class="col-sm-10">
-				<input type="number" class="form-control" th:field="*{cost}"/>
-			</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">In-Stock:</label>
+		<div class="col-sm-10">
+			<input type="checkbox" th:field="*{inStock}" />
 		</div>
-		
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Price:</label>
-			<div class="col-sm-10">
-				<input type="number" class="form-control" th:field="*{price}"/>
-			</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Cost:</label>
+		<div class="col-sm-10">
+			<input type="number" class="form-control" th:field="*{cost}"/>
 		</div>
-		
-		<div class="form-group row">
-			<label class="col-sm-2 col-form-label">Discount:</label>
-			<div class="col-sm-10">
-				<input type="number" class="form-control" th:field="*{discountPercent}"/>
-			</div>
-		</div>	
-	</div>		
-
-    
-    </div>
-  </div>
-  <!-- <div th:replace="modal_fragments :: modal_dialog"></div> -->
-
-    <!--footer section start-->
-    <footer class="dashboard" th:replace="fragments :: footer"></footer>
-  <!--footer section end-->
-<script th:src="@{/assets/js/jquery-3.3.1.min.js}"></script>
-<script th:src="@{/assets/js/jquery-1.10.2.min.js}"></script>
-
-<script th:src="@{/assets/js/jquery.nicescroll.js}"></script>
-<script th:src="@{/assets/js/scripts.js}"></script>
-
-<!-- close script -->
-<script>
-  var closebtns = document.getElementsByClassName("close-grid");
-  var i;
-
-  for (i = 0; i < closebtns.length; i++) {
-    closebtns[i].addEventListener("click", function () {
-      this.parentElement.style.display = 'none';
-    });
-  }
-</script>
-<!-- //close script -->
-
-<!-- disable body scroll when navbar is in active -->
-<script>
-  $(function () {
-    $('.sidebar-menu-collapsed').click(function () {
-      $('body').toggleClass('noscroll');
-    })
-  });
-</script>
-<!-- disable body scroll when navbar is in active -->
-
- <!-- loading-gif Js -->
- <script th:src="@{/assets/js/modernizr.js}"></script>
- <script>
-     $(window).load(function () {
-         // Animate loader off screen
-         $(".se-pre-con").fadeOut("slow");;
-     });
- </script>
- <!--// loading-gif Js -->
-
-<!-- Bootstrap Core JavaScript -->
-<script th:src="@{/assets/js/bootstrap.min.js}"></script>
-</script>
-
-
-
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Price:</label>
+		<div class="col-sm-10">
+			<input type="number" class="form-control" th:field="*{price}"/>
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Discount:</label>
+		<div class="col-sm-10">
+			<input type="number" class="form-control" th:field="*{discountPercent}"/>
+		</div>
+	</div>	
+</div>		
 </body>
-
 </html>

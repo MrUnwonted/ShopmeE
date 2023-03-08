@@ -20,28 +20,28 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(length = 128, nullable = false, unique = true)
 	private String name;
-	
+
 	@Column(length = 64, nullable = false, unique = true)
 	private String alias;
-	
+
 	@Column(length = 128, nullable = false)
 	private String image;
-	
+
 	private boolean enabled;
-	
+
 	@OneToOne
 	@JoinColumn(name = "parent_id")
 	private Category parent;
-	
+
 	@OneToMany(mappedBy = "parent")
 	private Set<Category> children = new HashSet<>();
 
 	public Category() {
 	}
-	
+
 	public Category(Integer id) {
 		this.id = id;
 	}
@@ -50,7 +50,7 @@ public class Category {
 		Category copyCategory = new Category();
 		copyCategory.setId(category.getId());
 		copyCategory.setName(category.getName());
-		
+
 		return copyCategory;
 	}
 
@@ -58,10 +58,10 @@ public class Category {
 		Category copyCategory = new Category();
 		copyCategory.setId(id);
 		copyCategory.setName(name);
-		
+
 		return copyCategory;
 	}
-	
+
 	public static Category copyFull(Category category) {
 		Category copyCategory = new Category();
 		copyCategory.setId(category.getId());
@@ -70,27 +70,27 @@ public class Category {
 		copyCategory.setAlias(category.getAlias());
 		copyCategory.setEnabled(category.isEnabled());
 		copyCategory.setHasChildren(category.getChildren().size() > 0);
-		
-		return copyCategory;		
+
+		return copyCategory;
 	}
-	
+
 	public static Category copyFull(Category category, String name) {
 		Category copyCategory = Category.copyFull(category);
 		copyCategory.setName(name);
-		
+
 		return copyCategory;
 	}
-	
+
 	public Category(String name) {
 		this.name = name;
 		this.alias = name;
 		this.image = "default.png";
 	}
-	
+
 	public Category(String name, Category parent) {
 		this(name);
 		this.parent = parent;
-	}	
+	}
 
 	public Category(Integer id, String name, String alias) {
 		super();
@@ -154,14 +154,14 @@ public class Category {
 	public void setChildren(Set<Category> children) {
 		this.children = children;
 	}
-	
+
 	@Transient
 	public String getImagePath() {
 		if (this.id == null) return "/assets/images/image-thumbnail.png";
-		
+
 		return "/category-images/" + this.id + "/" + this.image;
 	}
-	
+
 	public boolean isHasChildren() {
 		return hasChildren;
 	}
@@ -177,5 +177,5 @@ public class Category {
 	public String toString() {
 		return this.name;
 	}
-	
+
 }
