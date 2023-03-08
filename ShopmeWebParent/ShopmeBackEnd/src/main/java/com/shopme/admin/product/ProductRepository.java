@@ -7,12 +7,12 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import com.shopme.common.entity.Product;
 
 public interface ProductRepository extends PagingAndSortingRepository<Product, Integer> {
-
-    public Product findByName(String name);
-
-    @Query("UPDATE Product p SET p.enabled = ?2 WHERE p.id = ?1")
-    @Modifying
-    public void updateEnabledStatus(Integer id, boolean enabled);
-
-    public Long countById(Integer id);
+	
+	public Product findByName(String name);
+	
+	@Query("UPDATE Product p SET p.enabled = ?2 WHERE p.id = ?1")
+	@Modifying
+	public void updateEnabledStatus(Integer id, boolean enabled);
+	
+	public Long countById(Integer id);
 }
