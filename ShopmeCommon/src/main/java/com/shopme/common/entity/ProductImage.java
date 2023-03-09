@@ -17,14 +17,14 @@ public class ProductImage {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(nullable = false)
 	private String name;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "product_id")
 	private Product product;
-	
+
 	public ProductImage() {
 	}
 
@@ -63,10 +63,10 @@ public class ProductImage {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	
+
 	@Transient
 	public String getImagePath() {
 		return "/product-images/" + product.getId() + "/extras/" + this.name;
 	}
-	
+
 }
