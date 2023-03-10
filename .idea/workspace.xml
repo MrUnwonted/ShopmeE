@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d09b8fff-5ffd-4dfc-97bc-5c0dfa4a59cc" name="Changes" comment="" />
+    <list default="true" id="d09b8fff-5ffd-4dfc-97bc-5c0dfa4a59cc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/product/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/product/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/product/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/product/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/navigation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/product/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/product/product_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/product/products_by_category.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/product/products_by_category.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,18 +54,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/Shopme/ShopmeWebParent/ShopmeFrontEnd",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Shopme/ShopmeWebParent/ShopmeFrontEnd&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.shopme.admin.brand" />
