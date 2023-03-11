@@ -85,7 +85,7 @@
       <recent name="D:\Shopme\ShopmeWebParent\ShopmeBackEnd\src\main\resources\templates\brands" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ShopmeFrontEndApplication">
+  <component name="RunManager" selected="Application.ShopmeBackEndApplication">
     <configuration name="ShopmeBackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.shopme.admin.ShopmeBackEndApplication" />
       <module name="ShopmeBackEnd" />
@@ -181,8 +181,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ShopmeFrontEndApplication" />
         <item itemvalue="Application.ShopmeBackEndApplication" />
+        <item itemvalue="Application.ShopmeFrontEndApplication" />
         <item itemvalue="JUnit.CurrencyRepositoryTests.testListAllOrderByNameAsc" />
         <item itemvalue="JUnit.CurrencyRepositoryTests.testCreateCurrencies" />
         <item itemvalue="JUnit.ProductRepostioryTests.testFindByAlias" />
