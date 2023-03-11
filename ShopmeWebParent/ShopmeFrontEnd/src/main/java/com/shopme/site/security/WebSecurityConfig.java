@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.shopme.security.oauth.CustomerOAuth2UserService;
-import com.shopme.security.oauth.OAuth2LoginSuccessHandler;
+import com.shopme.site.security.oauth.CustomerOAuth2UserService;
+import com.shopme.site.security.oauth.OAuth2LoginSuccessHandler;
 
 @Configuration
 @EnableWebSecurity

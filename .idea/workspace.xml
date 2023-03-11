@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d09b8fff-5ffd-4dfc-97bc-5c0dfa4a59cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/category/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/category/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/product/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeCommon/src/main/java/com/shopme/common/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeCommon/src/main/java/com/shopme/common/entity/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/security/CustomerUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/security/CustomerUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/security/DatabaseLoginSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/security/DatabaseLoginSuccessHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/security/oauth/OAuth2LoginSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/shopme/site/security/oauth/OAuth2LoginSuccessHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,7 @@
       <recent name="D:\Shopme\ShopmeWebParent\ShopmeBackEnd\src\main\resources\templates\brands" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ShopmeFrontEndApplication">
+  <component name="RunManager" selected="Application.ShopmeBackEndApplication">
     <configuration name="ShopmeBackEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.shopme.admin.ShopmeBackEndApplication" />
       <module name="ShopmeBackEnd" />
@@ -160,17 +162,17 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.ShopmeBackEndApplication" />
       <item itemvalue="Application.ShopmeFrontEndApplication" />
+      <item itemvalue="Application.ShopmeBackEndApplication" />
+      <item itemvalue="JUnit.ProductRepostioryTests.testFindByAlias" />
       <item itemvalue="JUnit.ProductRepositoryTests.testSaveProductWithImage" />
       <item itemvalue="JUnit.ProductRepositoryTests.testSaveProductWithImages" />
-      <item itemvalue="JUnit.ProductRepostioryTests.testFindByAlias" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ShopmeBackEndApplication" />
         <item itemvalue="Application.ShopmeFrontEndApplication" />
         <item itemvalue="JUnit.ProductRepostioryTests.testFindByAlias" />
-        <item itemvalue="Application.ShopmeBackEndApplication" />
         <item itemvalue="JUnit.ProductRepositoryTests.testSaveProductWithImages" />
         <item itemvalue="JUnit.ProductRepositoryTests.testSaveProductWithImage" />
       </list>

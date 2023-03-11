@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 
 import com.shopme.common.entity.AuthenticationType;
 import com.shopme.common.entity.Customer;
-import com.shopme.customer.CustomerService;
+import com.shopme.site.customer.CustomerService;
 
 @Component
 public class OAuth2LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {

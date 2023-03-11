@@ -58,11 +58,11 @@ public class Customer {
 	
 	@Column(name = "created_time")
 	private Date createdTime;
-
-//	@ManyToOne
-//	@JoinColumn(name = "country_id")
-//	private Country country;
-//
+	
+	@ManyToOne
+	@JoinColumn(name = "country_id")
+	private Country country;
+	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "authentication_type", length = 10)
 	private AuthenticationType authenticationType;
@@ -182,13 +182,13 @@ public class Customer {
 		this.createdTime = createdTime;
 	}
 
-//	public Country getCountry() {
-//		return country;
-//	}
-//
-//	public void setCountry(Country country) {
-//		this.country = country;
-//	}
+	public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
 
 	@Override
 	public String toString() {
