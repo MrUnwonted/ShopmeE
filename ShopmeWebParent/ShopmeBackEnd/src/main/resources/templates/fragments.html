@@ -85,7 +85,7 @@
             <li sec:authorize="hasAuthority('Admin','Editor')"><a href="#"><a href="forms.html"><i class="fa fa-newspaper"></i><span>Articles</span></li</a>> 
           </th:block>    -->
           <li sec:authorize="hasAnyAuthority('Admin', 'Editor')"><a href="#"><i class="fa fa-file-text"></i><span>Menus</span></a></li>
-          <li sec:authorize="hasAuthority('Admin')"><a href="#"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span>Settings</span></a></li>
+          <li sec:authorize="hasAuthority('Admin')"><a th:href="@{/settings}"><i class="fa fa-cog fa-spin fa-3x fa-fw"></i><span>Settings</span></a></li>
           <li><a th:href="@{/logout}"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a></li>
   
         </ul>
