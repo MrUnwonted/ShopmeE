@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -44,30 +43,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+			.antMatchers("/users/**").hasAuthority("Admin")
+			.antMatchers("/categories/**", "/brands/**").hasAnyAuthority("Admin", "Editor")
+			
+			.antMatchers("/products/new", "/products/delete/**").hasAnyAuthority("Admin", "Editor")
+			
+			.antMatchers("/products/edit/**", "/products/save", "/products/check_unique")
+				.hasAnyAuthority("Admin", "Editor", "Salesperson")
+				
+			.antMatchers("/products", "/products/", "/products/detail/**", "/products/page/**")
+				.hasAnyAuthority("Admin", "Editor", "Salesperson", "Shipper")
+				
+			.antMatchers("/products/**").hasAnyAuthority("Admin", "Editor")
 
-		http
-	        .authorizeRequests()
-	        		.antMatchers("/users/**").hasAnyAuthority("Admin")
-	        		.antMatchers("/categories/**","/brands/**").hasAnyAuthority("Admin","Editor")
-					.antMatchers("/products/**").hasAnyAuthority("Admin","Editor","Salesperson","Shipper")
-					.anyRequest()
-	                .authenticated()
-	                .and()
-	                .formLogin()
-	                .loginPage("/login")
-	                .usernameParameter("email")
-	                .defaultSuccessUrl("/")
-	                .permitAll()
-	                .and()
-	                .logout()
-	                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-					.logoutSuccessUrl("/login?logout")
-	                .permitAll()
-	                .and()
-					.rememberMe()
-						.key("AbcDefgHijKlmnOpqrs_1234567890")
-						.tokenValiditySeconds(7 * 24 * 60 * 60);
-	                ;
+			.antMatchers("/settings/**").hasAnyAuthority("Admin")
+			
+			.anyRequest().authenticated()
+			.and()
+			.formLogin()			
+				.loginPage("/login")
+				.usernameParameter("email")
+				.permitAll()
+			.and().logout().permitAll()
+			.and()
+				.rememberMe()
+					.key("AbcDefgHijKlmnOpqrs_1234567890")
+					.tokenValiditySeconds(7 * 24 * 60 * 60);
+					;
 			
 	}
 
@@ -76,5 +79,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers( "/assets/**","/webjars/**","/images/**","/js/**");
 	}
 
-	
+
+
 }
