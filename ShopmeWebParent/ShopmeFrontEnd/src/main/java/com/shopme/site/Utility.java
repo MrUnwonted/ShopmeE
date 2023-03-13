@@ -1,4 +1,4 @@
-package com.shopme;
+package com.shopme.site;
 
 import java.util.Properties;
 
@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-import com.shopme.setting.EmailSettingBag;
+import com.shopme.site.setting.EmailSettingBag;
 
 public class Utility {
 	public static String getSiteURL(HttpServletRequest request) {

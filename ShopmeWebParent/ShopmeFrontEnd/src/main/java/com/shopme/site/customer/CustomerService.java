@@ -36,10 +36,10 @@ public class CustomerService {
 		encodePassword(customer);
 		customer.setEnabled(false);
 		customer.setCreatedTime(new Date());
-		
-		String randomCode = RandomString.make(64);
-		customer.setVerificationCode(randomCode);
-		
+//
+//		String randomCode = RandomString.make(64);
+//		customer.setVerificationCode(randomCode);
+//		
 		customerRepo.save(customer);
 		
 	}
