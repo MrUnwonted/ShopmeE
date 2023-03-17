@@ -4,7 +4,7 @@
  </head>
 
 <body class="sidebar-menu-collapsed">
-  <div class="se-pre-con"></div>
+  <!-- <div class="se-pre-con"></div> -->
 
   <section th:replace="fragments :: menu"></section>
   
@@ -21,95 +21,92 @@
   </nav>
   <!-- //breadcrumbs -->
 
-        <div>
-          <h2>Manage Users</h2>
-          <a th:href="@{/users/new}" class="fas fa-folder-plus fa-2x icon-dark mr-2"></a>
-        </div>
+    
+      <th:block sec:authorize="hasAuthority('Admin')">
+						<a  th:href="@{/account}">Account</a>
 
-        <div th:if="${message !=null}" class="alert alert-success text-center">
-            [[${message}]]
-        </div>
-
-        <div class="full-details">
-          <table class="table table-bordered table-striped table-hover table-responsive-xl">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">User Id</th>
-                <th scope="col">Photos</th>
-                <th scope="col">Email</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Roles</th>
-                <th scope="col">Enabled</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-             <tr th:each="user : ${listUsers}">
-                <td>[[${user.id }]]</td>
-                <td>
-                  <span th:if="${user.photos == null}" class="fas fa-portrait fa-3x icon-silver"></span>
-                  <img th:if="${user.photos != null}" th:src="@{${user.photosImagePath}}"
-                    style="width: 100px" />
-                </td>
-                <td>[[${user.email }]]</td>
-                <td>[[${user.firstName }]]</td>
-                <td>[[${user.lastName }]]</td>
-                <td>[[${user.roles }]]</td>
-                <td >
-                  <div th:replace="fragments :: status(${user.enabled}, 'user', '/users/' + ${user.id})"> </div>
-                </td>
-                <td>
-                  <div th:replace="fragments :: edit('user', '/users/edit/' + ${user.id})"> </div>
-                  &nbsp;&nbsp;
-                  <div th:replace="fragments :: delete('user', ${user.id}, '/users/delete/' + ${user.id}, true)"> </div>
-                </td>
-             </tr>
-            </tbody>
-          </table>
-        </div>
-                     
-                     
-		<!-- <div class="text-center m-1" th:if="${totalItems > 0}">
-			<span>Showing users # [[${startCount}]] to [[${endCount}]] of [[${totalItems}]]</span>
-		</div>
-		<div class="text-center m-1" th:unless="${totalItems > 0}">
-			<span>No users found</span>
-		</div> -->
-                    
-                    
-		<!-- Pagination -->
-    <!-- <div>
-      <nav>
-        <ul class="pagination justify-content-center">
-          <li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
-            <a class="page-link" th:href="@{/users/page/1}">First</a>
-          </li>		  
-          <li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
-            <a class="page-link" th:href="@{'/users/page/' + ${currentPage - 1}}">Previous</a>
-          </li>
-          
-          <li th:class="${currentPage != i ? 'page-item': 'page-item active'}" 
-            th:each="i : ${#numbers.sequence(1, totalPages)}">
-            <a class="page-link" th:href="@{'/users/page/' + ${i}}">[[${i}]]</a>
-          </li>
+							
+				</th:block>
   
-          
-          <li th:class="${currentPage < totalPages ? 'page-item' : 'page-item disabled'}">
-            <a class="page-link" th:href="@{'/users/page/' + ${currentPage + 1}}">Next</a>
-          </li>
-          
-          <li th:class="${currentPage < totalPages ? 'page-item' : 'page-item disabled'}">
-            <a class="page-link" th:href="@{'/users/page/' + ${totalPages}}">Last</a>
-          </li>		    
-        </ul>
-      </nav>	
-    </div -->        
 
-
-     <!-- <div th:replace="fragments :: modal_fragments" > </div>        -->
-     <div th:replace="modal_fragments :: confirm_modal" />                                   
-       
+    <div>
+      <h2>Manage Users</h2>	
+      <a th:href="@{/users/new}" class="fas fa-user-plus fa-2x icon-dark mr-2"></a>
+    </div>
+    
+    <div th:replace="fragments :: search_form_and_message('/users/page/1')" />
+    
+    <div class="full-details">
+      <table class="table table-bordered table-striped table-hover table-responsive-xl">
+        <thead class="thead-dark">
+          <tr>
+            <th class="hideable-column">
+              <th th:replace="fragments :: column_link('/users', 'id', 'User ID', 'tag')" />
+            </th>
+            
+            <th>Photos</th>
+            
+            <th class="hideable-column">
+              <th th:replace="fragments :: column_link('/users', 'email', 'E-mail', 'tag')" />
+            </th>
+            
+            <th th:replace="fragments :: column_link('/users', 'firstName', 'First Name', 'none')" />
+            <th th:replace="fragments :: column_link('/users', 'lastName', 'Last Name', 'none')" />
+            
+            <th>Roles</th>
+            <th th:replace="fragments :: column_link('/users', 'enabled', 'Enabled', 'none')" />
+            <th></th>
+          </tr>								
+        </thead>
+        <tbody>
+          <tr th:each="user : ${listUsers}">
+            <td class="hideable-column">[[${user.id}]]</td>
+            <td>
+              <div th:replace="fragments :: user_photos" />
+            </td>
+            <td class="hideable-column">[[${user.email}]]</td>
+            <td>[[${user.firstName}]]</td>
+            <td>[[${user.lastName}]]</td>
+            <td>[[${user.roles}]]</td>
+            
+            <td>
+              <div th:replace="fragments :: status(${user.enabled}, 'user', '/users/' + ${user.id})" />
+            </td>
+            
+            <td>
+              <div th:replace="fragments :: edit('user', '/users/edit/' + ${user.id})" />
+              &nbsp;&nbsp;
+              <div th:replace="fragments :: delete('user', ${user.id}, '/users/delete/' + ${user.id}, true)" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="less-details">
+      <div th:each="user : ${listUsers}" class="row m-1">
+        <div class="col-4">
+          <div th:replace="fragments :: user_photos" />			
+        </div>
+        <div class="col-8">
+          <div>[[${user.fullName}]]</div>
+          <div>[[${user.roles}]]</div>
+          <div class="mt-2">
+            <div th:replace="fragments :: status(${user.enabled}, 'user', '/users/' + ${user.id})" />
+            &nbsp; 			
+            <div th:replace="fragments :: edit('user', '/users/edit/' + ${user.id})" />
+            &nbsp; 
+            <div th:replace="fragments :: delete('user', ${user.id}, '/users/delete/' + ${user.id}, true)" />
+          </div>
+        </div>
+        <div>&nbsp;</div>
+      </div>
+    </div>
+    
+    <div th:replace="fragments :: pagination('/users', 'users')"></div>
+    
+    <div th:replace="modal_fragments :: confirm_modal" />
+                     
     
     </div>
   </div>
@@ -127,26 +124,6 @@
 <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
   <span class="fa fa-angle-up"></span>
 </button>
-<script>
-  // When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function () {
-    scrollFunction()
-  };
-
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("movetop").style.display = "block";
-    } else {
-      document.getElementById("movetop").style.display = "none";
-    }
-  }
-
-  // When the user clicks on the button, scroll to the top of the document
-  function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-  }
-</script>
 <!-- /move top -->
   
   <script src="assets/js/jquery.nicescroll.js"></script>
