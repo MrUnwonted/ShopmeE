@@ -1,111 +1,143 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: page_head('Customers - Shopme Admin', 'none')" />
-<body>
-<div class="container-fluid">
-	<div th:replace="navigation :: menu"></div>
-	<div>
-		<h2>Manage Customers</h2>	
-		
-		<a th:href="@{/customers/export/csv}" class="fas fa-file-csv fa-2x icon-dark mr-2"></a>
-	</div>
-		
-	<div th:replace="fragments :: search_form_and_message('/customers/page/1')" />
-	
-	<div class="full-details">
-		<table class="table table-bordered table-striped table-hover table-responsive-xl">
-			<thead class="thead-dark">
-				<tr>
-					<th th:replace="fragments :: column_link('/customers', 'id', 'ID', 'none')" />
-					<th th:replace="fragments :: column_link('/customers', 'firstName', 'First Name', 'none')" />
-					<th th:replace="fragments :: column_link('/customers', 'lastName', 'Last Name', 'none')" />
-					
-					<th class="hideable-column">
-					<th th:replace="fragments :: column_link('/customers', 'email', 'E-mail', 'tag')" />
-					</th>
-					
-					<th class="hideable-column">
-					<th th:replace="fragments :: column_link('/customers', 'city', 'City', 'tag')" />
-					</th>
-					
-					<th class="hideable-column">
-					<th th:replace="fragments :: column_link('/customers', 'state', 'State', 'tag')" />
-					</th>
-					
-					<th th:replace="fragments :: column_link('/customers', 'country', 'Country', 'none')" />
-					<th th:replace="fragments :: column_link('/customers', 'enabled', 'Enabled', 'none')" />
-					<th></th>
-				</tr>								
-			</thead>
-			<tbody>
-				<tr th:each="customer : ${listCustomers}">
-					<td>[[${customer.id}]]</td>
-					<td>[[${customer.firstName}]]</td>
-					<td>[[${customer.lastName}]]</td>
-					<td class="hideable-column">[[${customer.email}]]</td>
-					<td class="hideable-column">[[${customer.city}]]</td>
-					<td class="hideable-column">[[${customer.state}]]</td>
-					<td>[[${customer.country.name}]]</td>
-					<td>
-						<div th:replace="fragments :: status(${customer.enabled}, 'customer', '/customers/' + ${customer.id})" />
-					</td>
-					<td>
-						<a class="fas fa-file-alt fa-2x icon-green link-detail"
-							th:href="@{'/customers/detail/' + ${customer.id}}"
-							title="View details of this customer"
-							></a>					
-						&nbsp; 
-						<div th:replace="fragments :: edit('customer', '/customers/edit/' + ${customer.id})" />
-						&nbsp; 
-						<div th:replace="fragments :: delete('customer', ${customer.id}, '/customers/delete/' + ${customer.id}, true)" />						
-					</td>					
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	
-	<div class="less-details">
-		<div th:each="customer : ${listCustomers}" class="row m-1">
-			<div class="col-4">
-				<span><b>[[${customer.fullName}]]</b></span>
-			</div>
-			<div class="col-8">
-				<div class="mb-1">
-					<span>[[${customer.country.name}]]</span>
-				</div>
-				<div>
-					<div th:replace="fragments :: status(${customer.enabled}, 'customer', '/customers/' + ${customer.id})" />
-					&nbsp;
-					<a class="fas fa-file-alt fa-2x icon-green link-detail"
-						th:href="@{'/customers/detail/' + ${customer.id}}"
-						title="View details of this customer"
-						></a>					
-					&nbsp; 
-					<div th:replace="fragments :: edit('customer', '/customers/edit/' + ${customer.id})" />
-					&nbsp; 
-					<div th:replace="fragments :: delete('customer', ${customer.id}, '/customers/delete/' + ${customer.id}, true)" />
-				</div>
-			</div>
-			<div>&nbsp;</div>
-		</div>	
-	</div>		
-	
-	<div th:replace="fragments :: pagination('/customers', 'customers')"></div>
-	
-	<div th:replace="modal_fragments :: confirm_modal" />
-	
-	<div class="modal fade" id="detailModal">
-		<div class="modal-dialog modal-lg">
-			<div class="modal-content">
-			</div>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: page_head('Categories - Shopme Admin', 'none')" >
+ </head>
+
+<body class="sidebar-menu-collapsed">
+  <div class="se-pre-con"></div>
+
+  <section th:replace="fragments :: menu"></section>
+  
+  <div class="main-content">
+    <!-- content -->
+    <div class="container-fluid content-top-gap">
+      
+      <!-- breadcrumbs -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb my-breadcrumb">
+          <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Category</li>
+      </ol>
+  </nav>
+  <!-- //breadcrumbs -->
+
+  	<div th:replace="fragments :: search_form_and_message('/customers/page/1')" />
+
+        <div class="full-details">
+			<table class="table table-bordered table-striped table-hover table-responsive-xl">
+				<thead class="thead-dark">
+					<tr>
+						<th th:replace="fragments :: column_link('/customers', 'id', 'ID', 'none')" />
+						<th th:replace="fragments :: column_link('/customers', 'firstName', 'First Name', 'none')" />
+						<th th:replace="fragments :: column_link('/customers', 'lastName', 'Last Name', 'none')" />
+						
+						<th class="hideable-column">
+						<th th:replace="fragments :: column_link('/customers', 'email', 'E-mail', 'tag')" />
+						</th>
+						
+						<th class="hideable-column">
+						<th th:replace="fragments :: column_link('/customers', 'city', 'City', 'tag')" />
+						</th>
+						
+						<th class="hideable-column">
+						<th th:replace="fragments :: column_link('/customers', 'state', 'State', 'tag')" />
+						</th>
+						
+						<th th:replace="fragments :: column_link('/customers', 'country', 'Country', 'none')" />
+						<th th:replace="fragments :: column_link('/customers', 'enabled', 'Enabled', 'none')" />
+						<th></th>
+					</tr>								
+				</thead>
+				<tbody>
+					<tr th:each="customer : ${listCustomers}">
+						<td>[[${customer.id}]]</td>
+						<td>[[${customer.firstName}]]</td>
+						<td>[[${customer.lastName}]]</td>
+						<td class="hideable-column">[[${customer.email}]]</td>
+						<td class="hideable-column">[[${customer.city}]]</td>
+						<td class="hideable-column">[[${customer.state}]]</td>
+						<td>[[${customer.country.name}]]</td>
+						<td>
+							<div th:replace="fragments :: status(${customer.enabled}, 'customer', '/customers/' + ${customer.id})" />
+						</td>
+						<td>
+							<a class="fas fa-file-alt fa-2x icon-green link-detail"
+								th:href="@{'/customers/detail/' + ${customer.id}}"
+								title="View details of this customer"
+								></a>					
+							&nbsp; 
+							<div th:replace="fragments :: edit('customer', '/customers/edit/' + ${customer.id})" />
+							&nbsp; 
+							<div th:replace="fragments :: delete('customer', ${customer.id}, '/customers/delete/' + ${customer.id}, true)" />						
+						</td>					
+					</tr>
+				</tbody>
+			</table>
 		</div>
-	</div>	
-	
-	<div th:replace="fragments :: footer"></div>
-	
-</div>
-<script th:src="@{/js/common_list.js}"></script>
-<script type="text/javascript">
+                          
+		<div th:replace="fragments :: pagination('/customers', 'customers')"></div>
+
+        <div th:replace="modal_fragments :: confirm_modal" > </div>   
+
+    
+    </div>
+  </div>
+
+  
+    <!--footer section start-->
+    <footer class="dashboard" th:replace="fragments :: footer"></footer>
+  <!--footer section end-->
+  <!-- move top -->
+  <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+    <span class="fa fa-angle-up"></span>
+  </button>
+ 
+  
+  
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/jquery-1.10.2.min.js"></script>
+  
+  
+  <script src="assets/js/jquery.nicescroll.js"></script>
+  <script src="assets/js/scripts.js"></script>
+  
+  <!-- close script -->
+  <script>
+    var closebtns = document.getElementsByClassName("close-grid");
+    var i;
+  
+    for (i = 0; i < closebtns.length; i++) {
+      closebtns[i].addEventListener("click", function () {
+        this.parentElement.style.display = 'none';
+      });
+    }
+  </script>
+  <!-- //close script -->
+  
+  <!-- disable body scroll when navbar is in active -->
+  <script>
+    $(function () {
+      $('.sidebar-menu-collapsed').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- disable body scroll when navbar is in active -->
+  
+   <!-- loading-gif Js -->
+   <script src="assets/js/modernizr.js"></script>
+   <script>
+       $(window).load(function () {
+           // Animate loader off screen
+           $(".se-pre-con").fadeOut("slow");;
+       });
+   </script>
+   <!--// loading-gif Js -->
+  
+  <!-- Bootstrap Core JavaScript -->
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script th:src="@{/assets/js/common_list.js}"></script>
+  <script type="text/javascript">
 	moduleURL = "[[@{/customers}]]";
 
 	$(document).ready(function() {
@@ -121,5 +153,6 @@
 		});		
 	});
 </script>
+
 </body>
 </html>

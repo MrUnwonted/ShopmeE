@@ -74,7 +74,7 @@ public class CategoryController {
 		model.addAttribute("listCategories", listCategories);
 		model.addAttribute("pageTitle", "Create New Category");
 		
-		return "categories/category_form";
+		return "categories/categoryform";
 	}
 	
 	@PostMapping("/categories/save")
@@ -109,7 +109,7 @@ public class CategoryController {
 			model.addAttribute("listCategories", listCategories);
 			model.addAttribute("pageTitle", "Edit Category (ID: " + id + ")");
 			
-			return "categories/category_form";			
+			return "categories/categoryform";
 		} catch (CategoryNotFoundException ex) {
 			ra.addFlashAttribute("message", ex.getMessage());
 			return "redirect:/categories";

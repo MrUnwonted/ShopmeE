@@ -74,7 +74,7 @@ public class BrandController {
 		model.addAttribute("brand", new Brand());
 		model.addAttribute("pageTitle", "Create New Brand");
 		
-		return "brands/brand_form";		
+		return "brands/brandform";
 	}
 	
 	@PostMapping("/brands/save")
@@ -109,7 +109,7 @@ public class BrandController {
 			model.addAttribute("listCategories", listCategories);
 			model.addAttribute("pageTitle", "Edit Brand (ID: " + id + ")");
 			
-			return "brands/brand_form";			
+			return "brands/brandform";
 		} catch (BrandNotFoundException ex) {
 			ra.addFlashAttribute("message", ex.getMessage());
 			return "redirect:/brands";

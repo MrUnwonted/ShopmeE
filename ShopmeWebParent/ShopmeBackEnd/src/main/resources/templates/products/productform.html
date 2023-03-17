@@ -34,10 +34,7 @@
     </div>
 
 	
-	<div class="col-10">
-		
-		
-		<form th:action="@{/products/save}" method="post" onsubmit="return checkUnique(this)"
+	<form th:action="@{/products/save}" method="post" onsubmit="return checkUnique(this)"
 		enctype="multipart/form-data"
 		th:object="${product}">
 		<input type="hidden" th:field="*{id}" />
@@ -64,7 +61,7 @@
 		
 		<div class="tab-content">
 		  <div class="tab-pane active p-3" id="overview" role="tabpanel">
-		  	<div th:replace="products/product_overview :: content"></div>
+		  	<div th:replace="products/productOverview :: content"></div>
 		  </div>
 		  <div class="tab-pane" id="description" role="tabpanel">
 		  	<th:block sec:authorize="hasAuthority('Salesperson')">
@@ -72,7 +69,7 @@
 		  	</th:block>
 		  	
 		  	<th:block sec:authorize="hasAnyAuthority('Admin', 'Editor')">
-		  	<div th:replace="products/product_description :: content"></div>
+		  	<div th:replace="products/productDescription :: content"></div>
 		  	</th:block>
 		  </div>
 		  <div class="tab-pane" id="images" role="tabpanel">
@@ -81,7 +78,7 @@
 		  	</th:block>		  
 		  
 		  	<th:block sec:authorize="hasAnyAuthority('Admin', 'Editor')">
-		  	<div th:replace="products/product_images :: content"></div>
+		  	<div th:replace="products/productImages :: content"></div>
 		  	</th:block>
 		  </div>
 		  <div class="tab-pane p-3" id="details" role="tabpanel">
@@ -90,7 +87,7 @@
 		  	</th:block>		  	
 		  	
 		  	<th:block sec:authorize="hasAnyAuthority('Admin', 'Editor')">
-		  	<div th:replace="products/product_details :: content"></div>
+		  	<div th:replace="products/productDetails :: content"></div>
 		  	<div>
 		  		<input type="button" class="btn btn-secondary" value="Add More Detail"
 		  			onclick="addNextDetailSection()" />
@@ -104,7 +101,7 @@
 		  	</th:block>		  
 		  
 		  	<th:block sec:authorize="hasAnyAuthority('Admin', 'Editor')">
-		  	<div th:replace="products/product_shipping :: content"></div>
+		  	<div th:replace="products/productShipping :: content"></div>
 		  	</th:block>
 		  </div>
 		</div>	
@@ -114,7 +111,6 @@
 		<input type="button" value="Cancel" class="btn btn-secondary" id="buttonCancel" />
 	</div>
 	</form>
-</div>
 
 
 

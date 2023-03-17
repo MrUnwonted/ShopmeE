@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: page_head(${pageTitle}, 'none')" />
-<body>
-<div class="container-fluid">
-	<div th:replace="navigation :: menu"></div>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: page_head('Categories - Shopme Admin', 'none')" >
+ </head>
+
+<body class="sidebar-menu-collapsed">
+  <div class="se-pre-con"></div>
+
+  <section th:replace="fragments :: menu"></section>
+  
+  <div class="main-content">
+    <!-- content -->
+    <div class="container-fluid content-top-gap">
 	
 	<div>
 		<h2>Manage Customers | [[${pageTitle}]]</h2>
@@ -107,6 +114,62 @@
 	
 	<div th:replace="fragments :: footer"></div>
 </div>	
+</div>
+
+
+  <!--footer section start-->
+  <footer class="dashboard" th:replace="fragments :: footer"></footer>
+<!--footer section end-->
+<!-- move top -->
+<button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+  <span class="fa fa-angle-up"></span>
+</button>
+
+
+
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/js/jquery-1.10.2.min.js"></script>
+
+
+<script src="assets/js/jquery.nicescroll.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<!-- close script -->
+<script>
+  var closebtns = document.getElementsByClassName("close-grid");
+  var i;
+
+  for (i = 0; i < closebtns.length; i++) {
+	closebtns[i].addEventListener("click", function () {
+	  this.parentElement.style.display = 'none';
+	});
+  }
+</script>
+<!-- //close script -->
+
+<!-- disable body scroll when navbar is in active -->
+<script>
+  $(function () {
+	$('.sidebar-menu-collapsed').click(function () {
+	  $('body').toggleClass('noscroll');
+	})
+  });
+</script>
+<!-- disable body scroll when navbar is in active -->
+
+ <!-- loading-gif Js -->
+ <script src="assets/js/modernizr.js"></script>
+ <script>
+	 $(window).load(function () {
+		 // Animate loader off screen
+		 $(".se-pre-con").fadeOut("slow");;
+	 });
+ </script>
+ <!--// loading-gif Js -->
+
+<!-- Bootstrap Core JavaScript -->
+<script src="assets/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 	var dropdownCountries;
 	var dropdownStates;

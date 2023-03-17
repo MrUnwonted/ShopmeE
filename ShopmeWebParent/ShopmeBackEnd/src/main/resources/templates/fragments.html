@@ -56,7 +56,7 @@
             </ul>  
           </li>-->
           <!-- 
-            <a th:href="@{/customers}"></a>
+            
             <a th:href="@{/shipping}"></a>
             <a th:href="@{/orders}"> </a>
             <a th:href="@{/menus}"></a>
@@ -71,7 +71,7 @@
             <li><a th:href="@{/products}"><i class="fi fi-rr-shopping-cart-add"></i> <span>Products</span></a></li>
           </th:block>
           <th:block sec:authorize="hasAnyAuthority('Admin', 'Salesperson')">
-            <li sec:authorize="hasAuthority('Admin')"><a href="#"><i class="fa fa-user"></i> <span>Customers</span></a></li>
+            <li sec:authorize="hasAuthority('Admin')"><a th:href="@{/customers}"><i class="fa fa-user"></i> <span>Customers</span></a></li>
           </th:block>
             <li><a href="#"><i class="fi fi-rr-truck-side"></i><span>Shipping</span></a></li>
           <th:block sec:authorize="hasAnyAuthority('Admin', 'Salesperson', 'Shipper')">
