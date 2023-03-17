@@ -4,7 +4,7 @@
  </head>
 
 <body class="sidebar-menu-collapsed">
-  <div class="se-pre-con"></div>
+  <!-- <div class="se-pre-con"></div> -->
 
   <section th:replace="fragments :: menu"></section>
   
@@ -27,52 +27,75 @@
           <a th:href="@{/categories/new}" class="fas fa-folder-plus fa-2x icon-dark mr-2"></a>
         </div>
 
-        <div th:if="${message !=null}" class="alert alert-success text-center">
-            [[${message}]]
-        </div>
-
-        <div class="full-details">
-          <table class="table table-bordered table-striped table-hover table-responsive-xl">
-            <thead class="thead-dark">
-              <tr>
-                <th>ID</th>
-                <th>Category Image</th>
-                <th>
-                  <a class="text-white" th:href="@{'/categories?sortDir=' + ${reverseSortDir}}">Category Name</a>
-                  <span th:class="${reverseSortDir == 'desc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}" ></span>						
-                </th>
-                <th>Alias</th>
-                <th>Enabled</th>
-                <th>Actions</th>
-              </tr>								
-            </thead>
-            <tbody>
-              <tr th:each="cat : ${listCategories}">
-                <td>[[${cat.id}]]</td>
-                <td>
-                  <img th:src="@{${cat.imagePath}}" style="width: 100px" class="img-fluid"/>
-                </td>
-                <td>[[${cat.name}]]</td>
-                <td class="hideable-column">[[${cat.alias}]]</td>
-                <td>
-                  <div th:replace="fragments :: status(${cat.enabled}, 'cat', '/categories/' + ${cat.id})"></div>
-                </td>
-                <td>
-                  <div th:replace="fragments :: edit('cat', '/categories/edit/' + ${cat.id})"> </div>
-                  &nbsp;&nbsp;
-                  <div th:replace="fragments :: delete('cat', ${cat.id}, '/categories/delete/' + ${cat.id}, true)"> </div>
-                </td>				
-              </tr>
-            </tbody>
-          </table>
-        </div>
-                                         
-        <div th:replace="modal_fragments :: confirm_modal" > </div>   
+        <div th:replace="fragments :: search_form_and_message('/categories/page/1')" />
+	
+	<div class="full-details">
+		<table class="table table-bordered table-striped table-hover table-responsive-xl">
+			<thead class="thead-dark">
+				<tr>
+					<th>ID</th>
+					<th>Category Image</th>
+					<th th:replace="fragments :: column_link('/categories', 'name', 'Category Name', 'none')" />						
+					<th class="hideable-column">Alias</th>
+					<th>Enabled</th>
+					<th></th>
+				</tr>								
+			</thead>
+			<tbody>
+				<tr th:each="cat : ${listCategories}">
+					<td>[[${cat.id}]]</td>
+					<td>
+						<img th:src="@{${cat.imagePath}}" style="width: 100px" class="img-fluid"/>
+					</td>
+					<td>[[${cat.name}]]</td>
+					<td class="hideable-column">[[${cat.alias}]]</td>
+					<td>
+						<div th:replace="fragments :: status(${cat.enabled}, 'category', '/categories/' + ${cat.id})" />
+					</td>
+					<td>
+						<div th:replace="fragments :: edit('category', '/categories/edit/' + ${cat.id})" />
+						&nbsp; 
+						<div th:replace="fragments :: delete('category', ${cat.id}, '/categories/delete/' + ${cat.id}, ${!cat.hasChildren})" />						
+					</td>					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="less-details">
+		<div th:each="cat : ${listCategories}" class="row m-1">
+			<div class="col-4">
+				<img th:src="@{${cat.imagePath}}" style="width: 100px" class="img-fluid"/>			
+			</div>
+			<div class="col-8">
+				<div>[[${cat.name}]]</div>
+				<div class="mt-2">
+					<div th:replace="fragments :: status(${cat.enabled}, 'category', '/categories/' + ${cat.id})" />
+					&nbsp; 			
+					<div th:replace="fragments :: edit('category', '/categories/edit/' + ${cat.id})" />
+					&nbsp;
+					<div th:replace="fragments :: delete('category', ${cat.id}, '/categories/delete/' + ${cat.id}, ${!cat.hasChildren})" />
+				</div>
+			</div>
+			<div>&nbsp;</div>
+		</div>	
+	</div>
+		
+	<div th:if="${keyword != null}" class="text-center">
+		<span>Search result does not show categories in hierarchical form</span>
+		<div th:replace="fragments :: pagination('/categories', 'categories')"></div>
+	</div>
+	
+	<th:block th:unless="${keyword != null}">
+	
+	</div>
+	
+	<div th:replace="modal_fragments :: confirm_modal" /> 
 
     
     </div>
   </div>
-
+  <div th:replace="fragments :: pagination('/categories', 'top-level categories')"></div>
   
     <!--footer section start-->
     <footer class="dashboard" th:replace="fragments :: footer"></footer>
