@@ -19,7 +19,7 @@ import com.shopme.common.entity.Setting;
 public class SettingFilter implements Filter {
 
 	@Autowired
-	private SettingService service; 
+	private com.shopme.site.setting.SettingService service;
 	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

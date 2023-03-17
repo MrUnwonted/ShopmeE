@@ -14,12 +14,12 @@ import com.shopme.common.entity.Category;
 public class MainController {
 
 	@Autowired private CategoryService categoryService;
-
+	
 	@GetMapping("")
 	public String viewHomePage(Model model) {
 		List<Category> listCategories = categoryService.listNoChildrenCategories();
 		model.addAttribute("listCategories", listCategories);
-
+		
 		return "index";
 	}
 }
