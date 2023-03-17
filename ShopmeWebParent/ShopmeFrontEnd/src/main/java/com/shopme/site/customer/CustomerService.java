@@ -39,7 +39,7 @@ public class CustomerService {
 //
 //		String randomCode = RandomString.make(64);
 //		customer.setVerificationCode(randomCode);
-//		
+//
 		customerRepo.save(customer);
 		
 	}
