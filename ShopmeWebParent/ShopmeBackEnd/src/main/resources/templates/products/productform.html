@@ -36,26 +36,26 @@
 	
 	<form th:action="@{/products/save}" method="post" onsubmit="return checkUnique(this)"
 		enctype="multipart/form-data"
-		th:object="${product}">
+		th:object="${product}" class="mt-5">
 		<input type="hidden" th:field="*{id}" />
 		<input th:if="${product.category != null}" type="hidden" 
 			id="categoryId" th:value="${product.category.id}" />
 	<div>
-		<ul class="nav nav-tabs" id="myTab" role="tablist">
+		<ul class=" d-flex justify-content-around mb-4" style="list-style: none" id="" role="tablist">
 		  <li class="nav-item">
-		    <a class="nav-link active" data-toggle="tab" href="#overview" role="tab">Overview</a>
+		    <a class="nav-link active btn btn-primary" data-toggle="tab" href="#overview" role="tab">Overview</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" data-toggle="tab" href="#description" role="tab">Description</a>
+		    <a class="nav-link btn btn-primary" data-toggle="tab" href="#description" role="tab">Description</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" data-toggle="tab" href="#images" role="tab">Images</a>
+		    <a class="nav-link btn btn-primary" data-toggle="tab" href="#images" role="tab">Images</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" data-toggle="tab" href="#details" role="tab">Details</a>
+		    <a class="nav-link btn btn-primary" data-toggle="tab" href="#details" role="tab">Details</a>
 		  </li>
 		  <li class="nav-item">
-		    <a class="nav-link" data-toggle="tab" href="#shipping" role="tab">Shipping</a>
+		    <a class="nav-link btn btn-primary" data-toggle="tab" href="#shipping" role="tab">Shipping</a>
 		  </li>		  
 		</ul>
 		
