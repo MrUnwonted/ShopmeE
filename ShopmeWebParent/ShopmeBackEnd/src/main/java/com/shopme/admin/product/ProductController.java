@@ -86,7 +86,7 @@ public class ProductController {
 		model.addAttribute("pageTitle", "Create New Product");
 		model.addAttribute("numberOfExistingExtraImages", 0);
 		
-		return "products/productform";
+		return "products/product_form";
 	}
 	
 	@PostMapping("/products/save")
@@ -170,7 +170,7 @@ public class ProductController {
 			model.addAttribute("numberOfExistingExtraImages", numberOfExistingExtraImages);
 			
 			
-			return "products/productform";
+			return "products/product_form";
 			
 		} catch (ProductNotFoundException e) {
 			ra.addFlashAttribute("message", e.getMessage());

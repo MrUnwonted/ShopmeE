@@ -6,7 +6,155 @@
   <component name="ChangeListManager">
     <list default="true" id="d09b8fff-5ffd-4dfc-97bc-5c0dfa4a59cc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/brand/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/brand/BrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/category/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/category/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/customer/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/customer/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/product/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/java/com/shopme/admin/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/META-INF/additional-spring-configuration-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/css/error.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/css/style-starter.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/Preloader_11.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/ShopmeAdminBig.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/ShopmeAdminSmall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/avatar1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/avatar2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/avatar3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/avatar4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/avatar5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/avatar6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/avatar7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/cart.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/content.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/dashboard.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/default-user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/desk.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/image-thumbnail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/people1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/people2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/people3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/people4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/profileimg-big.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/profileimg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/sort_asc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/sort_both.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/sort_desc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/team.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/team2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/team3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/team4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/template1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/images/template2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/Chart.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/bar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/common_form.js" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/common_form.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/common_list.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/countries_setting.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/jquery-1.10.2.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/jquery-3.3.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/jquery.nicescroll.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/linechart.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/modernizr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/product_form_details.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/product_form_images.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/product_form_overview.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/scripts.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/states_setting.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/assets/js/utils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/fontawesome/all.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/richtext/jquery.richtext.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/richtext/jquery.richtext.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/richtext/richtext.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/richtext/richtext.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/webfonts/fa-brands-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/webfonts/fa-brands-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/webfonts/fa-regular-400.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/webfonts/fa-regular-400.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/webfonts/fa-solid-900.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/webfonts/fa-solid-900.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/webfonts/fa-v4compatibility.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/static/webfonts/fa-v4compatibility.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/blocks.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/brands/brandform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/brands/brands.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/brands/brands.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/cards.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/carousels.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/categories/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/categories/categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/categories/categoryform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/customers/customer_detail_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/customers/customer_detail_modal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/customers/customerform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/customers/customers.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/customers/customers.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/forms.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/modal_fragments.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/pricing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productDescription.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productDetail_modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productDetails.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productImages.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productOverview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productShipping.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/product_details_read_only.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/product_images_read_only.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/product_shipping_read_only.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/productform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/products/products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/settings/general.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/settings/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/settings/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/users/account_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/users/account_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/users/userform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/users/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeBackEnd/src/main/resources/templates/users/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/MvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/MvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/ShopmeFrontEndApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/ShopmeFrontEndApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/category/CategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/category/CategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/category/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/category/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/customer/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/customer/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/customer/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/customer/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/customer/CustomerRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/customer/CustomerRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/customer/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/customer/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/product/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/product/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/product/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/product/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/product/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/product/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/security/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/security/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/CountryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/CountryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/EmailSettingBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/EmailSettingBag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/SettingFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/SettingFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/SettingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/SettingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/SettingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/SettingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/StateRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/StateRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/StateRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/java/com/site/setting/StateRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/static/images/ShopmeAdminSmall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/breadcrumb.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/fragments.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/navigation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/product/images_carousel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/product/product_detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/product/product_fragment.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/product/products_by_category.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/product/search_result.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/register/register_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/register/register_success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/register/verify_fail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/main/resources/templates/register/verify_success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/test/java/com/site/category/CategoryRepostioryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/test/java/com/site/category/CategoryRepostioryTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/test/java/com/site/product/ProductRepostioryTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/ShopmeWebParent/ShopmeFrontEnd/src/test/java/com/site/product/ProductRepostioryTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +201,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Shopme/ShopmeWebParent/ShopmeBackEnd&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Ecommerce/SpringBoot Ecommerce/commercefox-master/commercefox-master&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -122,18 +270,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CurrencyRepositoryTests.testCreateCurrencies" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ShopmeBackEnd" />
+    <configuration name="com.site.ShopmeFrontEndApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.site.ShopmeFrontEndApplication" />
+      <module name="ShopmeFrontEnd" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.shopme.admin.setting.*" />
+          <option name="PATTERN" value="com.site.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.shopme.admin.setting" />
-      <option name="MAIN_CLASS_NAME" value="com.shopme.admin.setting.CurrencyRepositoryTests" />
-      <option name="METHOD_NAME" value="testCreateCurrencies" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -155,19 +300,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.com.site.ShopmeFrontEndApplication" />
       <item itemvalue="Application.com.shopme.ShopmeFrontEndApplication" />
       <item itemvalue="Application.ShopmeFrontEndApplication" />
       <item itemvalue="Application.ShopmeBackEndApplication" />
-      <item itemvalue="JUnit.CurrencyRepositoryTests.testCreateCurrencies" />
       <item itemvalue="JUnit.CurrencyRepositoryTests.testListAllOrderByNameAsc" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ShopmeBackEndApplication" />
-        <item itemvalue="Application.ShopmeFrontEndApplication" />
+        <item itemvalue="Application.com.site.ShopmeFrontEndApplication" />
         <item itemvalue="Application.com.shopme.ShopmeFrontEndApplication" />
+        <item itemvalue="Application.ShopmeFrontEndApplication" />
         <item itemvalue="JUnit.CurrencyRepositoryTests.testListAllOrderByNameAsc" />
-        <item itemvalue="JUnit.CurrencyRepositoryTests.testCreateCurrencies" />
       </list>
     </recent_temporary>
   </component>

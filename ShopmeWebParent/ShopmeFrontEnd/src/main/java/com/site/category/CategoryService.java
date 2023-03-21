@@ -1,4 +1,4 @@
-package com.shopme.category;
+package com.site.category;
 
 import java.util.ArrayList;
 import java.util.List;

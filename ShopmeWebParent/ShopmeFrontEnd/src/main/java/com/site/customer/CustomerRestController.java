@@ -1,4 +1,4 @@
-package com.shopme.customer;
+package com.site.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;

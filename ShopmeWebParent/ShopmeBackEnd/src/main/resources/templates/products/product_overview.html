@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="content">
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"
+               for="name">Product Name</label>
+        <div class="col-sm-10">
+            <div class="input-group input-group-merge">
+                <span class="input-group-text"><i class="bx bx-font"></i></span>
+
+                <th:block
+                        th:if="${!#authorization.expression('hasAuthority(''Admin'')') && !#authorization.expression('hasAuthority(''Editor'')')}">
+                    <th:block th:if="${#authorization.expression('hasAuthority(''Salesperson'')')}">
+
+                        <input aria-describedby="name"
+                               aria-label="name"
+                               class="form-control"
+                               id="name"
+                               maxlength="256"
+                               minlength="3"
+                               placeholder="Product Name"
+                               readonly="readonly"
+                               required
+                               th:field="*{name}"
+                               type="text"
+                        />
+
+                    </th:block>
+                </th:block>
+
+                <th:block
+                        th:if="${#authorization.expression('hasAuthority(''Admin'')') || #authorization.expression('hasAuthority(''Editor'')')}">
+
+                    <input aria-describedby="name"
+                           aria-label="name"
+                           class="form-control"
+                           id="name"
+                           maxlength="256"
+                           minlength="3"
+                           placeholder="Product Name"
+                           required
+                           th:field="*{name}"
+                           type="text"
+                    />
+
+                </th:block>
+            </div>
+            <div class="form-text"><sup>*</sup> Should have minimum 3 character</div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"
+               for="alias">Product Alias</label>
+        <div class="col-sm-10">
+            <div class="input-group input-group-merge">
+                <span class="input-group-text"><i class="bx bx-font"></i></span>
+
+                <th:block
+                        th:if="${!#authorization.expression('hasAuthority(''Admin'')') && !#authorization.expression('hasAuthority(''Editor'')')}">
+                    <th:block th:if="${#authorization.expression('hasAuthority(''Salesperson'')')}">
+
+                        <input aria-describedby="alias"
+                               aria-label="name"
+                               class="form-control"
+                               id="alias"
+                               maxlength="256"
+                               minlength="3"
+                               placeholder="Alias"
+                               readonly="readonly"
+                               th:field="*{alias}"
+                               type="text"
+                        />
+
+                    </th:block>
+                </th:block>
+
+                <th:block
+                        th:if="${#authorization.expression('hasAuthority(''Admin'')') || #authorization.expression('hasAuthority(''Editor'')')}">
+
+                    <input aria-describedby="alias"
+                           aria-label="name"
+                           class="form-control"
+                           id="alias"
+                           maxlength="256"
+                           minlength="3"
+                           placeholder="Alias"
+                           th:field="*{alias}"
+                           type="text"
+                    />
+
+                </th:block>
+
+            </div>
+            <div class="form-text"><sup>*</sup> Default alias will be product name with spaces replaced by dashes</div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"
+               for="brand">Brand</label>
+        <div class="col-sm-10">
+            <div class="input-group">
+
+                <th:block
+                        th:if="${#authorization.expression('hasAuthority(''Admin'')') || #authorization.expression('hasAuthority(''Editor'')')}">
+
+                    <label class="input-group-text" for="brand">Options</label>
+                    <select class="form-select" id="brand" th:field="*{brand}">
+
+                        <th:block th:each="brand : ${listBrand}">
+                            <option th:value="${brand.id}">[[${brand.name}]]</option>
+                        </th:block>
+
+                    </select>
+
+                </th:block>
+
+                <th:block
+                        th:if="${!#authorization.expression('hasAuthority(''Admin'')') && !#authorization.expression('hasAuthority(''Editor'')')}">
+                    <th:block th:if="${#authorization.expression('hasAuthority(''Salesperson'')')}">
+                        <input aria-describedby="brand" aria-label="brand" class="form-control" id="brand"
+                               readonly
+                               th:value="${product.brand.name}"
+                               type="text"
+                        />
+                    </th:block>
+                </th:block>
+
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"
+               for="categories">Category</label>
+        <div class="col-sm-10">
+            <div class="input-group">
+
+                <label class="input-group-text" for="categories">Options</label>
+                <th:block
+                        th:if="${#authorization.expression('hasAuthority(''Admin'')') || #authorization.expression('hasAuthority(''Editor'')')}">
+
+                    <th:block th:if="${product.category != null}">
+                        <select class="form-select" id="categories" th:field="*{category}">
+                            <th:block th:each="cat : ${product.brand.categories}">
+                                <option th:value="${cat.id}">[[${cat.name}]]</option>
+                            </th:block>
+                        </select>
+                    </th:block>
+
+                    <th:block th:if="${product.category == null}">
+                        <select class="form-select" id="categories" th:field="*{category}">
+                        </select>
+                    </th:block>
+
+                </th:block>
+
+                <th:block
+                        th:if="${!#authorization.expression('hasAuthority(''Admin'')') && !#authorization.expression('hasAuthority(''Editor'')')}">
+                    <th:block th:if="${#authorization.expression('hasAuthority(''Salesperson'')')}">
+                        <input aria-describedby="categories"
+                               aria-label="categories"
+                               class="form-control"
+                               id="categories"
+                               readonly
+                               th:value="${product.category.name}"
+                               type="text"
+                        />
+
+                    </th:block>
+                </th:block>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" for="enabled">Enabled?</label>
+        <div class="col-sm-10">
+            <div class="col-md">
+                <small class="text-light fw-semibold">Want to be enabled?</small>
+                <div class="form-check mt-3">
+
+                    <th:block
+                            th:if="${#authorization.expression('hasAuthority(''Admin'')') || #authorization.expression('hasAuthority(''Editor'')')}">
+                        <input class="form-check-input"
+                               id="enabled" th:field="*{enabled}" type="checkbox" value=""/>
+                    </th:block>
+
+                    <th:block
+                            th:if="${!#authorization.expression('hasAuthority(''Admin'')') && !#authorization.expression('hasAuthority(''Editor'')')}">
+                        <th:block th:if="${#authorization.expression('hasAuthority(''Salesperson'')')}">
+                            <input class="form-check-input"
+                                   disabled="disabled"
+                                   id="enabled" th:field="*{enabled}" type="checkbox" value=""/>
+                        </th:block>
+                    </th:block>
+
+                    <label class="form-check-label" for="enabled">Enable</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label" for="inStock">In Stock</label>
+        <div class="col-sm-10">
+            <div class="col-md">
+                <div class="form-check mt-3">
+
+                    <th:block
+                            th:if="${#authorization.expression('hasAuthority(''Admin'')') || #authorization.expression('hasAuthority(''Editor'')')}">
+                        <input class="form-check-input"
+                               id="inStock" th:field="*{inStock}" type="checkbox" value=""/>
+                    </th:block>
+
+                    <th:block
+                            th:if="${!#authorization.expression('hasAuthority(''Admin'')') && !#authorization.expression('hasAuthority(''Editor'')')}">
+                        <th:block th:if="${#authorization.expression('hasAuthority(''Salesperson'')')}">
+                            <input class="form-check-input"
+                                   disabled="disabled"
+                                   id="inStock" th:field="*{inStock}" type="checkbox" value=""/>
+                        </th:block>
+                    </th:block>
+
+                    <label class="form-check-label" for="inStock">In Stock</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"
+               for="brand">Stock</label>
+        <div class="col-sm-10">
+            <div class="input-group">
+
+                <th:block
+                        th:if="${#authorization.expression('hasAuthority(''Admin'')') || #authorization.expression('hasAuthority(''Editor'')')}">
+                    <input class="form-control"
+                           id="Stock" th:field="*{stock}" type="number" step="1" required />
+                </th:block>
+
+                <th:block
+                        th:if="${!#authorization.expression('hasAuthority(''Admin'')') && !#authorization.expression('hasAuthority(''Editor'')')}">
+                    <th:block th:if="${#authorization.expression('hasAuthority(''Salesperson'')')}">
+                        <input class="form-control"
+                               disabled="disabled"
+                               id="Stock" th:field="*{stock}" type="number" step="1"/>
+                    </th:block>
+                </th:block>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"
+               for="cost">Cost</label>
+        <div class="col-sm-10">
+            <div class="input-group input-group-merge">
+                <input aria-describedby="cost"
+                       aria-label="cost"
+                       class="form-control"
+                       id="cost"
+                       placeholder="Brand Name"
+                       step="0.01"
+                       th:field="*{cost}"
+                       type="number"
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"
+               for="price">Price</label>
+        <div class="col-sm-10">
+            <div class="input-group input-group-merge">
+                <input aria-describedby="price"
+                       aria-label="cost"
+                       class="form-control"
+                       id="price"
+                       step="0.01"
+                       th:field="*{price}"
+                       type="number"
+                />
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label class="col-sm-2 col-form-label"
+               for="discountPercent">Discount Price</label>
+        <div class="col-sm-10">
+            <div class="input-group input-group-merge">
+                <input aria-describedby="discountPercent"
+                       aria-label="cost"
+                       class="form-control"
+                       id="discountPercent"
+                       step="0.01"
+                       th:field="*{discountPercent}"
+                       type="number"
+                />
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

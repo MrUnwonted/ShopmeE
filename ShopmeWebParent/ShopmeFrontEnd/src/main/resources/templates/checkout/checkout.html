@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="fragments/common/head :: content('none')"></head>
+
+<body>
+
+<div th:replace="fragments/common/header :: content"></div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<main class="checkout-page" id="content" role="main">
+    <!-- breadcrumb -->
+    <div class="bg-gray-13 bg-md-transparent">
+        <div class="container">
+            <!-- breadcrumb -->
+            <div class="my-md-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a
+                                href="https://transvelo.github.io/electro-html/2.0/html/home/index.html">Home</a></li>
+                        <li aria-current="page" class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active">Checkout
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+            <!-- End breadcrumb -->
+        </div>
+    </div>
+    <!-- End breadcrumb -->
+
+    <div class="container">
+        <div class="mb-5">
+            <h1 class="text-center">Checkout</h1>
+
+        </div>
+
+            <div class="row">
+                <div class="col-lg-5 order-lg-2 mb-7 mb-lg-0">
+                    <div class="pl-lg-3 ">
+                        <div class="bg-gray-1 rounded-lg">
+                            <!-- Order Summary -->
+                            <div class="p-4 mb-4 checkout-table">
+                                <!-- Title -->
+                                <div class="border-bottom border-color-1 mb-5">
+                                    <h3 class="section-title mb-0 pb-2 font-size-25">Your order</h3>
+                                </div>
+                                <!-- End Title -->
+
+                                <!-- Product Content -->
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="product-name">Product</th>
+                                        <th class="product-total">Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <th:block th:each="item : ${cartItems}">
+                                        <tr class="cart_item">
+                                            <td><a class="text-blue" target="_blank"
+                                                   th:href="@{'/p/'+ ${item.product.alias}}">[[${item.product.shortName}]]</a>&nbsp;<strong
+                                                    class="product-quantity">× [[${item.quantity}]]</strong>&nbsp;
+                                                <small>Ship:
+                                                    <div th:replace="fragments/common/currency_time :: format_currency(${item.shippingCost})"></div>
+                                                </small></td>
+                                            <td>
+                                                <div th:replace="fragments/common/currency_time :: format_currency(${item.subtotal})"></div>
+                                            </td>
+                                        </tr>
+                                    </th:block>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <th>Subtotal</th>
+                                        <td>
+                                            <div th:replace="fragments/common/currency_time :: format_currency(${checkoutInfo.productTotal})"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Shipping</th>
+                                        <td>Flat rate
+                                            <div th:replace="fragments/common/currency_time :: format_currency(${checkoutInfo.shippingCostTotal})"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Payment Total</th>
+                                        <td><strong>
+                                            <div th:replace="fragments/common/currency_time :: format_currency(${checkoutInfo.paymentTotal})"></div>
+                                        </strong></td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                                <!-- End Product Content -->
+                                <div class="border-top border-width-3 border-color-1 pt-3 mb-3">
+                                    <!-- Basics Accordion -->
+                                    <div id="basicsAccordion1">
+                                        <!-- Card -->
+                                        <div class="border-bottom border-color-1 border-dotted-bottom">
+                                            <div class="p-3" id="basicsHeadingOne">
+                                                <div class="custom-control custom-radio">
+                                                    <input checked class="custom-control-input" id="stylishRadio1"
+                                                           name="stylishRadio" type="radio">
+                                                    <label aria-controls="basicsCollapseOnee" aria-expanded="true"
+                                                           class="custom-control-label form-label"
+                                                           data-target="#basicsCollapseOnee"
+                                                           data-toggle="collapse"
+                                                           for="stylishRadio1">
+                                                        Direct bank transfer
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div aria-labelledby="basicsHeadingOne"
+                                                 class="collapse show border-top border-color-1 border-dotted-top bg-dark-lighter"
+                                                 data-parent="#basicsAccordion1"
+                                                 id="basicsCollapseOnee">
+                                                <div class="p-4">
+                                                    Make your payment directly into our bank account. Please use your
+                                                    Order ID as the payment reference. Your order will not be shipped
+                                                    until the funds have cleared in our account.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Card -->
+
+                                        <!-- Card -->
+                                        <div class="border-bottom border-color-1 border-dotted-bottom">
+                                            <div class="p-3" id="basicsHeadingTwo">
+                                                <div class="custom-control custom-radio">
+                                                    <input class="custom-control-input" id="secondStylishRadio1"
+                                                           name="stylishRadio" type="radio">
+                                                    <label aria-controls="basicsCollapseTwo"
+                                                           aria-expanded="false"
+                                                           class="custom-control-label form-label"
+                                                           data-target="#basicsCollapseTwo"
+                                                           data-toggle="collapse"
+                                                           for="secondStylishRadio1">
+                                                        Check payments
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div aria-labelledby="basicsHeadingTwo"
+                                                 class="collapse border-top border-color-1 border-dotted-top bg-dark-lighter"
+                                                 data-parent="#basicsAccordion1"
+                                                 id="basicsCollapseTwo">
+                                                <div class="p-4">
+                                                    Please send a check to Store Name, Store Street, Store Town, Store
+                                                    State / County, Store Postcode.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Card -->
+
+                                        <!-- Card -->
+                                        <div class="border-bottom border-color-1 border-dotted-bottom">
+
+                                            <th:block th:if="${checkoutInfo.codSupported}">
+
+                                                <form method="post" th:action="@{/place_order}">
+                                                    <div class="p-3" id="basicsHeadingThree">
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" id="thirdstylishRadio1"
+                                                                   name="paymentMethod" value="COD" type="radio">
+                                                            <label aria-controls="basicsCollapseThree"
+                                                                   aria-expanded="false"
+                                                                   class="custom-control-label form-label"
+                                                                   data-target="#basicsCollapseThree"
+                                                                   data-toggle="collapse"
+                                                                   for="thirdstylishRadio1">
+                                                                Cash on delivery
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div aria-labelledby="basicsHeadingThree"
+                                                         class="collapse border-top border-color-1 border-dotted-top bg-dark-lighter"
+                                                         data-parent="#basicsAccordion1"
+                                                         id="basicsCollapseThree">
+                                                        <div class="p-4">
+                                                            <button class="btn btn-primary-dark-w btn-block btn-pill font-size-20 mb-3 py-3"
+                                                                    type="submit">
+                                                                Place order with COD
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </th:block>
+                                        </div>
+                                        <!-- End Card -->
+
+                                        <!-- Card -->
+                                        <div class="border-bottom border-color-1 border-dotted-bottom">
+                                            <div class="p-3" id="basicsHeadingFour">
+                                                <div class="custom-control custom-radio">
+                                                    <input class="custom-control-input" id="FourstylishRadio1"
+                                                           name="stylishRadio" type="radio">
+                                                    <label aria-controls="basicsCollapseFour"
+                                                           aria-expanded="false"
+                                                           class="custom-control-label form-label"
+                                                           data-target="#basicsCollapseFour"
+                                                           data-toggle="collapse"
+                                                           for="FourstylishRadio1">
+                                                        PayPal <a class="text-blue" href="checkout.html#">What is
+                                                        PayPal?</a>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div aria-labelledby="basicsHeadingFour"
+                                                 class="collapse border-top border-color-1 border-dotted-top bg-dark-lighter"
+                                                 data-parent="#basicsAccordion1"
+                                                 id="basicsCollapseFour">
+                                                <div class="p-4" id="paypal-button-container">
+                                                    <form th:action="@{/process_paypal_order}" method="post" id="paypalForm">
+                                                       <input type="hidden" name="orderId" id="orderId">
+                                                        <input type="hidden" name="paymentMethod" VALUE="PAYPAL">
+
+
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Card -->
+                                    </div>
+                                    <!-- End Basics Accordion -->
+                                </div>
+                                <div class="form-group d-flex align-items-center justify-content-between px-3 mb-5">
+                                    <div class="form-check">
+                                        <input class="form-check-input" data-error-class="u-has-error" data-msg="Please agree terms and conditions." data-success-class="u-has-success"
+                                               id="defaultCheck10"
+                                               required
+                                               type="checkbox"
+                                               value="">
+                                        <label class="form-check-label form-label" for="defaultCheck10">
+                                            I have read and agree to the website <a class="text-blue"
+                                                                                    href="checkout.html#">terms and
+                                            conditions </a>
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary-dark-w btn-block btn-pill font-size-20 mb-3 py-3"
+                                        type="submit">Place
+                                    order
+                                </button>
+                            </div>
+                            <!-- End Order Summary -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 order-lg-1">
+                    <div class="pb-7 mb-7">
+                        <!-- Title -->
+                        <div class="border-bottom border-color-1 mb-5">
+                            <h3 class="section-title mb-0 pb-2 font-size-25">Shipping Info</h3>
+                        </div>
+                        <!-- End Title -->
+
+                        <!-- Billing Form -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6><b>Ship to :</b></h6>
+                                <p>[[${shippingAddress}]]</p>
+
+                                <h6><b>Days to Deliver :</b></h6>
+                                <p>[[${checkoutInfo.deliverDays}]]</p>
+
+                                <h6><b>Expected Deliver Date :</b></h6>
+                                <p>[[${#dates.format(checkoutInfo.deliverDate, 'E, dd MMM yyyy')}]]</p>
+                            </div>
+                        </div>
+                        <!-- End Billing Form -->
+
+                        <!-- Accordion -->
+                        <div class="accordion rounded mb-6" id="shopCartAccordion2">
+                            <!-- Card -->
+                            <div class="card border-0">
+                                <div class="custom-control custom-checkbox d-flex align-items-center"
+                                     id="shopCartHeadingThree">
+                                    <input class="custom-control-input" id="createAnaccount" name="createAnaccount"
+                                           type="checkbox">
+                                    <label aria-controls="shopCartThree" aria-expanded="false"
+                                           class="custom-control-label form-label" data-target="#shopCartThree" data-toggle="collapse"
+                                           for="createAnaccount">
+                                        Ship to different address?
+                                    </label>
+                                </div>
+                                <div aria-labelledby="shopCartHeadingThree" class="collapse" data-parent="#shopCartAccordion2"
+                                     id="shopCartThree" style="">
+                                    <!-- Form Group -->
+                                    <div class="js-form-message form-group py-5 d-flex align-items-baseline">
+                                        <label class="form-label" for="signinSrPasswordExample1">
+                                            Choose a default address
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        <a class="btn btn-primary-dark-w ml-md-2 px-5 px-md-4 px-lg-5 w-100 w-md-auto d-md-inline-block"
+                                           th:href="@{/address_book(redirect=checkout)}">Choose
+                                            Address</a>
+                                    </div>
+                                    <!-- End Form Group -->
+                                </div>
+                            </div>
+                            <!-- End Card -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
+
+<div th:replace="fragments/common/footer :: content"></div>
+
+
+<div th:replace="fragments/common/secondary_contents :: content"></div>
+
+<div th:replace="fragments/login_register/sidebar_nav :: content"></div>
+
+<!-- Go to Top -->
+<a class="js-go-to u-go-to" data-compensation="#header"
+   data-hide-effect="slideOutDown"
+   data-offset-top="400"
+   data-position='{"bottom": 15, "right": 15 }'
+   data-show-effect="slideInUp"
+   data-type="fixed"
+   href="checkout.html#">
+    <span class="fas fa-arrow-up u-go-to__inner"></span>
+</a>
+<!-- End Go to Top -->
+
+<!-- JS Global Compulsory -->
+<script th:src="@{/assets/vendor/jquery/dist/jquery.min.js}"></script>
+<script th:src="@{/assets/vendor/jquery/dist/jquery.number.min.js}"></script>
+<script th:src="@{/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js}"></script>
+<script th:src="@{/assets/vendor/popper.js/dist/umd/popper.min.js}"></script>
+<script th:src="@{/assets/vendor/bootstrap/bootstrap.min.js}"></script>
+
+
+<!-- JS Implementing Plugins -->
+
+<script th:src="@{/assets/vendor/appear.js}"></script>
+<script th:src="@{/assets/vendor/jquery.countdown.min.js}"></script>
+<script th:src="@{/assets/vendor/hs-megamenu/src/hs.megamenu.js}"></script>
+<script th:src="@{/assets/vendor/svg-injector/dist/svg-injector.min.js}"></script>
+<script th:src="@{/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js}"></script>
+<script th:src="@{/assets/vendor/jquery-validation/dist/jquery.validate.min.js}"></script>
+<script th:src="@{/assets/vendor/fancybox/jquery.fancybox.min.js}"></script>
+<script th:src="@{/assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js}"></script>
+<script th:src="@{/assets/vendor/typed.js/lib/typed.min.js}"></script>
+<script th:src="@{/assets/vendor/slick-carousel/slick/slick.js}"></script>
+<script th:src="@{/assets/vendor/appear.js}"></script>
+<script th:src="@{/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js}"></script>
+
+
+<!-- JS Electro -->
+<script th:src="@{/assets/js/hs.core.js}"></script>
+<script th:src="@{/assets/js/components/hs.countdown.js}"></script>
+<script th:src="@{/assets/js/components/hs.header.js}"></script>
+<script th:src="@{/assets/js/components/hs.hamburgers.js}"></script>
+<script th:src="@{/assets/js/components/hs.unfold.js}"></script>
+<script th:src="@{/assets/js/components/hs.focus-state.js}"></script>
+<script th:src="@{/assets/js/components/hs.malihu-scrollbar.js}"></script>
+<script th:src="@{/assets/js/components/hs.validation.js}"></script>
+<script th:src="@{/assets/js/components/hs.fancybox.js}"></script>
+<script th:src="@{/assets/js/components/hs.onscroll-animation.js}"></script>
+<script th:src="@{/assets/js/components/hs.slick-carousel.js}"></script>
+<script th:src="@{/assets/js/components/hs.quantity-counter.js}"></script>
+<script th:src="@{/assets/js/components/hs.range-slider.js}"></script>
+<script th:src="@{/assets/js/components/hs.show-animation.js}"></script>
+<script th:src="@{/assets/js/components/hs.svg-injector.js}"></script>
+<script th:src="@{/assets/js/components/hs.scroll-nav.js}"></script>
+<script th:src="@{/assets/js/components/hs.go-to.js}"></script>
+<script th:src="@{/assets/js/components/hs.selectpicker.js}"></script>
+
+<script th:src="@{/assets/js/toast.js}"></script>
+<script th:src="@{/assets/js/sweetalert.min.js}"></script>
+
+<script th:src="@{https://www.paypal.com/sdk/js(client-id=${paypalClientId},currency=${currencyCode})}"></script>
+
+
+<script>
+    stringAmount = "[[${checkoutInfo.paymentTotalForPaypal}]]";
+    amount = parseInt(stringAmount);
+    paypal.Buttons({
+        enableStandardCardFields: true,
+        createOrder: function(data, actions) {
+            // setup a transaction
+            return actions.order.create({
+
+                intent: 'CAPTURE', // make payment immediately
+                payer: {
+                    name: {
+                        given_name: "[[${customer.firstName}]]",
+                        surname: "[[${customer.lastName}]]"
+                    },
+                    address: {
+                        address_line_1: "[[${customer.addressLine1}]]",
+                        address_line_2: "[[${customer.addressLine2}]]",
+                        admin_area_1: "[[${customer.state}]]",
+                        admin_area_2: "[[${customer.city}]]",
+                        postal_code: "[[${customer.postalCode}]]",
+                        country_code: "[[${customer.country.code}]]"
+                    },
+                    email_address: "[[${customer.email}]]",
+                    phone: {
+                        phone_type: "MOBILE",
+                        phone_number: {
+                            national_number: "[[${customer.phoneNumber}]]"
+                        }
+                    }
+                },
+
+                purchase_units: [{
+                    amount: {
+                        value: amount,
+                        currency_code: "[[${currencyCode}]]"
+                    }
+                }],
+
+                application_context: {
+                    shipping_preference: "NO_SHIPPING"
+                }
+            });
+        },
+        onApprove: function (data, actions){
+            return actions.order.capture().then(function (details){
+                orderId = details.id;
+                $("#orderId").val(orderId)
+                $("#paypalForm").submit();
+            });
+        },
+        onCancel: function (data){
+            info("Payment Cancelled");
+        },
+        onError: function (err){
+            console.log(err);
+            error("Something wrong happened");
+        }
+
+    }).render("#paypal-button-container");
+
+
+    $(window).on('load', function () {
+        // initialization of HSMegaMenu component
+        $('.js-mega-menu').HSMegaMenu({
+            event: 'hover',
+            direction: 'horizontal',
+            pageContainer: $('.container'),
+            breakpoint: 767.98,
+            hideTimeOut: 0
+        });
+    });
+
+    $(document).on('ready', function () {
+        // initialization of header
+        $.HSCore.components.HSHeader.init($('#header'));
+
+        // initialization of animation
+        $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
+
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+            afterOpen: function () {
+                $(this).find('input[type="search"]').focus();
+            }
+        });
+
+        // initialization of HSScrollNav component
+        $.HSCore.components.HSScrollNav.init($('.js-scroll-nav'), {
+            duration: 700
+        });
+
+        // initialization of quantity counter
+        $.HSCore.components.HSQantityCounter.init('.js-quantity');
+
+        // initialization of popups
+        $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+        // initialization of countdowns
+        var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {
+            yearsElSelector: '.js-cd-years',
+            monthsElSelector: '.js-cd-months',
+            daysElSelector: '.js-cd-days',
+            hoursElSelector: '.js-cd-hours',
+            minutesElSelector: '.js-cd-minutes',
+            secondsElSelector: '.js-cd-seconds'
+        });
+
+        // initialization of malihu scrollbar
+        $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+        // initialization of forms
+        $.HSCore.components.HSFocusState.init();
+
+        // initialization of form validation
+        $.HSCore.components.HSValidation.init('.js-validate', {
+            rules: {
+                confirmPassword: {
+                    equalTo: '#signupPassword'
+                }
+            }
+        });
+
+        // initialization of forms
+        $.HSCore.components.HSRangeSlider.init('.js-range-slider');
+
+        // initialization of show animations
+        $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+        // initialization of fancybox
+        $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+        // initialization of slick carousel
+        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+
+        // initialization of hamburgers
+        $.HSCore.components.HSHamburgers.init('#hamburgerTrigger');
+
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+            beforeClose: function () {
+                $('#hamburgerTrigger').removeClass('is-active');
+            },
+            afterClose: function () {
+                $('#headerSidebarList .collapse.show').collapse('hide');
+            }
+        });
+
+        $('#headerSidebarList [data-toggle="collapse"]').on('click', function (e) {
+            e.preventDefault();
+
+            var target = $(this).data('target');
+
+            if ($(this).attr('aria-expanded') === "true") {
+                $(target).collapse('hide');
+            } else {
+                $(target).collapse('show');
+            }
+        });
+
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+
+        // initialization of select picker
+        $.HSCore.components.HSSelectPicker.init('.js-select');
+    });
+</script>
+
+
+
+<!-- JS Plugins Init. -->
+<script>
+
+
+</script>
+
+
+</body>
+</html>

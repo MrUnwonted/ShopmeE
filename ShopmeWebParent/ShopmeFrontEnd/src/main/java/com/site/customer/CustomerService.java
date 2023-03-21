@@ -1,11 +1,11 @@
-package com.shopme.customer;
+package com.site.customer;
 
 import java.util.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import com.shopme.setting.CountryRepository;
+import com.site.setting.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

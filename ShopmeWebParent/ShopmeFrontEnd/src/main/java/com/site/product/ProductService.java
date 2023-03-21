@@ -1,4 +1,4 @@
-package com.shopme.product;
+package com.site.product;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

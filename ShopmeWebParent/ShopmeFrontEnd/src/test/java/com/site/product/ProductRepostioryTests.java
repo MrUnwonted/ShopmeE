@@ -1,4 +1,4 @@
-package com.shopme.product;
+package com.site.product;
 
 import com.shopme.common.entity.Product;
 import org.junit.jupiter.api.Test;

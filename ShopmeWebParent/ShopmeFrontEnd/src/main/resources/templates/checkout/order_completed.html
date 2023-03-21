@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head th:replace="fragments/common/head :: content('none')"></head>
+
+<body>
+
+<div th:replace="fragments/common/header :: content"></div>
+
+<!-- ========== MAIN CONTENT ========== -->
+<main class="cart-page" id="content" role="main">
+    <!-- breadcrumb -->
+    <div class="bg-gray-13 bg-md-transparent">
+        <div class="container">
+            <!-- breadcrumb -->
+            <div class="my-md-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a
+                                th:href="@{/}">Home</a></li>
+                        <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a
+                                th:href="@{/orders}">Orders</a></li>
+                        <li aria-current="page" class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active">Success</li>
+                    </ol>
+                </nav>
+            </div>
+            <!-- End breadcrumb -->
+        </div>
+    </div>
+    <!-- End breadcrumb -->
+
+    <div class="container-fluid ">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="card">
+                    <div class="card-body mt-10 cart">
+                        <div class="col-sm-12 text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="250" height="250" viewBox="0 0 24 24" style="fill: rgba(52, 173, 67, 0.9);transform: ;msFilter:;"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm-1.999 14.413-3.713-3.705L7.7 11.292l2.299 2.295 5.294-5.294 1.414 1.414-6.706 6.706z"></path></svg>
+                            <h3>Order Success</h3>
+                                <h6>We have sent a confirmation mail to your registered Email Address <i class="bx bx-envelope"></i></h6>
+                                <a class="btn btn-primary cart-btn-transform m-3 linkDetail" data-abc="true" th:href="@{'/orders/detail/' + ${orderId}}">View Order</a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</main>
+<!-- ========== END MAIN CONTENT ========== -->
+
+<div aria-hidden="true" class="modal fade " id="orderDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content"></div>
+    </div>
+</div>
+
+
+<div th:replace="fragments/common/footer :: content"></div>
+
+
+<div th:replace="fragments/common/secondary_contents :: content"></div>
+
+<div th:replace="fragments/login_register/sidebar_nav :: content"></div>
+
+<!-- Go to Top -->
+<a class="js-go-to u-go-to" data-compensation="#header"
+   data-hide-effect="slideOutDown"
+   data-offset-top="400"
+   data-position='{"bottom": 15, "right": 15 }'
+   data-show-effect="slideInUp"
+   data-type="fixed"
+   href="cart.html#">
+    <span class="fas fa-arrow-up u-go-to__inner"></span>
+</a>
+<!-- End Go to Top -->
+
+<!-- JS Global Compulsory -->
+<script th:src="@{/assets/vendor/jquery/dist/jquery.min.js}"></script>
+<script th:src="@{/assets/vendor/jquery/dist/jquery.number.min.js}"></script>
+<script th:src="@{/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js}"></script>
+<script th:src="@{/assets/vendor/popper.js/dist/umd/popper.min.js}"></script>
+<script th:src="@{/assets/vendor/bootstrap/bootstrap.min.js}"></script>
+
+<!-- JS Implementing Plugins -->
+
+<script th:src="@{/assets/vendor/appear.js}"></script>
+<script th:src="@{/assets/vendor/jquery.countdown.min.js}"></script>
+<script th:src="@{/assets/vendor/hs-megamenu/src/hs.megamenu.js}"></script>
+<script th:src="@{/assets/vendor/svg-injector/dist/svg-injector.min.js}"></script>
+<script th:src="@{/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js}"></script>
+<script th:src="@{/assets/vendor/jquery-validation/dist/jquery.validate.min.js}"></script>
+<script th:src="@{/assets/vendor/fancybox/jquery.fancybox.min.js}"></script>
+<script th:src="@{/assets/vendor/ion-rangeslider/js/ion.rangeSlider.min.js}"></script>
+<script th:src="@{/assets/vendor/typed.js/lib/typed.min.js}"></script>
+<script th:src="@{/assets/vendor/slick-carousel/slick/slick.js}"></script>
+<script th:src="@{/assets/vendor/appear.js}"></script>
+<script th:src="@{/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js}"></script>
+
+<!-- JS Electro -->
+<script th:src="@{/assets/js/hs.core.js}"></script>
+<script th:src="@{/assets/js/components/hs.countdown.js}"></script>
+<script th:src="@{/assets/js/components/hs.header.js}"></script>
+<script th:src="@{/assets/js/components/hs.hamburgers.js}"></script>
+<script th:src="@{/assets/js/components/hs.unfold.js}"></script>
+<script th:src="@{/assets/js/components/hs.focus-state.js}"></script>
+<script th:src="@{/assets/js/components/hs.malihu-scrollbar.js}"></script>
+<script th:src="@{/assets/js/components/hs.validation.js}"></script>
+<script th:src="@{/assets/js/components/hs.fancybox.js}"></script>
+<script th:src="@{/assets/js/components/hs.onscroll-animation.js}"></script>
+<script th:src="@{/assets/js/components/hs.slick-carousel.js}"></script>
+<script th:src="@{/assets/js/components/hs.quantity-counter.js}"></script>
+<script th:src="@{/assets/js/components/hs.range-slider.js}"></script>
+<script th:src="@{/assets/js/components/hs.show-animation.js}"></script>
+<script th:src="@{/assets/js/components/hs.svg-injector.js}"></script>
+<script th:src="@{/assets/js/components/hs.scroll-nav.js}"></script>
+<script th:src="@{/assets/js/components/hs.go-to.js}"></script>
+<script th:src="@{/assets/js/components/hs.selectpicker.js}"></script>
+
+
+<script th:src="@{/assets/js/toast.js}"></script>
+<script th:src="@{/assets/js/sweetalert.min.js}"></script>
+<script th:src="@{/assets/js/shoppingCart.js}"></script>
+
+
+<!-- JS Plugins Init. -->
+<script>
+    contextPath = "[[@{/}]]";
+
+    var csrfHeaderName = "[[${_csrf.headerName}]]";
+    var csrfValue = "[[${_csrf.token}]]";
+
+    decimalDigit = [[${DECIMAL_DIGITS}]];
+    decimalPointType = "[[${DECIMAL_POINT_TYPE}]]";
+    thousandsPointType = "[[${THOUSANDS_POINT_TYPE}]]";
+
+    var thousandsSeperator = thousandsPointType == 'COMMA' ? ',' : '.';
+    var decimalSeperator = decimalPointType == 'COMMA' ? ',' : '.';
+
+    $(document).ready(function (){
+        handleDetailLink();
+    })
+
+    function handleDetailLink() {
+        $(".linkDetail").on("click", function (e) {
+            e.preventDefault();
+            $("#orderDetailsModal").modal('show').find(".modal-content").load($(this).attr("href"));
+        })
+    }
+
+
+    $(window).on('load', function () {
+        // initialization of HSMegaMenu component
+        $('.js-mega-menu').HSMegaMenu({
+            event: 'hover',
+            direction: 'horizontal',
+            pageContainer: $('.container'),
+            breakpoint: 767.98,
+            hideTimeOut: 0
+        });
+    });
+
+    $(document).on('ready', function () {
+        // initialization of header
+        $.HSCore.components.HSHeader.init($('#header'));
+
+        // initialization of animation
+        $.HSCore.components.HSOnScrollAnimation.init('[data-animation]');
+
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+            afterOpen: function () {
+                $(this).find('input[type="search"]').focus();
+            }
+        });
+
+        // initialization of HSScrollNav component
+        $.HSCore.components.HSScrollNav.init($('.js-scroll-nav'), {
+            duration: 700
+        });
+
+        // initialization of quantity counter
+        $.HSCore.components.HSQantityCounter.init('.js-quantity');
+
+        // initialization of popups
+        $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+        // initialization of countdowns
+        var countdowns = $.HSCore.components.HSCountdown.init('.js-countdown', {
+            yearsElSelector: '.js-cd-years',
+            monthsElSelector: '.js-cd-months',
+            daysElSelector: '.js-cd-days',
+            hoursElSelector: '.js-cd-hours',
+            minutesElSelector: '.js-cd-minutes',
+            secondsElSelector: '.js-cd-seconds'
+        });
+
+        // initialization of malihu scrollbar
+        $.HSCore.components.HSMalihuScrollBar.init($('.js-scrollbar'));
+
+        // initialization of forms
+        $.HSCore.components.HSFocusState.init();
+
+        // initialization of form validation
+        $.HSCore.components.HSValidation.init('.js-validate', {
+            rules: {
+                confirmPassword: {
+                    equalTo: '#signupPassword'
+                }
+            }
+        });
+
+        // initialization of forms
+        $.HSCore.components.HSRangeSlider.init('.js-range-slider');
+
+        // initialization of show animations
+        $.HSCore.components.HSShowAnimation.init('.js-animation-link');
+
+        // initialization of fancybox
+        $.HSCore.components.HSFancyBox.init('.js-fancybox');
+
+        // initialization of slick carousel
+        $.HSCore.components.HSSlickCarousel.init('.js-slick-carousel');
+
+        // initialization of go to
+        $.HSCore.components.HSGoTo.init('.js-go-to');
+
+        // initialization of hamburgers
+        $.HSCore.components.HSHamburgers.init('#hamburgerTrigger');
+
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'), {
+            beforeClose: function () {
+                $('#hamburgerTrigger').removeClass('is-active');
+            },
+            afterClose: function () {
+                $('#headerSidebarList .collapse.show').collapse('hide');
+            }
+        });
+
+        $('#headerSidebarList [data-toggle="collapse"]').on('click', function (e) {
+            e.preventDefault();
+
+            var target = $(this).data('target');
+
+            if ($(this).attr('aria-expanded') === "true") {
+                $(target).collapse('hide');
+            } else {
+                $(target).collapse('show');
+            }
+        });
+
+        // initialization of unfold component
+        $.HSCore.components.HSUnfold.init($('[data-unfold-target]'));
+
+        // initialization of select picker
+        $.HSCore.components.HSSelectPicker.init('.js-select');
+    });
+</script>
+</body>
+</html>

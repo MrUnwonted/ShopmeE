@@ -92,7 +92,7 @@ public class CustomerController {
 			model.addAttribute("customer", customer);
 			model.addAttribute("pageTitle", String.format("Edit Customer (ID: %d)", id));
 			
-			return "customers/customerform";
+			return "customers/customer_form";
 			
 		} catch (CustomerNotFoundException ex) {
 			ra.addFlashAttribute("message", ex.getMessage());

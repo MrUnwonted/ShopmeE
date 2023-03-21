@@ -1,168 +1,182 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: page_head('Categories - Shopme Admin', 'none')" >
- </head>
+<!-- beautify ignore:start -->
+<html
+        lang="en"
+        class="light-style layout-menu-fixed"
+        dir="ltr"
+        data-theme="theme-default"
+        data-assets-path="../assets/"
+        data-template="vertical-menu-template-free"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+<head th:replace="fragments  :: page_head('Dashboard | Category Management','none')">
+</head>
 
-<body class="sidebar-menu-collapsed">
-  <!-- <div class="se-pre-con"></div> -->
+<body>
+<!-- Layout wrapper -->
+<div class="layout-wrapper layout-content-navbar">
+  <div class="layout-container">
+    <!-- Menu -->
+    <aside th:replace="fragments :: page_sidebar">
+    </aside>
+    <!-- / Menu -->
 
-  <section th:replace="fragments :: menu"></section>
-  
-  <div class="main-content">
-    <!-- content -->
-    <div class="container-fluid content-top-gap">
-      
-      <!-- breadcrumbs -->
-    <nav aria-label="breadcrumb" class="mb-4">
-      <ol class="breadcrumb my-breadcrumb">
-          <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Category</li>
-      </ol>
-  </nav>
-  <!-- //breadcrumbs -->
+    <!-- Layout container -->
+    <div class="layout-page">
+      <!-- Navbar -->
 
+      <nav th:replace="fragments :: page_navbar">
+      </nav>
 
-        <div>
-          <h2>Manage Category</h2>
-          <a th:href="@{/categories/new}" class="fas fa-folder-plus fa-2x icon-dark mr-2"></a>
-        </div>
+      <!-- / Navbar -->
 
-        <div th:replace="fragments :: search_form_and_message('/categories/page/1')" />
-	
-	<div class="full-details">
-		<table class="table table-bordered table-striped table-hover table-responsive-xl">
-			<thead class="thead-dark">
-				<tr>
-					<th>ID</th>
-					<th>Category Image</th>
-					<th th:replace="fragments :: column_link('/categories', 'name', 'Category Name', 'none')" />						
-					<th class="hideable-column">Alias</th>
-					<th>Enabled</th>
-					<th></th>
-				</tr>								
-			</thead>
-			<tbody>
-				<tr th:each="cat : ${listCategories}">
-					<td>[[${cat.id}]]</td>
-					<td>
-						<img th:src="@{${cat.imagePath}}" style="width: 100px" class="img-fluid"/>
-					</td>
-					<td>[[${cat.name}]]</td>
-					<td class="hideable-column">[[${cat.alias}]]</td>
-					<td>
-						<div th:replace="fragments :: status(${cat.enabled}, 'category', '/categories/' + ${cat.id})" />
-					</td>
-					<td>
-						<div th:replace="fragments :: edit('category', '/categories/edit/' + ${cat.id})" />
-						&nbsp; 
-						<div th:replace="fragments :: delete('category', ${cat.id}, '/categories/delete/' + ${cat.id}, ${!cat.hasChildren})" />						
-					</td>					
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	
-	
-		
-	<div th:if="${keyword != null}" class="text-center">
-		<span>Search result does not show categories in hierarchical form</span>
-		<div th:replace="fragments :: pagination('/categories', 'categories')"></div>
-	</div>
-	
-	<th:block th:unless="${keyword != null}">
-	
-	</div>
-	
-	<div th:replace="modal_fragments :: confirm_modal" /> 
+      <!-- Content wrapper -->
+      <div class="content-wrapper">
+        <!-- Content -->
 
-    
+        <div class="container-xxl flex-grow-1 container-p-y">
+          <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">CATEGORY /</span> All Categories</h4>
+          <div th:if="${message != null}" class="alert alert-success alert-dismissible" role="alert">
+            [[${message}]]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+          <a th:href="@{/categories/new}"><button type="button" class="btn rounded-pill btn-primary mb-5">
+            <span class="tf-icons bx bx-user-plus"></span>&nbsp; Add
+          </button></a>
+
+          <div th:replace="fragments/search_filter :: search()">
+
+          </div>
+
+          <!-- User Table -->
+          <div class="card">
+            <h5 class="card-header">Categories</h5>
+            <div class="table-responsive text-nowrap">
+              <table class="table table-hover ">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Category Image</th>
+
+                  <th th:replace="fragments/column_link :: column_link( 'name', 'Category Name', 'none')"></th>
+
+                  <th>Alias</th>
+                  <th>Enabled</th>
+                  <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody class="table-border-bottom-0">
+                <tr th:each="categories : ${listCategories}">
+                  <td><strong>[[${categories.id}]]</strong></td>
+                  <td>
+                    <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                      <li     data-bs-toggle="tooltip"
+                              data-popup="tooltip-custom"
+                              data-bs-placement="top"
+                              class="avatar avatar-xs pull-up"
+                              title="Lilian Fuller"
+                      >
+                        <span th:if="${categories.image == null}" class="bx bx-user-circle" ></span>
+                        <img th:if="${categories.image != null}" th:src="@{${categories.getImagePath()}}" alt="Avatar" class="rounded-circle" />
+                      </li>
+                    </ul>
+                  </td>
+                  <td>[[${categories.name}]]</td>
+                  <td>[[${categories.alias}]]</td>
+
+                  <div th:replace="fragments/enabled_status :: status(${categories.enabled}, 'Category', '/categories/' + ${categories.id})"></div>
+
+                  <td>
+                    <div class="dropdown">
+                      <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                      </button>
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{'/categories/edit/'+ ${categories.id}}"
+                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                        >
+                        <th:block th:if="${categories.hasChildren == false}">
+
+                        <a class="dropdown-item delete-link"
+                           th:href="@{'/categories/delete/'+ ${categories.id}}"
+                           th:entityId="${categories.id}" title="Delete this Category"
+                        ><i class="bx bx-trash me-1"></i> Delete</a
+                        >
+                        </th:block>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div th:replace="modal :: modal_confirm">
+          </div>
+
+          <hr class="my-3" />
+
+          <div th:if="${keyword != null}" class="text-center">
+            <span>Search Result does not show categories in hierarchical form</span>
+            <div th:replace="fragments/pagination :: pagination('categories')"></div>
+          </div>
+
+          <th:block th:unless="${keyword != null}">
+            <div th:replace="fragments/pagination :: pagination( 'top-level categories')"></div>
+          </th:block>
+
+          <hr class="my-5" />
+
+        </th:block>
+
+        <footer th:replace="fragments :: page_footer">
+        </footer>
+
+        <div class="content-backdrop fade"></div>
+      </div>
     </div>
   </div>
-  <div th:replace="fragments :: pagination('/categories', 'top-level categories')"></div>
-  
-    <!--footer section start-->
-    <footer class="dashboard" th:replace="fragments :: footer"></footer>
-  <!--footer section end-->
-  <!-- move top -->
-  <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
-    <span class="fa fa-angle-up"></span>
-  </button>
-  <script>
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-      scrollFunction()
-    };
-  
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("movetop").style.display = "block";
-      } else {
-        document.getElementById("movetop").style.display = "none";
-      }
-    }
-  
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
-  </script>
-  <!-- /move top -->
-  
-  
-  <script src="assets/js/jquery-3.3.1.min.js"></script>
-  <script src="assets/js/jquery-1.10.2.min.js"></script>
-  
-  
-  <script src="assets/js/jquery.nicescroll.js"></script>
-  <script src="assets/js/scripts.js"></script>
-  
-  <!-- close script -->
-  <script>
-    var closebtns = document.getElementsByClassName("close-grid");
-    var i;
-  
-    for (i = 0; i < closebtns.length; i++) {
-      closebtns[i].addEventListener("click", function () {
-        this.parentElement.style.display = 'none';
-      });
-    }
-  </script>
-  <!-- //close script -->
-  
-  <!-- disable body scroll when navbar is in active -->
-  <script>
-    $(function () {
-      $('.sidebar-menu-collapsed').click(function () {
-        $('body').toggleClass('noscroll');
-      })
-    });
-  </script>
-  <!-- disable body scroll when navbar is in active -->
-  
-   <!-- loading-gif Js -->
-   <script src="assets/js/modernizr.js"></script>
-   <script>
-       $(window).load(function () {
-           // Animate loader off screen
-           $(".se-pre-con").fadeOut("slow");;
-       });
-   </script>
-   <!--// loading-gif Js -->
-  
-  <!-- Bootstrap Core JavaScript -->
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script th:src="@{/assets/js/common_list.js}"></script>
-<script type="text/javascript">
-	moduleURL = "[[@{/categories}]]";
 
-	$(document).ready(function() {
-		$(".link-delete").on("click", function(e) {
-			e.preventDefault();
-			showDeleteConfirmModal($(this), 'category');
-		});
-	});
+  <div class="layout-overlay layout-menu-toggle"></div>
+</div>
+
+<script type="text/javascript" th:src="@{/js/common_list.js}"></script>
+
+<script type="text/javascript">
+  $(document).ready(function (){
+    $(".delete-link").on("click", function (e){
+      e.preventDefault();
+      showDeleteConfirmationModal($(this), 'category');
+    })
+  })
+  function clearFilter(){
+    window.location = "[[@{/categories}]]"
+  }
 </script>
+
+
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script th:src="@{/assets/vendor/libs/jquery/jquery.js}"></script>
+<script th:src="@{/assets/vendor/libs/popper/popper.js}"></script>
+<script th:src="@{/assets/vendor/js/bootstrap.js}"></script>
+<script th:src="@{/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js}"></script>
+
+<script th:src="@{/assets/vendor/js/menu.js}"></script>
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+<script th:src="@{/assets/vendor/libs/apex-charts/apexcharts.js}"></script>
+
+<!-- Main JS -->
+<script th:src="@{/assets/js/main.js}"></script>
+
+<!-- Page JS -->
+<script th:src="@{/assets/js/dashboards-analytics.js}"></script>
+
 
 </body>
 </html>

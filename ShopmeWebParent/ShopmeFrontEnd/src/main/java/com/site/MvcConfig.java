@@ -1,4 +1,4 @@
-package com.shopme;
+package com.site;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
